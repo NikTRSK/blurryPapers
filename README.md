@@ -12,15 +12,21 @@ Super awesome app for project 2 (Working title)
 3. Format of the commit messages should be as follows:
 	`<commit type>: <message>; <partner1>, <partner2>`
 
-#####commit type:
+&nbsp;&nbsp;**commit type:**
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T - Test
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F - Feature/Function/Functionality
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B - Bugfix of existing code
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;M - Merge request into branch
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D - (no, no it’s not the D) Any sort of documentation
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C - Cleanup. Anything that doesn’t change functionality (removing commented out code, adding comments, etc)
-message: description of what you have done
-partner1, partner2: optional. If you pair programming
+&nbsp;&nbsp;**message:** description of what you have done
+&nbsp;&nbsp;**partner1, partner2:** optional. If you pair programming
 
-Ex commit message:
-	T: implemented tests for xyz; Jean, Jin
+######Ex commit message:
+`T: implemented tests for xyz; Jean, Jin`
+
+##To Run
+* Stayed tuned folks
+
+##To Run Tests
+* Stayed tuned folks
