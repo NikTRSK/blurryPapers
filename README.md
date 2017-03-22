@@ -52,7 +52,25 @@ Super awesome app for project 2 (Working title)
 ```
 
 To see the results of your hard work go to: [http://localhost:3000/](http://localhost:3000/)
-	* Yes even Firefox, Jean
+* Yes even Firefox, Jean
 
 ## To Run Tests
 * Stayed tuned folks
+
+
+## Folder Structure
+```
+dev // All the developement happens in here
+--js // JavaScript files here
+----actions // Things that happen (BUTTON_CLICKED etc)
+----components // Anything used for displaying stuff
+----containers // A smart component (aware of the state/data changes)
+----reducers // Reducers take in actions and update part of application state.
+----index.js // Entry point for the App
+--css // Styles here. Let's keep this as SASS
+src // This is where the project is built
+--js // Generally you don't need to touch this
+----bundle.min.js // The packaged app (by webpack)
+--index.js // Entry point for bundle.min.js
+tests // All unit tests and blackbox tests go here
+```
