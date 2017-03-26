@@ -12,7 +12,16 @@ class Paper
 	public function __construct($paperName, $authorNames, $pdfURLLink) 
 	{
 		$this->mPaperName = $paperName;
-		$this->mAuthorNames = $authorNames;
+        
+        if (!is_null($authorNames))
+        {
+            $this->mAuthorNames = $authorNames;
+        }
+        else
+        {
+            $this->mAuthorNames = array();
+        }
+		
 		$this->mPDFURLLink = $pdfURLLink;
     }
 
