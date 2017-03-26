@@ -38,7 +38,7 @@ class DataStoreClass
 	}
 
 	// return 200 words
-	public function returnMostFrequentWords($numWords)
+	public function returnMostFrequentWords()
 	{
 
 	}
