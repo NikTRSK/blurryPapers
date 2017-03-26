@@ -2,21 +2,58 @@
 
 class DataStoreClass
 {
-	private wordStringToFrequencyMap;
-	private wordStringToListOfPaperMap;
+	private $mWordStringToFrequencyMap;
+	private $mWordStringToPapersListMap;
 
-	consturctor
-
-	public function addPDF($pdfLocalURL)
+	// constructor
+	public function __construct()
 	{
 
 	}
 
-	get and set maps
-	return 200 words
-	return paper results of word search
-	return paper url when we have word and paper name
+	public function addPDF($pdfLocalURL)
+	{
+		// might use the PDFDownloader class in here
+	}
 
+	// encapsulation methods, get and set maps
+	public function getWordStringToFrequencyMap()
+	{
+
+	}
+
+	public function addWordStringToFrequencyMap($word)
+	{
+
+	}
+
+	public function getWordStringToPapersListMap()
+	{
+
+	}
+
+	public function addWordStringToPapersListmap($word, $paper)
+	{
+
+	}
+
+	// return 200 words
+	public function returnMostFrequentWords($numWords)
+	{
+
+	}
+
+	// return paper results of word search
+	public function returnPapersListForWord($word)
+	{
+
+	}
+
+	// return paper url when we have word and paper name
+	public function returnPDFURL($word, $paper)
+	{
+
+	}
 }
 
 ?>
