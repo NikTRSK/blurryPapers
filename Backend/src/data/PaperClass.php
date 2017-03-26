@@ -7,6 +7,7 @@ class Paper
 	private $mPaperName;
 	private $mAuthorNames;
 	private $mPDFURLLink;
+    private $mPDFLocalURL;
 
 	// constructor
 	public function __construct($paperName, $authorNames, $pdfURLLink) 
