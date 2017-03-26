@@ -4,6 +4,12 @@ require_once('PaperClass.php');
 
 class PaperClassUnitTest extends PHPUnit_Framework_TestCase
 {
+	// test constructor
+	public function testPaperClassConstructor()
+	{
+		
+	}
+
 	// test mPaperName ecapsulation
 	public function testGetPaperNameReturnsValidPaperName()
 	{
