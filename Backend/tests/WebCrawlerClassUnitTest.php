@@ -1,6 +1,6 @@
 <?php
 
-require_once('WebCrawelrClass.php');
+require_once('../src/WebCrawelrClass.php');
 
 class WebCrawelrClassUnitTest extends PHPUnit_Framework_TestCase
 {
