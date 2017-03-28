@@ -26,6 +26,8 @@ Super awesome app for project 2 (Working title)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**C** - Cleanup. Anything that doesn’t change functionality (removing commented out code, adding comments, etc)
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**S** - Scrum report
+
 &nbsp;&nbsp;**message:** description of what you have done
 
 &nbsp;&nbsp;**partner1, partner2:** optional. If you pair programming
@@ -54,8 +56,34 @@ Super awesome app for project 2 (Working title)
 To see the results of your hard work go to: [http://localhost:3000/](http://localhost:3000/)
 * Yes even Firefox, Jean
 
-## To Run Tests
-* Stayed tuned folks
+## Tests
+### Integration (Blackbox) Tests
+
+#### Before running the tests for the first time:
+
+* The setup guide is based on **[this](https://www.codementor.io/jeremyrajan/acceptance-testing-javascript-cucumber-webdriverio-du1087f5i)**. It also provides a refresher on writing .feature files and step definitions.
+
+##### Install global packages
+
+* Most packages are included in package.json. The following packages need to be install as global packages as well.
+```
+npm install -g webdriverio
+npm install -g wdio-cucumber-framework
+npm install -g selenium-standalone 
+npm install -g wdio-sauce-service
+npm install -g wdio-selenium-standalone-service
+```
+
+##### Setup wdio
+This has already been setup and can be found in the `/tests` folder. Should you need to re run te setup again follow the reference link above.
+
+##### Initialize Selenium
+
+Navigate to the `/tests` folder and type in `selenium-standalone install`
+
+#### Running the INTEGRATION TESTS
+
+* Run `npm test`
 
 
 ## Folder Structure
@@ -72,5 +100,8 @@ src // This is where the project is built
 --js // Generally you don't need to touch this
 ----bundle.min.js // The packaged app (by webpack)
 --index.js // Entry point for bundle.min.js
-tests // All unit tests and blackbox tests go here
+tests // All unit & integration tests and blackbox tests go here
+--features // All the .feature files go here
+----step-definitions // The step definitions go here
+wdio.con.js // WebdriverIO config file
 ```
