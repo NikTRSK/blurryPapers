@@ -1,0 +1,22 @@
+Feature: Search Bar check
+  The Search Bar allows me to enter and delete search.
+
+
+
+  @javascript
+  Scenario: Search bar is empty when I do not enter anything
+    Given I am on Homepage
+    And I enter nothing
+    Then the search bar is empty
+
+  @javascript
+  Scenario: I am allowed to search for a researcher's last name
+    Given I am on Homepage
+    And I enter "Smith"
+    Then the search bar shows "Smith"
+
+  Scenario: I am allowed to delete my previous search
+    Given I am on Homepage
+    And the search bar shows "Smith"
+    And I deleted "Smith"
+    Then the search bar is empty
