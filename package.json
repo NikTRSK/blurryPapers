@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "build-css": "node-sass dev/scss -o dev/scss",
+    "build-css": "node-sass dev/styles -o dev/styles",
     "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive",
     "dev": "webpack",
     "start": "webpack-dev-server",
