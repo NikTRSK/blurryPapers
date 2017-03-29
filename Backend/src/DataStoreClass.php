@@ -8,7 +8,8 @@ class DataStoreClass
 	// constructor
 	public function __construct()
 	{
-
+		$this->mWordStringToFrequencyMap = array("A" => 0);
+		// var_dump($mWordStringToFrequencyMap["A"]);
 	}
 
 	public function addPDF($pdfLocalURL)
@@ -46,13 +47,24 @@ class DataStoreClass
 	// return paper results of word search
 	public function returnPapersListForWord($word)
 	{
-
+		return $this->mWordStringToPapersListMap[$word];
 	}
 
 	// return paper url when we have word and paper name
 	public function returnPDFURL($word, $paper)
 	{
 
+	}
+
+	public function addWord($word)
+	{
+		$this->mWordStringToFrequencyMap[$word]++;
+		// var_dump($mWordStringToFrequencyMap[$word]);
+	}
+
+	public function dump()
+	{
+		var_dump($this->mWordStringToFrequencyMap);
 	}
 }
 
