@@ -7,9 +7,10 @@ module.exports = function() {
   });
 
   this.Then(/^I expect there to be a "([^"]*)"$/, (element) => {
-    const searchBar = browser.element(element);
-    console.log(searchBar.value);
-    // expect(searchBar).state.eql('success');
+    // const searchBar = browser.element(element);
+    const searchBar = browser.getHTML(element);
+    // const value = searchBar.getAttribute("value");
+    console.log(searchBar);
     expect(searchBar).to.exist;
     done();
   });

@@ -5,7 +5,6 @@ Feature: Search Bar check
     Given I am on the homepage "http://localhost:3000"
     Then I expect there to be a "#search-input-box"
 
-  @javascript
   Scenario: Search bar is empty when I do not enter anything
     Given I am on the homepage "http://localhost:3000"
     And I expect there to be a "#search-input-box"
