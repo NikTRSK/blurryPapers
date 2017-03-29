@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { default as styles } from '../../dev/styles/style.sass';
+import ArticleItem from "../../dev/js/components/article-item.js";
 
 const app = document.getElementById('root');
 
 ReactDOM.render(
 	<div>
+	<ArticleItem/>
 	</div>
 	, app);
