@@ -94,12 +94,12 @@ dev // All the developement happens in here
 ----components // Anything used for displaying stuff
 ----containers // A smart component (aware of the state/data changes)
 ----reducers // Reducers take in actions and update part of application state.
-----index.js // Entry point for the App
+----actionCreators.js // Entry point for the App
 --css // Styles here. Let's keep this as SASS
 src // This is where the project is built
 --js // Generally you don't need to touch this
 ----bundle.min.js // The packaged app (by webpack)
---index.js // Entry point for bundle.min.js
+--actionCreators.js // Entry point for bundle.min.js
 tests // All unit & integration tests and blackbox tests go here
 --features // All the .feature files go here
 ----step-definitions // The step definitions go here

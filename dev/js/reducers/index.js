@@ -1,18 +1,11 @@
-import {combineReducers} from 'redux';
-import WordCloudReducer from './reducer-wordcloud';
-import HistoryReducer from './reducer-history';
-// import {routerStateReducer} from 'redux-router';
-// import 'react-router';
-// import 'redux-router';
-/*
- * We combine all reducers into a single object before updated data is dispatched (sent) to store
- * Your entire applications state (store) is just whatever gets returned from all your reducers
- * */
+import { combineReducers } from 'redux'
+import { routerReducer } from 'react-router-redux'
 
-const allReducers = combineReducers({
-  wordclouddata: WordCloudReducer,
-  history: HistoryReducer,
-  // router: routerStateReducer
+import paperData from './reducer-wordcloud';
+
+const rootReducer = combineReducers({
+  routing: routerReducer,
+  paperData
 });
 
-export default allReducers
+export default rootReducer

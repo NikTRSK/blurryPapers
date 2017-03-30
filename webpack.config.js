@@ -11,15 +11,15 @@ module.exports = {
     entry: './dev/js/index.js',
     module: {
         loaders: [
-            {
-                test: /\.js$/,
-                loaders: ['babel'],
-                exclude: /node_modules/
-            },
-            {
-                test: /\.sass/,
-              loaders: ["style", "css", "sass"]
-            },
+          {
+              test: /\.js$/,
+              loaders: ['babel'],
+              exclude: /node_modules/
+          },
+          {
+              test: /\.sass/,
+            loaders: ["style", "css", "sass"]
+          },
           {
             test: /\.png$/,
             loader: "url-loader?limit=100000"
@@ -51,6 +51,7 @@ module.exports = {
         filename: 'js/bundle.min.js'
     },
     plugins: [
-        new webpack.optimize.OccurrenceOrderPlugin()
+      new webpack.optimize.OccurrenceOrderPlugin(),
+      new webpack.HotModuleReplacementPlugin(),
     ]
 };

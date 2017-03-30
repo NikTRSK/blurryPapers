@@ -1,23 +1,26 @@
-import React from 'react';
-import '../../styles/homepage.sass';
+import React, {Component} from 'react';
+import '../../styles/homepage.sass'
 import WordCloud from './word-cloud';
-import Logo from '../components/logo';
 
-const homepage = () => (
-  <div className="input-group center">
-    <Logo/>
-    <WordCloud/>
-    <input id="search-input-box" type="text" className="form-control searchBox"
-           value=""
-           placeholder="Search artists..."
-    >
-    </input>
+const homepage = React.createClass ({
+  render() {
 
-    <button id="search-button" className="btn btn-lg searchButton" >
-					<span className="glyphicon glyphicon-search" aria-hidden="true">
-					</span>  Search
-    </button>
-  </div>
-);
+    return (
+      <div className="input-group center">
+        <WordCloud {...this.props} />
+        <input id="search-input-box" type="text" className="form-control searchBox"
+               value=""
+               placeholder="Search artists..."
+        >
+        </input>
+
+        <button id="search-button" className="btn btn-lg searchButton">
+              <span className="glyphicon glyphicon-search" aria-hidden="true">
+              </span> Search
+        </button>
+      </div>
+    );
+  }
+});
 
 export default homepage;

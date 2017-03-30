@@ -1,19 +1,32 @@
-import {createStore, compose} from 'redux';
-import {syncHistoryWithStore} from 'react-router-redux';
-import createBrowserHistory from 'history/createBrowserHistory';
+import { createStore, compose } from 'redux'
+import { syncHistoryWithStore } from 'react-router-redux'
+import { browserHistory } from 'react-router'
 
 // import the root reducer
-import rootReducer from './reducers/index';
+import rootReducer from './reducers/index'
 
-import cloudData from './data/cloudData';
+import paperData from './data/paperData'
 
 // create an object for the default data
-const defaultState = {cloudData};
+const defaultState = { paperData };
 
-const store = createStore(rootReducer, defaultState);
+// enable Redux Dev Tools
+const enhancers = compose(
+  window.devToolsExtension
+    ? window.devToolsExtension()
+    : f => f
+);
 
-const browserHistory = createBrowserHistory();
+const store = createStore(rootReducer, defaultState, enhancers);
 
 export const history = syncHistoryWithStore(browserHistory, store);
 
-export default store;
+// hot reloading the reducer
+if (module.hot) {
+  module.hot.accept('./reducers/', () => {
+    const nextRootReducer = require('./reducers/index').default;
+    store.replaceReducer(nextRootReducer)
+  })
+}
+
+export default store

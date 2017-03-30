@@ -1,23 +1,29 @@
-import 'babel-polyfill';
-import React from 'react';
-import ReactDOM from "react-dom";
-import {Provider} from 'react-redux';
-import {createStore, applyMiddleware} from 'redux';
-import thunk from 'redux-thunk';
-import promise from 'redux-promise';
-import createLogger from 'redux-logger';
-import allReducers from './reducers';
-import App from './components/App';
+/* eslint-disable no-unused-vars */
+import React from 'react'
+import { render } from 'react-dom'
+import Homepage from './containers/homepage';
+import WordCloud from './containers/word-cloud';
 
-const logger = createLogger();
-const store = createStore(
-  allReducers,
-  applyMiddleware(thunk, promise, logger)
-);
+// import css
 
-ReactDOM.render(
+// import components
+import App from './components/App'
+
+// import react router
+import { Router, Route, IndexRoute } from 'react-router'
+
+import { Provider } from 'react-redux'
+import store, { history } from './store'
+
+const router = (
   <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
+    <Router history={history}>
+      <Route path="/" component={App}>
+        <IndexRoute component={Homepage} />
+        <Route path="papers/:id" component={WordCloud} />
+      </Route>
+    </Router>
+  </Provider>
 );
+
+render(router, document.getElementById('root'));
