@@ -42,17 +42,17 @@ address = New York, NY, USA,`
 	render() {
 		return (
       <div className="container">
-      	<div className="whole-container">
+				<div className="whole-container">
       	
       		{/* BibTeX popup */}
       		<div className="row">
 			      <div>
 			        <ReactBootstrap.Modal show={this.state.showModal} onHide={this.closeBibtex}>
-			          <ReactBootstrap.Modal.Header closeButton>
+			          <ReactBootstrap.Modal.Header closeButton className="bibtex-header">
 			            <ReactBootstrap.Modal.Title>BibTeX</ReactBootstrap.Modal.Title>
 			          </ReactBootstrap.Modal.Header>
-			          <ReactBootstrap.Modal.Body>
-			            <pre>{this.state.bibtex}
+			          <ReactBootstrap.Modal.Body className="bibtex-body">
+			            <pre >{this.state.bibtex}
 			            </pre>
 			          </ReactBootstrap.Modal.Body>
 			        </ReactBootstrap.Modal>
@@ -89,7 +89,7 @@ address = New York, NY, USA,`
 			                <button className="btn btn-primary" id="bibtex-button">
 			  								<span className="glyphicon glyphicon-download"></span> Download
 			                </button>
-			            </div>
+								</div>
 			        </div>
 						</div>	
 					</div>

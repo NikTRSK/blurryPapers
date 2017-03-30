@@ -1,16 +1,13 @@
-$primary-color: #333
-$author-color: #F9D423
-$title-color: #00DFFC
-$button-text: #white
-$button-background: #00B4CC
-$shade2: #005F6B
-$shade3: #008C9E
+@import variables
 
-$sage: #99B898
-$skin: #FECEA8
-$coral: #FF847C
-$melon: #E84A5F
-$coup-gray: #2A363B
+.bibtex-header
+	background-color: $coup-gray
+	color: $author-color
+.bibtex-body
+	background-color: $coup-gray
+.bibtex-pre
+	background-color: #333333
+	color: white
 
 body
 	background-color: $coup-gray
@@ -28,7 +25,6 @@ body
 	height: 20px
 	clear: left
 	vertical-align: bottom
-	display:inline
 	position: relative
 	top: 10px
 	*overflow: hidden
