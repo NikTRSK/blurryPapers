@@ -6,12 +6,6 @@ include ("pdf2text.php");
 
 class PDFParser
 { 
-	// constructor
-	public function __construct() 
-	{
-
-	}
-	
     public function convertPDFToText($pdfLocalURL)
     {
 		$a = new PDF2Text();
