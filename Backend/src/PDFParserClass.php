@@ -16,7 +16,9 @@ class PDFParser
 		$handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file);
 		fwrite($handle, $data); 
 
-		return $data;		
+		$pieces = explode(" ", $data);
+
+		return $pieces;		
     }
 } 
 

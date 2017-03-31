@@ -1,69 +1,78 @@
 <?php
 
+include ("PDFParserClass.php");
+
 class DataStoreClass
 {
 	private $mWordStringToFrequencyMap;
-	private $mWordStringToPapersListMap;
+	private $mWordStringToPapersListMap; // word to map of name to paper object
 
 	// constructor
 	public function __construct()
 	{
-		$this->mWordStringToFrequencyMap = array("A" => 0);
-
-		$this->$mWordStringToFrequencyMap = array();
-		// var_dump($mWordStringToFrequencyMap["A"]);
+		$this->mWordStringToFrequencyMap = array();
+		$this->mWordStringToPapersListMap = array();
 	}
 
-	public function addPDF($pdfLocalURL)
+	public function addPaper($paper)
 	{
 		// might use the PDFDownloader class in here
+		// convert paper to text and calculate frequency account
+		$pdfParser = new PDFParser();
+		$words = $pdfParser->convertPDFToText($paper->mPDFLocalURL);
+
+		foreach($words as &$word)
+		{
+			addWordStringToFrequencyMap($word);
+			addWordStringToPapersListmap($word, $paper)
+		}
 	}
 
 	// encapsulation methods, get and set maps
 	public function getWordStringToFrequencyMap()
 	{
-		return $this->$mWordStringToFrequencyMap;
+		return $this->mWordStringToFrequencyMap;
 	}
 
 	public function addWordStringToFrequencyMap($word)
 	{
-		if (in_array($word, $this->$mWordStringToFrequencyMap)) 
+		if (in_array($word, $this->mWordStringToFrequencyMap)) 
 		{
-			$this->$mWordStringToFrequencyMap[$word] = $this->$mWordStringToFrequencyMap[$word]++;
+			$this->mWordStringToFrequencyMap[$word]++;
 		}
 		else
 		{
-			$this->$mWordStringToFrequencyMap[$word] = 0;
+			$this->mWordStringToFrequencyMap[$word] = 1;
 		}
 	}
 
 	public function getWordStringToPapersListMap()
 	{
-		return $this->$mWordStringToPapersListMap;
+		return $this->mWordStringToPapersListMap;
 	}
 
 	public function addWordStringToPapersListmap($word, $paper)
 	{
-		if (in_array($word, $this->$mWordStringToPapersListMap)) 
+		if (in_array($word, $this->mWordStringToPapersListMap)) 
 		{
-			array_push($this->$mWordStringToPapersListMap[$word], $paper);
+			$this->mWordStringToPapersListMap[$word][$paper->mPaperName] = $paper;
+
 		}
 		else
 		{
-			$this->$mWordStringToPapersListMap[$word] = array();
-			array_push($this->$mWordStringToPapersListMap[$word], $paper);
-
+			$this->mWordStringToPapersListMap[$word] = array();
+			$this->mWordStringToPapersListMap[$word][$paper->mPaperName] = $paper;
 		}
 	}
 
 	// return 200 words
 	public function returnMostFrequentWords()
 	{
-		sort($this->$mWordStringToFrequencyMap);
+		sort($this->mWordStringToFrequencyMap);
 
 		$mostFrequentWords = array();
 
-		foreach ($word as $this->$mWordStringToFrequencyMap) 
+		foreach ($this->mWordStringToFrequencyMap as &$word) 
 		{
     		array_push($mostFrequentWords, $word);
 		}
@@ -78,9 +87,9 @@ class DataStoreClass
 	}
 
 	// return paper url when we have word and paper name
-	public function returnPDFURL($word, $paper)
+	public function returnPDFURL($word, $paperName)
 	{
-		return $this->mWordStringToPapersListMap[$word][$paper];
+		return $this->mWordStringToPapersListMap[$word][$paperName]->mPDFLocalURL;
 	}
 
 
