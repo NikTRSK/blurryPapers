@@ -41,59 +41,43 @@ address = New York, NY, USA,`
   }
 	render() {
 		return (
-      <div className="container">
-				<div className="whole-container">
-      	
-      		{/* BibTeX popup */}
-      		<div className="row">
-			      <div>
-			        <ReactBootstrap.Modal show={this.state.showModal} onHide={this.closeBibtex}>
-			          <ReactBootstrap.Modal.Header closeButton className="bibtex-header">
-			            <ReactBootstrap.Modal.Title>BibTeX</ReactBootstrap.Modal.Title>
-			          </ReactBootstrap.Modal.Header>
-			          <ReactBootstrap.Modal.Body className="bibtex-body">
-			            <pre >{this.state.bibtex}
-			            </pre>
-			          </ReactBootstrap.Modal.Body>
-			        </ReactBootstrap.Modal>
-			      </div>
-      		</div>
+      <div className="container" id="article-container">
 
-      		{/* Article Checkbox */}
-					<div className="row">
-						<div className="col-lg-12" id="checkbox-div">
-						  <form>
-						      <input type="checkbox" value="" id="checkbox-item"/>
-						  </form>
-							<p id="title-text">Robust principal component analysis?</p>
-						</div>
+				{/* BibTeX popup */}
+				<div className="row">
+					<div>
+						<ReactBootstrap.Modal show={this.state.showModal} onHide={this.closeBibtex}>
+							<ReactBootstrap.Modal.Header closeButton className="bibtex-header">
+								<ReactBootstrap.Modal.Title>BibTeX</ReactBootstrap.Modal.Title>
+							</ReactBootstrap.Modal.Header>
+							<ReactBootstrap.Modal.Body className="bibtex-body">
+								<pre >{this.state.bibtex}
+								</pre>
+							</ReactBootstrap.Modal.Body>
+						</ReactBootstrap.Modal>
 					</div>
+				</div>
 
-      		{/* Article Title */}
-					<div className="row">
-						<div className="col-lg-12">
-							<div className="author-container">
-								<p className="author-list"><a href="#">Emmanuel J. Candès</a>, <a href="#">Xiaodong Li</a>, <a href="#">Yi Ma</a>, <a href="#">John Wright</a></p>
-							</div>
-						</div>	
-					</div>
+				{/* Article Checkbox */}
+				<div className="row" id="article-title-container">
+					<input type="checkbox" value="" id="article-checkbox"/>
+					<p id="article-title">Robust principal component analysis?</p>
+				</div>
 
-      		{/* Buttons */}
-					<div className="row">
-						<div className="col-lg-12">
-			        <div className= "container" id="button-container">
-			        	<div id="form-id">
-			                <button className="btn btn-primary" id="bibtex-button" onClick={this.openBibtex}>
-			  								<span className="glyphicon glyphicon-book"></span> BibTeX
-			                </button>
-			                <button className="btn btn-primary" id="bibtex-button">
-			  								<span className="glyphicon glyphicon-download"></span> Download
-			                </button>
-								</div>
-			        </div>
-						</div>	
-					</div>
+				{/* Article Title */}
+				<div className="row" id="article-authors-container">
+					<p id="article-authors"><a href="#">Emmanuel J. Candès</a>, <a href="#">Xiaodong Li</a>, <a href="#">Yi Ma</a>, <a href="#">John Wright</a></p>
+				</div>
 
+
+				{/* Buttons */}
+				<div className="row" id="article-buttons-container">
+					<button className="btn btn-primary" id="article-bibtex-button" onClick={this.openBibtex}>
+						<span className="glyphicon glyphicon-book"></span> BibTeX
+					</button>
+					<button className="btn btn-primary" id="article-download-button">
+						<span className="glyphicon glyphicon-download"></span> Download
+					</button>
 				</div>
 			</div>
 		);

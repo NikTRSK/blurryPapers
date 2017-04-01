@@ -14,46 +14,36 @@ export default class ArticleList extends React.Component {
 	render() {
 		const { articles, title } = this.state;
 		return (
-			<div className="container">
+			<div className="container" id="articles-div">
 
 				{/*Word Title*/}
-				<div className="row">
-					<p id="article-list-title">{title}</p>
+				<div className="row" id="articles-title-div">
+					<p id="articles-title">{title}</p>
 					<br/>
 				</div>
 
 				{/*Article List*/}
-				<div className="row" id="article-container">
-					<div className="col-lg-12">
-						<ul>
-							{articles}
-						</ul>
-					</div>
+				<div className="row" id="artricles-article-list-div">
+					<ul id="articles-list-element">
+						{articles}
+					</ul>
 				</div>
 
 				{/*Word CLoud Button*/}
-				<div className="row" id="article-list-wordcloud-button-container">
-					<div className="col-lg-12">
-						<div id="form-id">
-							<button className="btn btn-primary" id="al-wc-button" onClick={this.openBibtex}>
-								<span className="glyphicon glyphicon-cloud"></span> ...... Generate Word Cloud From Selected Articles ......
-							</button>
-						</div>
-					</div>
+				<div className="row" id="articles-generate-wc-button-div">
+					<button className="btn btn-primary" id="articles-generate-button" onClick={this.openBibtex}>
+						<span className="glyphicon glyphicon-cloud"></span> Generate Word Cloud From Selected Articles
+					</button>
 				</div>
 
 				{/*Download Buttons for List*/}
-				<div className="row" id="article-list-download-buttons-container">
-					<div className="col-lg-12">
-						<div id="form-id">
-							<button className="btn btn-primary" id="al-pdf-button" onClick={this.openBibtex}>
-								<span className="glyphicon glyphicon-download"></span> Download List as PDF
-							</button>
-							<button className="btn btn-primary" id="al-txt-button">
-								<span className="glyphicon glyphicon-download"></span> Download List as TXT
-							</button>
-						</div>
-					</div>
+				<div className="row" id="articles-dl-button-div">
+					<button className="btn btn-primary" id="articles-dl-pdf-button" onClick={this.openBibtex}>
+						<span className="glyphicon glyphicon-download"></span> Download List as PDF
+					</button>
+					<button className="btn btn-primary" id="articles-dl-txt-button">
+						<span className="glyphicon glyphicon-download"></span> Download List as TXT
+					</button>
 				</div>
 
 			</div>

@@ -1,33 +1,56 @@
-@import "variables"
+@import variables
 
-#article-container
-  width: 50%
+// Conrtainers
+#articles-div
+  margin: auto
+  width: 100%
 
-#article-list-title
-  color: $coral
+#articles-title-div
   text-align: center
-  font-size: 28px
-  padding-top: 10px
+
+#artricles-article-list-div
+  width: 33%
+  margin: 0 auto
+
+#articles-generate-wc-button-div
+  margin: 0 auto
+  width: 33%
+  padding-top: 2%
+
+#articles-dl-button-div
+  margin: 0 auto
+  width: 33%
+
+// Elements
+#articles-list-element
+  list-style: none
+  padding: 0
+  margin: 0
+
+#articles-title
+  font-size: 3em
   font-weight: bold
+  text-transform: uppercase
+  letter-spacing: 3px
+  color: $article-list-word
+  margin-top: 1%
 
-#article-list-download-buttons-container
-  margin-left: 20%
-  padding-top: 15px
+#articles-generate-button
+  width: 100%
+  background-color: $article-list-background
+  color: $article-button-text
+  border: 0
+  margin-bottom: 2%
 
-#article-list-wordcloud-button-container
-  margin-left: 20%
-  margin-top: 4%
+#articles-dl-pdf-button
+  width: 49%
+  background-color: $article-list-background
+  color: $article-button-text
+  border: 0
+  margin-right: 2%
 
-#al-wc-button
-  background-color: $shade3
-  border: 0px
-
-#al-pdf-button
-  margin-right: 7.5px
-  background-color: $shade3
-  border: 0px
-
-#al-txt-button
-  margin-left: 7.5px
-  background-color: $shade3
-  border: 0px
+#articles-dl-txt-button
+  background-color: $article-list-background
+  color: $article-button-text
+  border: 0
+  width: 49%

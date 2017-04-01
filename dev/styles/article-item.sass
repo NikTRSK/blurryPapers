@@ -1,73 +1,58 @@
 @import variables
 
-.bibtex-header
-	background-color: $coup-gray
-	color: $author-color
-.bibtex-body
-	background-color: $coup-gray
-.bibtex-pre
-	background-color: #333333
-	color: white
+// Containers
+#article-container
+  margin: 0 auto
+  width: inherit
+  padding-bottom: 2%
 
-body
-	background-color: $coup-gray
+#article-buttons-container
+  padding-left: 5%
 
-.whole-container
-	width: 700px
-	margin: auto
+#article-authors-container
+  padding-left: 5%
+  #article-authors
+    color: $article-author-color
+    font-size: 1em
+  a:link
+    color: $article-author-color
+    font-size: 16px
+  a:visited
+    color: $article-author-color
+    font-size: 16px
+  a:hover
+    color: $article-author-color
+    font-size: 16px
+  a:active
+    color: $article-author-color
+    font-size: 16px
 
-#checkbox-div
-	margin-left: 45px
+// Elements
+#article-title
+  color: $article-title-color
+  font-size: 2em
+  display: inline
 
-#checkbox-item
-	float: left
-	width: 20px
-	height: 20px
-	clear: left
-	vertical-align: bottom
-	position: relative
-	top: 10px
-	*overflow: hidden
+#article-checkbox
+  display: inline
+  margin-right: 2%
+  height: 15px
+  width: 15px
+  vertical-align: 30%
 
-#button-container
-	margin-left: 45px
+#article-authors
+  color: $article-author-color
+  font-size: 1em
 
-.author-container
-	margin: 0px
-	padding-top: 0px
-	padding-left: 45px
-	padding-bottom: 0px
-	padding-right: 0px
-	.author-list
-		color: $author-color
-		font-size: 16px 
-		padding-left: 31px
-	a:link
-		color: $author-color
-		font-size: 16px 
-	a:visited
-		color: $author-color
-		font-size: 16px 
-	a:hover
-		color: $author-color
-		font-size: 16px 
-	a:active
-		color: $author-color
-		font-size: 16px 
+#article-bibtex-button
+  background-color: $article-button-background
+  color: $article-button-text
+  border: 0
+  margin-right: 2%
+  width: 25%
 
-#title-text
-	color: $title-color
-	padding-left: 30px
-	margin-bottom: 0px
-	font-size: 28px
-
-#bibtex-button
-	margin-right: 15px
-	color: white
-	background-color: $shade3
-	border: 0px
-	font-weight: bold
-
-#form-id
-	padding-left: 15px
-	padding-right: 15px
+#article-download-button
+  background-color: $article-button-background
+  color: $article-button-text
+  border: 0
+  width: 25%
