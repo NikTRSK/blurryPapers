@@ -10,11 +10,11 @@ Feature: Search Bar check
     And I expect there to be a "#search-input-box"
     And I enter nothing
     Then The search bar is empty
-#
-#  @javascript
-#  Scenario: I am allowed to search for a researcher's last name
-#    Given I am on Homepage
-#    And I enter "Smith"
+
+  Scenario: I am allowed to search for a researcher's last name
+    Given I am on the homepage "http://localhost:3000"
+    And I expect there to be a "#search-input-box"
+    And I enter "Smith"
 #    Then the search bar shows "Smith"
 #
 #  Scenario: I am allowed to delete my previous search
