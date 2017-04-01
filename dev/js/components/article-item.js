@@ -1,10 +1,10 @@
 import React from 'react';
-import { default as styles } from '../../../dev/styles/article-item.sass';
 import * as ReactBootstrap from 'react-bootstrap'
+import '../../../dev/styles/article-item.sass';
 
 export default class ArticleItem extends React.Component {
-	constructor() {
-    super();
+	constructor(props) {
+    super(props);
     this.state = {
       showModal: false,
       bibtex:  
@@ -40,6 +40,8 @@ address = New York, NY, USA,`
     this.setState({ showModal: true });
   }
 	render() {
+
+
 		return (
       <div className="container" id="article-container">
 
