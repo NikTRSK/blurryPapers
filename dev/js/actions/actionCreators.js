@@ -1,7 +1,16 @@
-export function getPapers(words) {
-  console.log("GETTING PAPERS");
+export function generatePapers(query) {
+  console.log("Querying API");
+  return {
+    type: 'GENERATE_WORDCLOUD',
+    query
+  }
+}
+
+export function getPapers(word, count) {
+  console.log("GETTING PAPERS: " + word + ", " + count);
   return {
     type: 'GET_PAPERS',
-    words
+    word,
+    count
   }
 }

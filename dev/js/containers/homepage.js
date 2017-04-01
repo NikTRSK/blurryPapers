@@ -14,7 +14,7 @@ const homepage = React.createClass ({
         >
         </input>
 
-        <button id="search-button" className="btn btn-lg searchButton">
+        <button id="search-button" className="btn btn-lg searchButton" onClick={this.props.generatePapers.bind(null, "test")}>
               <span className="glyphicon glyphicon-search" aria-hidden="true">
               </span> Search
         </button>

@@ -3,6 +3,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import Homepage from './containers/homepage';
 import WordCloud from './containers/word-cloud';
+import Paperlist from './containers/paper-list';
 
 // import css
 
@@ -20,7 +21,7 @@ const router = (
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={Homepage} />
-        <Route path="papers/:id" component={WordCloud} />
+        <Route path="paperlist/:word" component={Paperlist} />
       </Route>
     </Router>
   </Provider>

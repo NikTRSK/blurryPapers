@@ -21,7 +21,16 @@ const WordCloud = React.createClass ({
           <TagCloud minSize={8}
                     maxSize={90}
                     tags={this.props.paperData}
-          />
+                    onClick={
+                      (tag) => {
+                        this.props.getPapers(tag.value, tag.count);
+                          this.props.history.push({
+                            pathname: `/paperlist/${tag.value}`
+                          });
+                      }
+                    }
+          >
+          </TagCloud>
         </div>
       </div>
     );
