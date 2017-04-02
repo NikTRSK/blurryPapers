@@ -9,97 +9,129 @@ class PaperClassUnitTest extends TestCase
 	{
 		$mPaperName = "Name";
 		$mAuthorNames = array();
-		$mPDFURLLink = "url";
+		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
 
-		// $paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
 
-		// $this->assertNotNull($paper);
+		$this->assertNotNull($paper);
+
 	}
 
 	// test mPaperName ecapsulation
-	// public function testGetPaperNameReturnsValidPaperName()
-	// {
-	// 	$mPaperName = "Name";
-	// 	$mAuthorNames = array();
-	// 	$mPDFURLLink = "url";
+	public function testGetPaperNameReturnsValidPaperName()
+	{
+		$mPaperName = "Name";
+		$mAuthorNames = array();
+		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
 
-	// 	$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
 
-	// 	$this->assertEqauls($mPaperName, $paper->getPaperName());
-	// }
+		$this->assertEquals($mPaperName, $paper->getPaperName());
 
-	// public function testGetPaperNameReturnsInvalidPaperName()
-	// {
-	// 	$mPaperName = null;
-	// 	$mAuthorNames = array();
-	// 	$mPDFURLLink = "url";
+	}
 
-	// 	$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+	public function testGetPaperNameReturnsInvalidPaperName()
+	{
+		$mPaperName = null;
+		$mAuthorNames = array();
+		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
 
-	// 	$this->assertEqauls($mPaperName, $paper->getPaperName());
-	// }
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
 
-	// // test mAuthorNames encapsulation
-	// public function testGetAuthorNamesReturnsAuthorNames()
-	// {
-	// 	$mPaperName = "Name";
-	// 	$mAuthorNames = array();
-	// 	$mPDFURLLink = "url";
+		$this->assertEquals($mPaperName, $paper->getPaperName());
+	}
 
-	// 	$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+	// test mAuthorNames encapsulation
+	public function testGetAuthorNamesReturnsAuthorNames()
+	{
+		$mPaperName = null;
+		$mAuthorNames = array("Halfond", "Cucumber");
+		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
 
-	// 	$this->assertEqauls($mAuthorNames, $paper->getAuthorNames());
-	// }
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
 
-	// public function testAddAuthorNameSingleAddReturnsSingleAuthor()
-	// {
-	// 	$paper = new Paper(null, null, null);
-	// 	$paper->addAuthorName("author");
+		//This paper should be authored by Halfond and Cucumber testing tool
+		$this->assertEquals($paper->getAuthorNames()[0], "Halfond");
+		$this->assertEquals($paper->getAuthorNames()[1], "Cucumber");
+	}
 
-	// 	$this->assertEquals(1, sizeof($paper->getAuthorNames()));
-	// }
+	public function testAddAuthorNameSingleAddReturnsSingleAuthor()
+	{
+		$mPaperName = null;
+		$mAuthorNames = array("Halfond", "Cucumber");
+		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
 
-	// public function testAddAuthorNameMultipleAddReturnsMultipleAuthor()
-	// {
-	// 	$paper = new Paper(null, null, null);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+
+		$paper->addAuthorName("author");
+
+		$this->assertEquals(3, sizeof($paper->getAuthorNames()));
+	}
+
+	public function testAddAuthorNameSingleToNullAddReturnsSingleAuthor()
+	{
+		$mPaperName = "Name";
+		$mAuthorNames = null;
+		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+
+		$paper->addAuthorName("author");
+
+		$this->assertEquals(1, sizeof($paper->getAuthorNames()));
+	}
 
 
-	// 	for ($i = 0; $i < 5; ++$i)
-	// 	{
-	// 		$paper->addAuthorName("author");
-	// 	}
+	public function testAddAuthorNameMultipleAddReturnsMultipleAuthor()
+	{
+		$mPaperName = "Name";
+		$mAuthorNames = null;
+		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
 
-	// 	$this->assertEquals(5, sizeof($paper->getAuthorNames()));
-	// }
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
 
-	// public function testAddAuthorNameNothingAddedReturnsEmpty()
-	// {
-	// 	$paper = new Paper(null, null, null);
-	// 	$this->assertEmpty($paper->getAuthorNames());
-	// }
 
-	// // test mPDFURLLink encapsulation
-	// public function testGetPDFURLLinkReturnsValidPDFURLLink()
-	// {
-	// 	$mPaperName = "Name";
-	// 	$mAuthorNames = array();
-	// 	$mPDFURLLink = "url";
+		for ($i = 0; $i < 5; ++$i)
+		{
+			$paper->addAuthorName("author");
+		}
 
-	// 	$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$this->assertEquals(5, sizeof($paper->getAuthorNames()));
+	}
 
-	// 	$this->assertEqauls($mPDFURLLink, $paper->getPDFURLLink());
-	// }
+	public function testAddAuthorNameNothingAddedReturnsEmpty()
+	{
+		$mPaperName = "Name";
+		$mAuthorNames = null;
+		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
 
-	// public function testGetPDFURLLinkReturnsInvalidPDFURLink()
-	// {
-	// 	$mPaperName = "Name";
-	// 	$mAuthorNames = array();
-	// 	$mPDFURLLink = null;
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
 
-	// 	$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$this->assertEmpty($paper->getAuthorNames());
+	}
 
-	// 	$this->assertEqauls($mPDFURLLink, $paper->getPDFURLLink());
-	// }
+	// test mPDFURLLink encapsulation
+	public function testGetPDFURLLinkReturnsValidPDFURLLink()
+	{
+		$mPaperName = "Name";
+		$mAuthorNames = null;
+		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+
+		$this->assertEquals($mPDFURLLink, $paper->getPDFURLLink());
+	}
+
+	public function testGetPDFURLLinkReturnsInvalidPDFURLink()
+	{
+		$mPaperName = "Name";
+		$mAuthorNames = null;
+		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+
+		$this->assertEquals($mPDFURLLink, $paper->getPDFURLLink());
+	}
 }
 
 ?>
