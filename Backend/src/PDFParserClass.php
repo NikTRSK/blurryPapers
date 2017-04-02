@@ -1,6 +1,6 @@
 <?php
 
-include ("pdf2text.php");
+require_once ("pdf2text.php");
 
 
 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="PHPUnit" tests="1" assertions="0" errors="1" failures="0" skipped="0" time="0.003794">
+    <testsuite name="PaperClassUnitTest" file="/Users/mabook/Documents/usc/CS310/310-Project2/Backend/tests/data/PaperClassUnitTest.php" tests="1" assertions="0" errors="1" failures="0" skipped="0" time="0.003794">
+      <testcase name="testPaperClassConstructor" class="PaperClassUnitTest" file="/Users/mabook/Documents/usc/CS310/310-Project2/Backend/tests/data/PaperClassUnitTest.php" line="8" assertions="0" time="0.003794">
+        <error type="PHPUnit\Framework\RiskyTestError">Risky Test
+</error>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testsuites>

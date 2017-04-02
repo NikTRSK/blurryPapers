@@ -1,6 +1,6 @@
 <?php
 
-include ("PDFParserClass.php");
+require_once ("PDFParserClass.php");
 
 class DataStoreClass
 {
@@ -24,7 +24,7 @@ class DataStoreClass
 		foreach($words as &$word)
 		{
 			addWordStringToFrequencyMap($word);
-			addWordStringToPapersListmap($word, $paper)
+			addWordStringToPapersListmap($word, $paper);
 		}
 	}
 
