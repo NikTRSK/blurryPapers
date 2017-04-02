@@ -41,6 +41,20 @@ class PaperClassUnitTest extends TestCase
 		$this->assertEquals($mPaperName, $paper->getPaperName());
 	}
 
+	public function testSetPaperName()
+	{
+		$mPaperName = null;
+		$mAuthorNames = array();
+		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+
+		$newName = "new name";
+		$paper->setPaperName($newName);
+
+		$this->assertEquals($newName, $paper->getPaperName());
+	}
+
 	// test mAuthorNames encapsulation
 	public function testGetAuthorNamesReturnsAuthorNames()
 	{
@@ -131,6 +145,20 @@ class PaperClassUnitTest extends TestCase
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
 
 		$this->assertEquals($mPDFURLLink, $paper->getPDFURLLink());
+	}
+
+	public function testSetPDPURLLink()
+	{
+		$mPaperName = "Name";
+		$mAuthorNames = null;
+		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+
+		$newURL = "new url";
+		$paper->setPDFURLLink($newURL);
+
+		$this->assertEquals($newURL, $paper->getPDFURLLink());
 	}
 }
 
