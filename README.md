@@ -62,6 +62,8 @@ To see the results of your hard work go to: [http://localhost:3000/](http://loca
 #### Before running the tests for the first time:
 
 * The setup guide is based on **[this](https://www.codementor.io/jeremyrajan/acceptance-testing-javascript-cucumber-webdriverio-du1087f5i)**. It also provides a refresher on writing .feature files and step definitions.
+* Chai assertions **[this](http://chaijs.com/api/bdd/)**.
+* WebdriverIO API **[this](http://webdriver.io/api.html)**.
 
 ##### Install global packages
 

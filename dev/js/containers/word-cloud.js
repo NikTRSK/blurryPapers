@@ -17,7 +17,7 @@ const WordCloud = React.createClass ({
           </div>
         </div>
 
-        <div className="word-cloud" id="currentCloud" ref="currentCloud">
+        <div className="word-cloud" id="word-cloud" ref="currentCloud">
           <TagCloud minSize={8}
                     maxSize={90}
                     tags={this.props.paperData}
