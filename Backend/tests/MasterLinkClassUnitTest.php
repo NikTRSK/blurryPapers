@@ -1,8 +1,8 @@
 <?php
 
-require_once('../src/MasterLinkClass.php');
+use PHPUnit\Framework\TestCase;
 
-class MasterLinkClassUnitTest extends PHPUnit_Framework_TestCase
+class MasterLinkClassUnitTest extends TestCase
 {
 
 }

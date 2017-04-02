@@ -1,13 +1,15 @@
 <?php
 
-require_once('../src/WebCrawelrClass.php');
+use PHPUnit\Framework\TestCase;
 
-class WebCrawelrClassUnitTest extends PHPUnit_Framework_TestCase
+class WebCrawelrClassUnitTest extends TestCase
 {
 	// test constructor
 	public function testWebCrawlerClassConstructor()
 	{
+		$webCrawler = new WebCrawler();
 
+		$this->assertNotNull($webCrawler);
 	}
 
 	// test GetSearchQueryContent function
