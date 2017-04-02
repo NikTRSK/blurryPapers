@@ -1,46 +1,46 @@
 import React from 'react';
+import { connect } from "react-redux"
+import { fetchBibtex } from "../actions/article-actions";
 import * as ReactBootstrap from 'react-bootstrap'
 import '../../../dev/styles/article-item.sass';
 
+
+@connect((store) => {
+	return {
+		bibtex: store.articles.bibtex
+	};
+})
 export default class ArticleItem extends React.Component {
 	constructor(props) {
     super(props);
     this.state = {
       showModal: false,
-      bibtex:  
-`@articleCandes:2011:RPC:1970392.1970395,
-author = Cand\es, Emmanuel J. and Li, Xiaodong and Ma, Yi and Wright, John,
-title = Robust Principal Component Analysis?,
-journal = J. ACM,
-issue_date = May 2011,
-volume = 58,
-number = 3,
-month = un,
-year = 2011,
-issn = 0004-5411,
-pages = 11:1--11:37,
-articleno = 11,
-numpages = 37,
-url = http://doi.acm.org/10.1145/1970392.1970395,
-doi = 10.1145/1970392.1970395,
-acmid = 1970395,
-publisher = ACM,
-address = New York, NY, USA,`
+			showAbstract: false
     };
     this.openBibtex = this.openBibtex.bind(this);
     this.closeBibtex = this.closeBibtex.bind(this);
+		this.openAbstract = this.openAbstract.bind(this);
+		this.closeAbstract = this.closeAbstract.bind(this);
   }
+
   getInitialState() {
     return { showModal: false };
   }
+	openAbstract() {
+		this.setState({ showAbstract: true });
+	}
+	closeAbstract() {
+		this.setState({ showAbstract: false });
+	}
   closeBibtex() {
     this.setState({ showModal: false });
   }
   openBibtex() {
+		this.props.dispatch(fetchBibtex());
     this.setState({ showModal: true });
   }
 	render() {
-
+		const { bibtex } = this.props;
 
 		return (
       <div className="container" id="article-container">
@@ -53,7 +53,22 @@ address = New York, NY, USA,`
 								<ReactBootstrap.Modal.Title>BibTeX</ReactBootstrap.Modal.Title>
 							</ReactBootstrap.Modal.Header>
 							<ReactBootstrap.Modal.Body className="bibtex-body">
-								<pre >{this.state.bibtex}
+								<pre >{bibtex}
+								</pre>
+							</ReactBootstrap.Modal.Body>
+						</ReactBootstrap.Modal>
+					</div>
+				</div>
+
+				{/* BibTeX popup */}
+				<div className="row">
+					<div>
+						<ReactBootstrap.Modal show={this.state.showAbstract} onHide={this.closeAbstract}>
+							<ReactBootstrap.Modal.Header closeButton className="bibtex-header">
+								<ReactBootstrap.Modal.Title>Abstract</ReactBootstrap.Modal.Title>
+							</ReactBootstrap.Modal.Header>
+							<ReactBootstrap.Modal.Body className="bibtex-body">
+								<pre >"Abstract"
 								</pre>
 							</ReactBootstrap.Modal.Body>
 						</ReactBootstrap.Modal>
@@ -63,7 +78,7 @@ address = New York, NY, USA,`
 				{/* Article Checkbox */}
 				<div className="row" id="article-title-container">
 					<input type="checkbox" value="" id="article-checkbox"/>
-					<p id="article-title">Robust principal component analysis?</p>
+					<a onClick={this.openAbstract}><p id="article-title">Robust principal component analysis?</p></a>
 				</div>
 
 				{/* Article Title */}

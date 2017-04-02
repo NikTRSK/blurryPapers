@@ -8,5 +8,5 @@ import store from "./store"
 const app = document.getElementById('root');
 
 ReactDOM.render(<Provider store={store}>
-	<ArticleList word="Hello"/>
+	<ArticleList word="React"/>
 </Provider>, app);
