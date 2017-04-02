@@ -1,5 +1,6 @@
 <?php
 
+require_once("PDFDownloaderClass.php");
 // Paper class
 class Paper
 {
@@ -32,15 +33,18 @@ class Paper
 
         $this->mPDFLocalURL = $path;
 
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_REFERER, $url);
+        $mDownloader = new PDFDownloader();
+        $mDownloader->downloadPDF( $url, $path);
 
-        $data = curl_exec($ch);
+        // $ch = curl_init($url);
+        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        // curl_setopt($ch, CURLOPT_REFERER, $url);
 
-        curl_close($ch);
+        // $data = curl_exec($ch);
 
-        $result = file_put_contents($path, $data);
+        // curl_close($ch);
+
+        // $result = file_put_contents($path, $data);
     }
 
     // ecapsulation functions
