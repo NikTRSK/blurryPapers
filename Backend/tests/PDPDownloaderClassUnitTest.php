@@ -1,8 +1,8 @@
 <?php
 
-require_once('../src/PDFDownloaderClass.php');
+use PHPUnit\Framework\TestCase;
 
-class PDFDownloaderCLassUnitTest extends PHPUnit_Framework_TestCase
+class PDFDownloaderCLassUnitTest extends TestCase
 {
 	public function testDownloadPDF()
 	{

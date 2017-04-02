@@ -1,8 +1,8 @@
 <?php
 
-require_once('../src/PDFParserClass.php');
+use PHPUnit\Framework\TestCase;
 
-class PDFParserClassUnitTest extends PHPUnit_Framework_TestCase
+class PDFParserClassUnitTest extends TestCase
 {
 	public function testConvertPDFToText
 	{
