@@ -62,6 +62,8 @@ To see the results of your hard work go to: [http://localhost:3000/](http://loca
 #### Before running the tests for the first time:
 
 * The setup guide is based on **[this](https://www.codementor.io/jeremyrajan/acceptance-testing-javascript-cucumber-webdriverio-du1087f5i)**. It also provides a refresher on writing .feature files and step definitions.
+* Chai assertions **[this](http://chaijs.com/api/bdd/)**.
+* WebdriverIO API **[this](http://webdriver.io/api.html)**.
 
 ##### Install global packages
 
@@ -94,12 +96,12 @@ dev // All the developement happens in here
 ----components // Anything used for displaying stuff
 ----containers // A smart component (aware of the state/data changes)
 ----reducers // Reducers take in actions and update part of application state.
-----index.js // Entry point for the App
+----actionCreators.js // Entry point for the App
 --css // Styles here. Let's keep this as SASS
 src // This is where the project is built
 --js // Generally you don't need to touch this
 ----bundle.min.js // The packaged app (by webpack)
---index.js // Entry point for bundle.min.js
+--actionCreators.js // Entry point for bundle.min.js
 tests // All unit & integration tests and blackbox tests go here
 --features // All the .feature files go here
 ----step-definitions // The step definitions go here
