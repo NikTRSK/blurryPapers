@@ -1,11 +1,32 @@
-import { applyMiddleware, createStore } from "redux";
+import { createStore, compose } from 'redux'
+import { syncHistoryWithStore } from 'react-router-redux'
+import { browserHistory } from 'react-router'
 
-import logger from "redux-logger";
-import thunk from "redux-thunk";
-import promise from "redux-promise-middleware";
+// import the root reducer
+import rootReducer from './reducers/index'
 
-import reducer from "./reducers";
+import paperData from './data/paperData'
 
-const middleware = applyMiddleware(promise(), thunk, logger());
+// create an object for the default data
+const defaultState = { paperData };
 
-export default createStore(reducer, middleware);
+// enable Redux Dev Tools
+const enhancers = compose(
+  window.devToolsExtension
+    ? window.devToolsExtension()
+    : f => f
+);
+
+const store = createStore(rootReducer, defaultState, enhancers);
+
+export const history = syncHistoryWithStore(browserHistory, store);
+
+// hot reloading the reducer
+if (module.hot) {
+  module.hot.accept('./reducers/', () => {
+    const nextRootReducer = require('./reducers/index').default;
+    store.replaceReducer(nextRootReducer)
+  })
+}
+
+export default store
