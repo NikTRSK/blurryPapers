@@ -5,7 +5,7 @@
          backupStaticAttributes="false"
          cacheTokens="false"
          colors="false"
-         bootstrap="src/data/PaperClass.php"
+         bootstrap="src/bootstrap.php"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
@@ -26,6 +26,7 @@
   <testsuites>
     <testsuite name="PHPUnit">
       <directory suffix=".php">tests/data</directory>
+      <file>tests/DataStoreClassUnitTest.php</file>
     </testsuite>
   </testsuites>
 

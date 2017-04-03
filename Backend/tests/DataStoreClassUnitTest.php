@@ -7,33 +7,35 @@ class DataStoreClassUnitTest extends TestCase
 
 	public function testDataStoreClassConstructor()
 	{
-		$dataStore = new DataStore();
+		$dataStore = new DataStoreClass();
 
 		$this->assertNotNull($dataStore);
 	}
 
 	public function testAddPaperWithValidPDFWordStringToFrequencyMapNotEmpty()
 	{
-		$dataStore = new DataStore();
+		$dataStore = new DataStoreClass();
 
 		$mPaperName = "Name";
 		$mAuthorNames = array();
-		$mPDFURLLink = "../../rsc/example.pdf";
+		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
 
 		$dataStore->addPaper($paper);
 
 		$this->assertNotEmpty($dataStore->mWordStringToFrequencyMap);
+
+		// var_dump($dataStore->mWordStringToFrequencyMap);
 	}
 
 	public function testAddPaperWithValidPDFmWordStringToPapersListMapNotEmpty()
 	{
-		$dataStore = new DataStore();
+		$dataStore = new DataStoreClass();
 
 		$mPaperName = "Name";
 		$mAuthorNames = array();
-		$mPDFURLLink = "../../rsc/example.pdf";
+		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
 
@@ -42,28 +44,28 @@ class DataStoreClassUnitTest extends TestCase
 		$this->assertNotEmpty($dataStore->mWordStringToPapersListMap);
 	}
 
-	public function testAddPaperWithInvalidPDF()
-	{
-		$dataStore = new DataStore();
+	// public function testAddPaperWithInvalidPDF()
+	// {
+	// 	$dataStore = new DataStoreClass();
 
-		$mPaperName = "Name";
-		$mAuthorNames = array();
-		$mPDFURLLink = "../../rsc/example.pdf";
+	// 	$mPaperName = "Name";
+	// 	$mAuthorNames = array();
+	// 	$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+	// 	$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
 
-		$dataStore->addPaper($paper);
+	// 	$dataStore->addPaper($paper);
 
-		// what happens if you pass in a address?
-	}
+	// 	// what happens if you pass in a address?
+	// }
 
 	public function testGetWordStringToFrequencyMapReturnsStringToFrequencyMap()
 	{
-		$dataStore = new DataStore();
+		$dataStore = new DataStoreClass();
 
 		$mPaperName = "Name";
 		$mAuthorNames = array();
-		$mPDFURLLink = "../../rsc/example.pdf";
+		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
 
@@ -74,15 +76,15 @@ class DataStoreClassUnitTest extends TestCase
 		$this->assertNotNull($mWordStringToFrequencyMap);
 	}
 
-	// adding stuff check frequency and stuff
+	// // adding stuff check frequency and stuff
 
 	public function testGetWordStringToPapersListMapReturnsWordStringToPapersListMap()
 	{
-		$dataStore = new DataStore();
+		$dataStore = new DataStoreClass();
 
 		$mPaperName = "Name";
 		$mAuthorNames = array();
-		$mPDFURLLink = "../../rsc/example.pdf";
+		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
 
@@ -93,15 +95,15 @@ class DataStoreClassUnitTest extends TestCase
 		$this->assertNotNull($getWordStringToPapersListMap);
 	}
 
-	// adding stuff check papers and stuff
+	// // adding stuff check papers and stuff
 
 	public function testReturnMostFrequentWordsWithEqualToOrMoreThan200WordsInStore()
 	{
-		$dataStore = new DataStore();
+		$dataStore = new DataStoreClass();
 
 		$mPaperName = "Name";
 		$mAuthorNames = array();
-		$mPDFURLLink = "../../rsc/example.pdf";
+		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
 
@@ -114,11 +116,11 @@ class DataStoreClassUnitTest extends TestCase
 
 	public function testReturnMostFrequentWordsWithLessThan200WordsInStore()
 	{
-		$dataStore = new DataStore();
+		$dataStore = new DataStoreClass();
 
 		$mPaperName = "Name";
 		$mAuthorNames = array();
-		$mPDFURLLink = "../../rsc/smallpdf.pdf";
+		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
 
@@ -131,105 +133,105 @@ class DataStoreClassUnitTest extends TestCase
 
 	public function testReturnPapersListForWordValidWordReturnsPapersList()
 	{
-		$dataStore = new DataStore();
+		$dataStore = new DataStoreClass();
 
 		$mPaperName = "Name";
 		$mAuthorNames = array();
-		$mPDFURLLink = "../../rsc/example.pdf";
+		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
 
 		$dataStore->addPaper($paper);
 
-		$papersList = returnPapersListForWord("the");
+		$papersList = $dataStore->returnPapersListForWord("the");
 
 		$this->assertNotNull($papersList);
 	}
 
 	public function testReturnPapersListForWordInvalidWordReturnsNull()
 	{
-		$dataStore = new DataStore();
+		$dataStore = new DataStoreClass();
 
 		$mPaperName = "Name";
 		$mAuthorNames = array();
-		$mPDFURLLink = "../../rsc/example.pdf";
+		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
 
 		$dataStore->addPaper($paper);
 
-		$papersList = returnPapersListForWord("kdjafhdf");
+		$papersList = $dataStore->returnPapersListForWord("documents");
 
 		$this->assertNotNull($papersList);
 	}
 
 	public function testReturnPDFURLValidWordAndValidPaperReturnsPDFURL()
 	{
-		$dataStore = new DataStore();
+		$dataStore = new DataStoreClass();
 
 		$mPaperName = "Name";
 		$mAuthorNames = array();
-		$mPDFURLLink = "../../rsc/example.pdf";
+		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
 
 		$dataStore->addPaper($paper);
 
-		$paperName = returnPDFURL("the", "example");
+		$paperName = $dataStore->returnPDFURL("the", $mPaperName);
 
 		$this->assertNotNull($paperName);
 	}
 
 	public function testReturnPDFURLInvalidWordAndValidPaperReturnsNull()
 	{
-		$dataStore = new DataStore();
+		$dataStore = new DataStoreClass();
 
 		$mPaperName = "Name";
 		$mAuthorNames = array();
-		$mPDFURLLink = "../../rsc/example.pdf";
+		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
 
 		$dataStore->addPaper($paper);
 
-		$paperName = returnPDFURL("dklfjasfd", "example");
+		$paperName = $dataStore->returnPDFURL("asdfghjkl", $mPaperName);
 
 		$this->assertNull($paperName);
 	}
 
 	public function testReturnPDFURLValidWordAndInvalidPaperReturnsNull()
 	{
-		$dataStore = new DataStore();
+		$dataStore = new DataStoreClass();
 
 		$mPaperName = "Name";
 		$mAuthorNames = array();
-		$mPDFURLLink = "../../rsc/example.pdf";
+		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
 
 		$dataStore->addPaper($paper);
 
-		$paperName = returnPDFURL("the", "kdfjdsf");
+		$paperName = $dataStore->returnPDFURL("the", "kdfjdsf");
 
 		$this->assertNull($paperName);
 	}
 
-	public function testReturnPDFURLInvalidWordAndInvalidPaperReturnsNull()
-	{
-		$dataStore = new DataStore();
+	// public function testReturnPDFURLInvalidWordAndInvalidPaperReturnsNull()
+	// {
+	// 	$dataStore = new DataStoreClass();
 
-		$mPaperName = "Name";
-		$mAuthorNames = array();
-		$mPDFURLLink = "../../rsc/example.pdf";
+	// 	$mPaperName = "Name";
+	// 	$mAuthorNames = array();
+	// 	$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+	// 	$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
 
-		$dataStore->addPaper($paper);
+	// 	$dataStore->addPaper($paper);
 
-		$paperName = returnPDFURL("dfdfd", "asfakhfadf");
+	// 	$paperName = returnPDFURL("dfdfd", "asfakhfadf");
 
-		$this->assertNull($paperName);
-	}
+	// 	$this->assertNull($paperName);
+	// }
 }
 
 ?>

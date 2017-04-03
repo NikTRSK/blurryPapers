@@ -35,7 +35,7 @@
 				// @JavaScript
 				@$this->mDom->loadHTML($html);
 
-				echo $this->mDom->saveHTML();
+				// echo $this->mDom->saveHTML();
 			}
 			if ($this->mConfig == "ACM")
 			{
@@ -51,7 +51,7 @@
 				$html = curl_exec($ch);
 				curl_close($ch);
 
-				echo $html;
+				// echo $html;
 
 				# Create a DOM parser object
 				$this->mDom = new DOMDocument();
@@ -78,7 +78,7 @@
 				foreach ($nodes as $key) {
 					// echo "IMHERE\n";
 					$text .= $this->mDom->saveHTML($key);
-					echo $text . "\n";
+					// echo $text . "\n";
 				}
 			}
 			if ($this->mConfig == "ACM")
@@ -97,25 +97,25 @@
 					$titleText = $titleQuery1->textContent;
 					// $tempDom = 
 
-					echo $titleText."\n";
+					// echo $titleText."\n";
 
 
 					// ABSTRACT
 					$abstractQuery = $finder->query("./*[contains(@class, 'abstract')]", $key)->item(0);
 					$abstractText = $abstractQuery->textContent;
-					echo $abstractText. "\n";
+					// echo $abstractText. "\n";
 
 					//URL
 					$urlQuery = $finder->query("./*[contains(@class, 'ft')]", $key)->item(0);
 					$urlQuery1 = $finder->query("./a", $urlQuery)->item(0)->getAttribute('href');
 					$href = "dl.acm.org/" . $urlQuery1;
-					echo $href . "\n";
+					// echo $href . "\n";
 
 					//Conference
 
 					
 
-					echo "..............................\n";
+					// echo "..............................\n";
 				}
 			}
 			

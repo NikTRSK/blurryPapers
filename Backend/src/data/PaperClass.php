@@ -1,14 +1,14 @@
 <?php
 
-require_once("PDFDownloaderClass.php");
+// require_once("../PDFDownloaderClass.php");
 // Paper class
 class Paper
 {
 	// private member variables
-	private $mPaperName;
-	private $mAuthorNames;
-	private $mPDFURLLink;
-    private $mPDFLocalURL;
+	public $mPaperName;
+	public $mAuthorNames;
+	public $mPDFURLLink;
+    public $mPDFLocalURL;
 
 	// constructor
 	public function __construct($paperName, $authorNames, $pdfURLLink) 
@@ -34,7 +34,7 @@ class Paper
         $this->mPDFLocalURL = $path;
 
         $mDownloader = new PDFDownloader();
-        $mDownloader->downloadPDF( $url, $path);
+        $mDownloader->downloadPDF($url, $path);
 
         // $ch = curl_init($url);
         // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
