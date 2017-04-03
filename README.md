@@ -1,5 +1,5 @@
 # 310-Project2
-Super awesome app for project 2 (Working title)
+Super awesome app for project 2 called blurryPaper
 
 ## Commit rules
 1. ***Do not*** commit directly to the master branch.
