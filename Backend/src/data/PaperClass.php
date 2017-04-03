@@ -25,7 +25,7 @@ class Paper
         }
 		
 		$this->mPDFURLLink = $pdfURLLink;
-        $this->mAbstract = $abstract
+        $this->mAbstract = $abstract;
 
 
         //Downloading the PDF File
