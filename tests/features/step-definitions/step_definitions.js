@@ -49,6 +49,7 @@ const searchBarTests = function () {
     expect(wordCloud.value.ELEMENT).to.not.eq('0');
   });
 
+  //
   this.When(/^I have done a search for "([^"]*)"$/, function (arg1, callback) {
     callback.pending();
   });

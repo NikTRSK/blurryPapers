@@ -4,10 +4,10 @@ Feature: Be able to view the abstract of an article
   #Test 11
   @javascript
   Scenario: Abstract popup
-    Given I go to the website "http://localhost:3000"
-    And I have done a search for "Smith"
-    And a Word Cloud has been generated
-    And I have selected a word from the Word Cloud
-    And I am on the artist page
+    Given I am on the homepage "http://localhost:3000"
+    When I enter "Smith" in the "#search-input-box"
+    When There is a "#word-cloud"
+    When I have selected a word from the Word Cloud
+    When I am on the artist page
     When I click on the article title
     Then I expect to see a popup containing the article's abstract

@@ -4,9 +4,9 @@ Feature: Title check
   #Test 1
   @javascript
   Scenario: Get the title of webpage
-    Given I go to the website "http://localhost:3000"
-    And I have done a search for "Smith"
-    And a Word Cloud has been generated
+    Given I am on the homepage "http://localhost:3000"
+    When I enter "Smith" in the "#search-input-box"
+    When There is a "#word-cloud"
     When I select a word from the Word Cloud
     Then I expect the title of the author page to be <selected-word>
 
