@@ -19,7 +19,7 @@ class DataStoreClassUnitTest extends TestCase
 		$mPaperName = "Name";
 		$mAuthorNames = array();
 		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
-		$mAbstract = "abstract"
+		$mAbstract = "abstract";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
@@ -209,55 +209,113 @@ class DataStoreClassUnitTest extends TestCase
 		$this->assertNull($paperName);
 	}
 
-	// public function testReturnPDFURLValidWordAndInvalidPaperReturnsNull()
-	// {
-	// 	$dataStore = new DataStoreClass();
+	public function testReturnPDFURLValidWordAndInvalidPaperReturnsNull()
+	{
+		$dataStore = new DataStoreClass();
 
-	// 	$mPaperName = "Name";
-	// 	$mAuthorNames = array();
-	// 	$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
-	// 	$mAbstract = "abstract"
+		$mPaperName = "Name";
+		$mAuthorNames = array();
+		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+		$mAbstract = "abstract"
 
-	// 	$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
-	// 	$dataStore->addPaper($paper);
+		$dataStore->addPaper($paper);
 
-	// 	$abstract = $dataStore->returnPDFURL("the", "kdfjdsf");
+		$abstract = $dataStore->returnPDFURL("the", "kdfjdsf");
 
-	// 	$this->assertNull($paperName);
-	// }
+		$this->assertNull($paperName);
+	}
 
-	// public function testReturnAbstractInvalidWordAndValidPaperReturnsAbstract()
-	// {
 
-	// }
+	public function testReturnPDFURLInvalidWordAndInvalidPaperReturnsNull()
+	{
+		$dataStore = new DataStoreClass();
 
-	// public function testReturnAbstractValidWordAndInvalidPaperReturnsAbstract()
-	// {
-		
-	// }
+		$mPaperName = "Name";
+		$mAuthorNames = array();
+		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
 
-	// public function testReturnAbstractInvalidWordAndInvalidPaperReturnsAbstract()
-	// {
-		
-	// }
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
 
-	// public function testReturnPDFURLInvalidWordAndInvalidPaperReturnsNull()
-	// {
-	// 	$dataStore = new DataStoreClass();
+		$dataStore->addPaper($paper);
 
-	// 	$mPaperName = "Name";
-	// 	$mAuthorNames = array();
-	// 	$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+		$paperName = returnPDFURL("dfdfd", "asfakhfadf");
 
-	// 	$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$this->assertNull($paperName);
+	}
 
-	// 	$dataStore->addPaper($paper);
+	public function testReturnAbstractValidWordAndValidPaperReturnsAbstract()
+	{
+		$dataStore = new DataStoreClass();
 
-	// 	$paperName = returnPDFURL("dfdfd", "asfakhfadf");
+		$mPaperName = "Name";
+		$mAuthorNames = array();
+		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+		$mAbstract = "abstract"
 
-	// 	$this->assertNull($paperName);
-	// }
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+
+		$dataStore->addPaper($paper);
+
+		$abstract = $dataStore->returnAbstract("the", $mPaperName);
+
+		$this->assertNotNull($abstract);
+	}
+
+	public function testReturnAbstractInvalidWordAndValidPaperReturnsAbstract()
+	{
+		$dataStore = new DataStoreClass();
+
+		$mPaperName = "Name";
+		$mAuthorNames = array();
+		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+		$mAbstract = "abstract"
+
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+
+		$dataStore->addPaper($paper);
+
+		$abstract = $dataStore->returnAbstract("dafkjdfads", $mPaperName);
+
+		$this->assertNull($abstract);
+	}
+
+	public function testReturnAbstractValidWordAndInvalidPaperReturnsAbstract()
+	{
+		$dataStore = new DataStoreClass();
+
+		$mPaperName = "Name";
+		$mAuthorNames = array();
+		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+		$mAbstract = "abstract"
+
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+
+		$dataStore->addPaper($paper);
+
+		$abstract = $dataStore->returnAbstract("the", "kdjafdf");
+
+		$this->assertNull($abstract);		
+	}
+
+	public function testReturnAbstractInvalidWordAndInvalidPaperReturnsAbstract()
+	{
+		$dataStore = new DataStoreClass();
+
+		$mPaperName = "Name";
+		$mAuthorNames = array();
+		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+		$mAbstract = "abstract"
+
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+
+		$dataStore->addPaper($paper);
+
+		$abstract = $dataStore->returnAbstract("dakfjnds", "djkafdjf");
+
+		$this->assertNull($abstract);		
+	}
 }
 
 ?>
