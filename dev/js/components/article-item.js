@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux"
-import { fetchBibtex } from "../actions/article-actions";
+import { fetchBibtex } from "../actions/actionCreators";
 import * as ReactBootstrap from 'react-bootstrap'
 import '../../../dev/styles/article-item.sass';
 

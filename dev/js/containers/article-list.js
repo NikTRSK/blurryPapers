@@ -1,7 +1,8 @@
 import React from 'react';
 import ArticleItem from '../components/article-item';
 import { connect } from "react-redux"
-import { fetchArticles } from "../actions/article-actions";
+import {bindActionCreators} from 'redux';
+import { fetchArticles } from "../actions/actionCreators";
 import '../../../dev/styles/article-list.sass';
 
 export default class ArticleList extends React.Component {
@@ -10,7 +11,8 @@ export default class ArticleList extends React.Component {
 	}
 
 	render() {
-		const { articles, word } = this.props;
+		const { articleData, word } = this.props;
+		const { articles } = articleData;
 		console.log(this.props);
 		const mappedArticles = articles.map((article,i) => <li><ArticleItem paper={article} key={i}/></li>);
 		return (

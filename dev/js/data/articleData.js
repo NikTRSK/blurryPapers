@@ -1,6 +1,6 @@
 
-const articleData = {
-	articles: [
+const articleData =
+	[
 		{
 			title: "Robust principal component analysis?",
 			authors: ["Emmanuel J. Candès "," Xiaodong Li "," Yi Ma ", " John Wright "],
@@ -22,7 +22,6 @@ const articleData = {
 			downloadLink: "#",
 			abstractText: "..."
 		}
-	]
-};
+	];
 
 export default articleData;

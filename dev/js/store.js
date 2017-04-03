@@ -6,9 +6,10 @@ import { browserHistory } from 'react-router'
 import rootReducer from './reducers/index'
 
 import paperData from './data/paperData'
+import articleData from './data/articleData'
 
 // create an object for the default data
-const defaultState = { paperData };
+const defaultState = { paperData, articleData };
 
 // enable Redux Dev Tools
 const enhancers = compose(

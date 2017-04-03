@@ -4,9 +4,11 @@ import { connect } from 'react-redux'
 import * as actionCreators from '../actions/actionCreators';
 import Main from '../containers/main';
 
+
 function mapStateToProps(state) {
   return {
-    paperData: state.paperData
+    paperData: state.paperData,
+    articleData: state.articles
   }
 }
 
