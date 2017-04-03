@@ -4,12 +4,6 @@ import { fetchBibtex } from "../actions/article-actions";
 import * as ReactBootstrap from 'react-bootstrap'
 import '../../../dev/styles/article-item.sass';
 
-
-@connect((store) => {
-	return {
-		bibtex: store.articles.bibtex
-	};
-})
 export default class ArticleItem extends React.Component {
 	constructor(props) {
     super(props);
