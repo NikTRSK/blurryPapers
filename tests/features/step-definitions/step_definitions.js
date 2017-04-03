@@ -49,57 +49,30 @@ const searchBarTests = function () {
     expect(wordCloud.value.ELEMENT).to.not.eq('0');
   });
 
+  this.When(/^I have done a search for "([^"]*)"$/, function (arg1, callback) {
+    callback.pending();
+  });
 
-  this.Given(/^I go to the website "http:\/\/localhost:3000"$/, function (arg1, callback) {
+  this.When(/^a Word Cloud has been generated$/, function (callback) {
     callback.pending();
   });
-  this.Given(/^I have done a search for "([^"]*)"$/, function (arg1, callback) {
-    callback.pending();
-  });
-  this.Given(/^a Word Cloud has been generated$/, function (callback) {
-    callback.pending();
-  });
+
   this.Given(/^I select a word from the Word Cloud$/, function (callback) {
     callback.pending();
   });
+
   this.When(/^I am on the author page$/, function (callback) {
     callback.pending();
   });
+
   this.Then(/^I expect the title of the author page to be (.*)$/, function (callback) {
     callback.pending();
   });
 
-  this.Given(/^I go to the website "http:\/\/localhost:3000"$/, function (arg1, callback) {
-    callback.pending();
-  });
-  this.Given(/^I have done a search for "([^"]*)"$/, function (arg1, callback) {
-    callback.pending();
-  });
-  this.Given(/^a Word Cloud has been generated$/, function (callback) {
-    callback.pending();
-  });
-  this.Given(/^I select a word from the Word Cloud$/, function (callback) {
-    callback.pending();
-  });
-  this.When(/^I am on the author page$/, function (callback) {
-    callback.pending();
-  });
   this.Then(/^I expect a list of Articles to display under the title$/, function (callback) {
     callback.pending();
   });
 
-  this.Given(/^I go to the website "http:\/\/localhost:3000"$/, function (arg1, callback) {
-    callback.pending();
-  });
-  this.Given(/^I have done a search for "([^"]*)"$/, function (arg1, callback) {
-    callback.pending();
-  });
-  this.Given(/^a Word Cloud has been generated$/, function (callback) {
-    callback.pending();
-  });
-  this.Given(/^I select a word from the Word Cloud$/, function (callback) {
-    callback.pending();
-  });
   this.When(/^I am on the author page$/, function (callback) {
     callback.pending();
   });
@@ -108,9 +81,6 @@ const searchBarTests = function () {
   });
 
   this.Given(/^I go to the website "http:\/\/localhost:3000"$/, function (arg1, callback) {
-    callback.pending();
-  });
-  this.Given(/^I have done a search for "([^"]*)"$/, function (arg1, callback) {
     callback.pending();
   });
   this.Given(/^a Word Cloud has been generated$/, function (callback) {
@@ -129,9 +99,6 @@ const searchBarTests = function () {
   this.Given(/^I go to the website "http:\/\/localhost:3000"$/, function (arg1, callback) {
     callback.pending();
   });
-  this.Given(/^I have done a search for "([^"]*)"$/, function (arg1, callback) {
-    callback.pending();
-  });
   this.Given(/^a Word Cloud has been generated$/, function (callback) {
     callback.pending();
   });
@@ -147,9 +114,6 @@ const searchBarTests = function () {
   this.Given(/^I go to the website "http:\/\/localhost:3000"$/, function (arg1, callback) {
     callback.pending();
   });
-  this.Given(/^I have done a search for "([^"]*)"$/, function (arg1, callback) {
-    callback.pending();
-  });
   this.Given(/^a Word Cloud has been generated$/, function (callback) {
     callback.pending();
   });
@@ -163,9 +127,6 @@ const searchBarTests = function () {
     callback.pending();
   });
   this.Given(/^I go to the website "http:\/\/localhost:3000"$/, function (arg1, callback) {
-    callback.pending();
-  });
-  this.Given(/^I have done a search for "([^"]*)"$/, function (arg1, callback) {
     callback.pending();
   });
   this.Given(/^a Word Cloud has been generated$/, function (callback) {
@@ -186,9 +147,6 @@ const searchBarTests = function () {
   this.Given(/^I go to the website "http:\/\/localhost:3000"$/, function (arg1, callback) {
     callback.pending();
   });
-  this.Given(/^I have done a search for "([^"]*)"$/, function (arg1, callback) {
-    callback.pending();
-  });
   this.Given(/^a Word Cloud has been generated$/, function (callback) {
     callback.pending();
   });
@@ -202,62 +160,18 @@ const searchBarTests = function () {
     callback.pending();
   });
 
-  this.Given(/^I go to the website "http:\/\/localhost:3000"$/, function (arg1, callback) {
-    callback.pending();
-  });
-  this.Given(/^I have done a search for "([^"]*)"$/, function (arg1, callback) {
-    callback.pending();
-  });
-  this.Given(/^a Word Cloud has been generated$/, function (callback) {
-    callback.pending();
-  });
-  this.Given(/^I select a word from the Word Cloud$/, function (callback) {
-    callback.pending();
-  });
-  this.When(/^I am on the author page$/, function (callback) {
-    callback.pending();
-  });
   this.Then(/^I expect to see a button that allows the user to download the article as a PDF$/, function (callback) {
     callback.pending();
   });
 
-  this.Given(/^I go to the website "http:\/\/localhost:3000"$/, function (arg1, callback) {
-    callback.pending();
-  });
-  this.Given(/^I have done a search for "([^"]*)"$/, function (arg1, callback) {
-    callback.pending();
-  });
-  this.Given(/^a Word Cloud has been generated$/, function (callback) {
-    callback.pending();
-  });
-  this.Given(/^I select a word from the Word Cloud$/, function (callback) {
-    callback.pending();
-  });
-  this.When(/^I am on the author page$/, function (callback) {
-    callback.pending();
-  });
   this.Then(/^I expect to see a checkbox next to the article title$/, function (callback) {
     callback.pending();
   });
 
-  this.Given(/^I go to the website "http:\/\/localhost:3000"$/, function (arg1, callback) {
-    callback.pending();
-  });
-  this.Given(/^I have done a search for "([^"]*)"$/, function (arg1, callback) {
-    callback.pending();
-  });
-  this.Given(/^a Word Cloud has been generated$/, function (callback) {
-    callback.pending();
-  });
-  this.Given(/^I select a word from the Word Cloud$/, function (callback) {
-    callback.pending();
-  });
-  this.Given(/^I am on the author page$/, function (callback) {
-    callback.pending();
-  });
   this.When(/^I click on the article title$/, function (callback) {
     callback.pending();
   });
+
   this.Then(/^I expect to see a popup containing the article's abstract$/, function (callback) {
     callback.pending();
   });
