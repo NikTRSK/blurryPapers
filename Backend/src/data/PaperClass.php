@@ -11,7 +11,7 @@ class Paper
     public $mPDFLocalURL;
 
 	// constructor
-	public function __construct($paperName, $authorNames, $pdfURLLink) 
+	public function __construct($paperName, $authorNames, $pdfURLLink, $abstract) 
 	{
 		$this->mPaperName = $paperName;
         
@@ -25,6 +25,7 @@ class Paper
         }
 		
 		$this->mPDFURLLink = $pdfURLLink;
+        $this->mAbstract = $abstract
 
 
         //Downloading the PDF File
@@ -76,6 +77,16 @@ class Paper
     public function setPDFURLLink($pdfURLLink)
     {
     	$this->mPDFURLLink = $pdfURLLink;
+    }
+    
+    public function getAbstract()
+    {
+        return $this->mAbstract;
+    }
+
+    public function setAbstract($abstract)
+    {
+        $this->mAbstract = $abstract;
     }
 }
 

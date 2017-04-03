@@ -10,8 +10,9 @@ class PaperClassUnitTest extends TestCase
 		$mPaperName = "Name";
 		$mAuthorNames = array();
 		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 		$this->assertNotNull($paper);
 
@@ -23,8 +24,9 @@ class PaperClassUnitTest extends TestCase
 		$mPaperName = "Name";
 		$mAuthorNames = array();
 		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 		$this->assertEquals($mPaperName, $paper->getPaperName());
 
@@ -35,8 +37,9 @@ class PaperClassUnitTest extends TestCase
 		$mPaperName = null;
 		$mAuthorNames = array();
 		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 		$this->assertEquals($mPaperName, $paper->getPaperName());
 	}
@@ -46,8 +49,9 @@ class PaperClassUnitTest extends TestCase
 		$mPaperName = null;
 		$mAuthorNames = array();
 		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 		$newName = "new name";
 		$paper->setPaperName($newName);
@@ -61,8 +65,9 @@ class PaperClassUnitTest extends TestCase
 		$mPaperName = null;
 		$mAuthorNames = array("Halfond", "Cucumber");
 		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 		//This paper should be authored by Halfond and Cucumber testing tool
 		$this->assertEquals($paper->getAuthorNames()[0], "Halfond");
@@ -74,8 +79,9 @@ class PaperClassUnitTest extends TestCase
 		$mPaperName = null;
 		$mAuthorNames = array("Halfond", "Cucumber");
 		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 		$paper->addAuthorName("author");
 
@@ -87,8 +93,9 @@ class PaperClassUnitTest extends TestCase
 		$mPaperName = "Name";
 		$mAuthorNames = null;
 		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 		$paper->addAuthorName("author");
 
@@ -101,8 +108,9 @@ class PaperClassUnitTest extends TestCase
 		$mPaperName = "Name";
 		$mAuthorNames = null;
 		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 
 		for ($i = 0; $i < 5; ++$i)
@@ -118,8 +126,9 @@ class PaperClassUnitTest extends TestCase
 		$mPaperName = "Name";
 		$mAuthorNames = null;
 		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 		$this->assertEmpty($paper->getAuthorNames());
 	}
@@ -130,8 +139,9 @@ class PaperClassUnitTest extends TestCase
 		$mPaperName = "Name";
 		$mAuthorNames = null;
 		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 		$this->assertEquals($mPDFURLLink, $paper->getPDFURLLink());
 	}
@@ -141,8 +151,9 @@ class PaperClassUnitTest extends TestCase
 		$mPaperName = "Name";
 		$mAuthorNames = null;
 		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 		$this->assertEquals($mPDFURLLink, $paper->getPDFURLLink());
 	}
@@ -152,13 +163,41 @@ class PaperClassUnitTest extends TestCase
 		$mPaperName = "Name";
 		$mAuthorNames = null;
 		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 		$newURL = "new url";
 		$paper->setPDFURLLink($newURL);
 
 		$this->assertEquals($newURL, $paper->getPDFURLLink());
+	}
+
+	public function testGetAbstract()
+	{
+		$mPaperName = "Name";
+		$mAuthorNames = null;
+		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+		$mAbstract = "abstract"
+
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+
+		$this->assertEquals($mPDFURLLink, $paper->getAbstract());
+	}
+
+	public function testSetAbstract()
+	{
+		$mPaperName = "Name";
+		$mAuthorNames = null;
+		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+		$mAbstract = "abstract"
+
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+
+		$newAbstract = "new abstract";
+		$paper->setAbstract($newAbstract);
+
+		$this->assertEquals($newAbstract, $paper->getAbstract());
 	}
 }
 
