@@ -128,9 +128,25 @@ class DataStoreClass
 	// return paper url when we have word and paper name
 	public function returnPDFURL($word, $paperName)
 	{
-		try {
+		try 
+		{
 			return $this->mWordStringToPapersListMap[$word][$paperName]->mPDFLocalURL;
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
+			return null;
+		}
+	}
+
+	// return paper url when we have word and paper name
+	public function returnAbstract($word, $paperName)
+	{
+		try 
+		{
+			return $this->mWordStringToPapersListMap[$word][$paperName]->mAbstract;
+		} 
+		catch (Exception $e) 
+		{
 			return null;
 		}
 	}
