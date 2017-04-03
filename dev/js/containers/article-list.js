@@ -4,14 +4,9 @@ import { connect } from "react-redux"
 import { fetchArticles } from "../actions/article-actions";
 import '../../../dev/styles/article-list.sass';
 
-@connect((store) => {
-	return {
-		articles: store.articles.articles
-	};
-})
 export default class ArticleList extends React.Component {
 	componentWillMount() {
-		this.props.dispatch(fetchArticles());
+		this.props.fetchArticles();
 	}
 
 	render() {
