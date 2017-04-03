@@ -19,8 +19,9 @@ class DataStoreClassUnitTest extends TestCase
 		$mPaperName = "Name";
 		$mAuthorNames = array();
 		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 		$dataStore->addPaper($paper);
 
@@ -36,8 +37,9 @@ class DataStoreClassUnitTest extends TestCase
 		$mPaperName = "Name";
 		$mAuthorNames = array();
 		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 		$dataStore->addPaper($paper);
 
@@ -66,8 +68,9 @@ class DataStoreClassUnitTest extends TestCase
 		$mPaperName = "Name";
 		$mAuthorNames = array();
 		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 		$dataStore->addPaper($paper);
 
@@ -85,8 +88,9 @@ class DataStoreClassUnitTest extends TestCase
 		$mPaperName = "Name";
 		$mAuthorNames = array();
 		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 		$dataStore->addPaper($paper);
 
@@ -104,8 +108,9 @@ class DataStoreClassUnitTest extends TestCase
 		$mPaperName = "Name";
 		$mAuthorNames = array();
 		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 		$dataStore->addPaper($paper);
 
@@ -121,8 +126,9 @@ class DataStoreClassUnitTest extends TestCase
 		$mPaperName = "Name";
 		$mAuthorNames = array();
 		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 		$dataStore->addPaper($paper);
 
@@ -138,8 +144,9 @@ class DataStoreClassUnitTest extends TestCase
 		$mPaperName = "Name";
 		$mAuthorNames = array();
 		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 		$dataStore->addPaper($paper);
 
@@ -155,8 +162,9 @@ class DataStoreClassUnitTest extends TestCase
 		$mPaperName = "Name";
 		$mAuthorNames = array();
 		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 		$dataStore->addPaper($paper);
 
@@ -172,8 +180,9 @@ class DataStoreClassUnitTest extends TestCase
 		$mPaperName = "Name";
 		$mAuthorNames = array();
 		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 		$dataStore->addPaper($paper);
 
@@ -189,8 +198,9 @@ class DataStoreClassUnitTest extends TestCase
 		$mPaperName = "Name";
 		$mAuthorNames = array();
 		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+		$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
 		$dataStore->addPaper($paper);
 
@@ -199,22 +209,38 @@ class DataStoreClassUnitTest extends TestCase
 		$this->assertNull($paperName);
 	}
 
-	public function testReturnPDFURLValidWordAndInvalidPaperReturnsNull()
-	{
-		$dataStore = new DataStoreClass();
+	// public function testReturnPDFURLValidWordAndInvalidPaperReturnsNull()
+	// {
+	// 	$dataStore = new DataStoreClass();
 
-		$mPaperName = "Name";
-		$mAuthorNames = array();
-		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+	// 	$mPaperName = "Name";
+	// 	$mAuthorNames = array();
+	// 	$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+	// 	$mAbstract = "abstract"
 
-		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink);
+	// 	$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
 
-		$dataStore->addPaper($paper);
+	// 	$dataStore->addPaper($paper);
 
-		$paperName = $dataStore->returnPDFURL("the", "kdfjdsf");
+	// 	$abstract = $dataStore->returnPDFURL("the", "kdfjdsf");
 
-		$this->assertNull($paperName);
-	}
+	// 	$this->assertNull($paperName);
+	// }
+
+	// public function testReturnAbstractInvalidWordAndValidPaperReturnsAbstract()
+	// {
+
+	// }
+
+	// public function testReturnAbstractValidWordAndInvalidPaperReturnsAbstract()
+	// {
+		
+	// }
+
+	// public function testReturnAbstractInvalidWordAndInvalidPaperReturnsAbstract()
+	// {
+		
+	// }
 
 	// public function testReturnPDFURLInvalidWordAndInvalidPaperReturnsNull()
 	// {
