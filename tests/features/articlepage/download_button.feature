@@ -8,9 +8,8 @@ Feature: Buttons to download the list of selected artiles
     When I enter "Smith" in the "#search-input-box"
     When There is a "#word-cloud"
     When The "#search-button" is clicked
-#    When I click on "TagCloud" "tags[1]"
-#    When I am on the author list page "http://localhost:3000/paperlist/"
-#    Then I expect to see a "#articles-dl-txt-button" download button with the text "Download List as TXT"
+    When I select a ".tag-cloud-tag" from the "#word-cloud"
+    Then I expect to see a "#articles-dl-txt-button" download button with the text "Download List as TXT"
 
   #Test 9
   @javascript
@@ -19,5 +18,5 @@ Feature: Buttons to download the list of selected artiles
     When I enter "Smith" in the "#search-input-box"
     When There is a "#word-cloud"
     When The "#search-button" is clicked
-#    When I am on the artist page
-#    Then I expect to see a button that allows the user to download the article as a PDF
+    When I select a ".tag-cloud-tag" from the "#word-cloud"
+    Then I expect to see a "#articles-dl-pdf-button" download button with the text "Download List as PDF"

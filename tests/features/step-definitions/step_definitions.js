@@ -54,26 +54,32 @@ const searchBarTests = function () {
       var myButton = $(element);
       myButton.click();
   });
-  this.When(/^I click on "([^"]*)"$/, function (element) {
-      var tag = element
+
+  this.When(/^I click on "([^"]*)"$/, function (element) { //click on search button
+      var tag = $(element);
       browser.click(tag)
   });
-  this.When(/^I am on the author list page "http:\/\/localhost:3000\/paperlist\/"$/, (url)=> {
-      browser.url(url);
-  });
+
+  //click on the word from WC
+  this.When(/^I select a "([^"]*)" from the "([^"]*)"$/, function (element1, element2) {
+       var span = $(element1);
+       span.click();
+   });
 
    this.Then(/^I expect to see a "([^"]*)" download button with the text "([^"]*)"$/,(element, text)=> {
-  //     cucumberOpts.ignoreUndefinedDefinitions = TRUE;
        let btn = $(element);
        expect(btn.state).to.eq('success');
        expect(btn.getText()).to.eq('Download List as TXT');
    });
+   
+   this.Then(/^I expect to see a "([^"]*)" download button with the text "([^"]*)"$/,(element, text)=> {
+        let btn = $(element);
+        expect(btn.state).to.eq('success');
+        expect(btn.getText()).to.eq('Download List as PDF');
+    });
 
-  //title.feature
-  this.When(/^I select a "([^"]*)" from the "([^"]*)"$/, function (word, element) {
-    browser.click(word);
-    console.log(wordCloud.value.word);
-  });
+  // title.feature
+
 
   this.Then(/^I expect "([^"]*)" to be the selected word from "([^"]*)"$/, function (element, word) {
       let title = $(element);
