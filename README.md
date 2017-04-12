@@ -54,7 +54,8 @@ Super awesome app for project 2 called blurryPaper's.
 ```
 
 To see the results of your hard work go to: [http://localhost:3000/](http://localhost:3000/)
-* Yes even Firefox, Jean
+* Yes even Firefox, Jean 
+* YAY!!
 
 ### To use mock json-server
 `npm run mock`
