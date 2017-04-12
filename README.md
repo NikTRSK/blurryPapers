@@ -1,5 +1,5 @@
 # 310-Project2
-Super awesome app for project 2 called blurryPaper's.
+Super awesome app for project 2 called blurryPaper's
 
 ## Commit rules
 1. ***Do not*** commit directly to the master branch.
@@ -50,11 +50,12 @@ Super awesome app for project 2 called blurryPaper's.
 
 * Start the development server (changes will now update live in browser)
 ```
-> npm run start
+> npm run start 
 ```
 
 To see the results of your hard work go to: [http://localhost:3000/](http://localhost:3000/)
-* Yes even Firefox, Jean
+* Yes even Firefox, Jean 
+* YAY!!
 
 ### To use mock json-server
 `npm run mock`
