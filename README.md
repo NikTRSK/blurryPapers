@@ -111,3 +111,4 @@ tests // All unit & integration tests and blackbox tests go here
 ----step-definitions // The step definitions go here
 wdio.con.js // WebdriverIO config file
 ```
+ 
