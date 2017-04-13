@@ -152,15 +152,22 @@ const seleniumTests = function () {
 
     /* New stuff */
     // download_button
-    this.Then(/^I expect a "([^"]*)" with the text "([^"]*)" to not exist$/, (element, word) => {
-        expect(null).to.not.equal(null); // TODO
+    this.Then(/^I expect a download button "([^"]*)" with the text "([^"]*)" to not exist$/, (element, word) => {
+        let downloadBtn = $(element);
+        expect(downloadBtn.state).to.equal("failure");
     });
-    this.Then(/^I expect a "([^"]*)" with the text "([^"]*)" to exist$/, (element, word) => {
-        expect(null).to.not.equal(null); // TODO
+    this.Then(/^I expect a download button "([^"]*)" with the text "([^"]*)" to exist$/, (element, word) => {
+      browser.pause(5500);
+      let downloadBtn = $(element);
+      expect(downloadBtn.state).to.equal("success");
+      expect(downloadBtn.getText()).to.equal(word);
     });
 
-    this.Then(/^Clicking the "([^"]*)" opens an image in a new tab$/, (element) => {
-        expect(null).to.not.equal(null); // TODO
+    this.Then(/^Clicking the "([^"]*)" opens a download link$/, (element) => {
+      browser.pause(7000);
+      let downloadBtn = $(element);
+      downloadBtn.click();
+      expect(downloadBtn.state).to.equal("success");
     });
 
     // history
@@ -181,8 +188,8 @@ const seleniumTests = function () {
     });
 
     this.Then(/^The word cloud is regenerated$/, (element) => {
+      browser.pause(7000);
       let wordCloud = $("#word-cloud");
-      console.log(wordCloud);
       expect(wordCloud.state).to.equal("success");
     });
 
@@ -192,32 +199,32 @@ const seleniumTests = function () {
     });
 
     this.Then(/^There isn't a "([^"]*)"$/, (element) => {
-        expect(null).to.not.equal(null); // TODO
+      expect($(element).state).to.equal("failure");
     });
 
-    this.Then(/^I expect a "([^"]*)" to show me the progress$/, (element) => {
-        expect(null).to.not.equal(null); // TODO
+    this.Then(/^I expect a progress bar "([^"]*)" to show me the progress$/, (element) => {
+      expect($(element).getCssProperty('opacity').value).to.equal(1);
     });
 
     // num items box
   this.Then(/^I expect there to be a "([^"]*)" for the number of items$/, (element) => {
-    expect(null).to.not.equal(null); // TODO
+    expect($(element).state).to.equal("success");
   });
 
   this.When(/^I enter nothing in the number of items box "([^"]*)"$/, (element) => {
-    expect(null).to.not.equal(null); // TODO
+    $(element).setValue("");
   });
 
   this.Then(/^The number items box "([^"]*)" is empty$/, (element) => {
-    expect(null).to.not.equal(null); // TODO
+    expect($(element).getValue()).to.equal("");
   });
 
   this.When(/^I enter "([^"]*)" in the number of items box "([^"]*)"$/, (count, element) => {
-    expect(null).to.not.equal(null); // TODO
+    $(element).setValue(count);
   });
 
-  this.Then(/^The "([^"]*)" shows "([^"]*)"$/, (element, count) => {
-    expect(null).to.not.equal(null); // TODO
+  this.Then(/^I expect the number of items box "([^"]*)" to show "([^"]*)"$/, (element, count) => {
+    expect($(element).getValue()).to.equal(count);
   });
 };
 

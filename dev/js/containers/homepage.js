@@ -2,7 +2,11 @@ import React, {Component} from 'react';
 import '../../styles/homepage.sass'
 import WordCloud from './word-cloud';
 import SearchHistory from './search-history';
+import html2canvas from 'html2canvas';
 import LoadingBar from 'react-redux-loading-bar'
+import {store, dispatch} from 'react-redux'
+import FileSaver from 'file-saver';
+
 
 const homepage = React.createClass ({
   handleSubmit(e) {
@@ -12,9 +16,28 @@ const homepage = React.createClass ({
     this.props.addToHistory(searchQuery, count);
     this.props.generatePapers(searchQuery);
   },
+  generateImage(e) {
+    e.preventDefault();
+    const wordcoud = this.refs.wordcloud.refs.currentCloud;
+    html2canvas(wordcoud, {
+      onrendered: (canvas) => {
+        // Automagically saves canvas as png and downloads it
+        canvas.toBlob((blob) => FileSaver.saveAs(blob, "word-cloud.png"));
+      }
+    })
+  },
   render() {
     return (
       <div className="input-group center">
+        <div id="progress-bar">
+          <LoadingBar/>
+        </div>
+        {
+          (this.props.paperData.length !== 0) ?
+            <button id="download-image-button" className="btn btn-lg downloadButton"
+                    onClick={this.generateImage}>Download Image
+            </button> : null
+        }
         <WordCloud ref="wordcloud" {...this.props} />
         <div className="input-group serchInput">
           <input id="search-input-box" type="text" className="form-control"
