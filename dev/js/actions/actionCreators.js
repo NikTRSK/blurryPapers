@@ -36,3 +36,12 @@ export function fetchBibtex() {
       })
   }
 }
+
+export function addToHistory(query, count) {
+  console.log("Adding to history");
+  return {
+    type: 'APPEND_HISTORY',
+    query,
+    count
+  }
+}

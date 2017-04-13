@@ -6,7 +6,8 @@ import paperData from './reducer-wordcloud';
 const rootReducer = combineReducers({
   routing: routerReducer,
   paperData,
-  articles
+  articles,
+  searchHistory
 });
 
 export default rootReducer

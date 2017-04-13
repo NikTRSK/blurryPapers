@@ -1,15 +1,17 @@
-import { createStore, compose } from 'redux'
+import { applyMiddleware, createStore, compose } from 'redux'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { browserHistory } from 'react-router'
+import logger from "redux-logger"
+import thunk from "redux-thunk"
+import reduxpromise from 'redux-promise-middleware'
+import { loadingBarMiddleware } from 'react-redux-loading-bar'
 
 // import the root reducer
 import rootReducer from './reducers/index'
 
-import paperData from './data/paperData'
-import articleData from './data/articleData'
-
 // create an object for the default data
-const defaultState = { paperData, articleData };
+const defaultState = { paperData : [],
+                       searchHistory: {}};
 
 // enable Redux Dev Tools
 const enhancers = compose(
@@ -18,7 +20,15 @@ const enhancers = compose(
     : f => f
 );
 
-const store = createStore(rootReducer, defaultState, enhancers);
+const middleware = applyMiddleware(
+                    logger(),
+                    thunk,
+                    reduxpromise(),
+                    loadingBarMiddleware());
+
+const store = createStore(rootReducer,
+  defaultState,
+  compose(middleware, enhancers));
 
 export const history = syncHistoryWithStore(browserHistory, store);
 
