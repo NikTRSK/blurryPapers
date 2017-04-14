@@ -5,8 +5,43 @@ import { IndexLink } from 'react-router'
 import { Button, MenuItem, Dropdown } from 'react-bootstrap'
 
 export default class ArticleList extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      sortType: 0
+    }
+  }
+
+  /* Automatically fetch articles */
+  // TODO: Rewrite fetch articles to take parameter and use as query parameter.
   componentWillMount() {
     this.props.fetchArticles();
+  }
+
+   /*
+  * Returns articles list sorted depending on the current state of sort type.
+  * 0: Title
+  * 1: Author
+  * 2: Conference
+  * 3: Frequency
+  * */
+  sortedArticles() {
+    let articles = []
+    if (this.props.articleData.articles) {
+      articles = this.props.articleData.articles
+    }
+    switch (this.state.sortType) {
+      case 0:
+        return [...articles].sort((a, b) => a.title > b.title)
+      case 1:
+        return [...articles].sort((a, b) => a.authors[0] > b.authors[0])
+      case 2:
+        return [...articles].sort((a, b) => a.conferences[0] > b.conferences[0])
+      case 3:
+        return [...articles].sort((a, b) => a.frequency < b.frequency)
+      default:
+        return []
+    }
   }
 
   render() {
@@ -28,13 +63,13 @@ export default class ArticleList extends React.Component {
             </Button>
             <Dropdown.Toggle bsStyle="success" />
             <Dropdown.Menu className="dropdown-style">
-              <MenuItem eventKey="1">
+              <MenuItem eventKey="1" onClick={() => this.setState({ sortType: 0 })}>
               Title</MenuItem>
-              <MenuItem eventKey="2">
+              <MenuItem eventKey="2" onClick={() => this.setState({ sortType: 1 })}>
               Authors</MenuItem>
-              <MenuItem eventKey="3">
+              <MenuItem eventKey="3" onClick={() => this.setState({ sortType: 2 })}>
               Conferences</MenuItem>
-              <MenuItem eventKey="4">
+              <MenuItem eventKey="4" onClick={() => this.setState({ sortType: 3 })}>
               Occurences</MenuItem>
             </Dropdown.Menu>
           </Dropdown>
