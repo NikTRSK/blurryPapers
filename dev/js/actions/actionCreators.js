@@ -19,9 +19,20 @@ export function getPapers(word, count) {
 }
 
 export function fetchArticles() {
-  return {
-    type: "FETCH_ARTICLES",
-    payload: articleData
+  return function(dispatch) {
+    axios.get("http://localhost:8888/articles")
+      .then((response) => {
+        dispatch({type: "ARTICLES_RECEIVED", payload: response.data})
+      })
+      .catch((err) => {
+        dispatch({type: "ARTICLES_REJECTED", payload: err})
+      })
+  }
+}
+
+export function clearArticles() {
+  return function(dispatch) {
+    dispatch({type: "ARTICLES_CLEAR", payload: []})
   }
 }
 
@@ -32,8 +43,14 @@ export function fetchBibtex() {
         dispatch({type: "BIBTEX_RECEIVED", payload: response.data})
       })
       .catch((err) => {
-        dispatch({type: "FETCH_TWEETS_REJECTED", payload: err})
+        dispatch({type: "BIBTEX_REJECTED", payload: err})
       })
+  }
+}
+
+export function clearBibtex() {
+  return function(dispatch) {
+    dispatch({type: "BIBTEX_CLEAR", payload: {bibtex:""}})
   }
 }
 

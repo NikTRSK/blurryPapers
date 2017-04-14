@@ -20,39 +20,48 @@ export default class ArticleItem extends React.Component {
   getInitialState() {
     return { showModal: false };
   }
-	openAbstract() {
-		this.setState({ showAbstract: true });
-	}
-	closeAbstract() {
-		this.setState({ showAbstract: false });
-	}
-  closeBibtex() {
-    this.setState({ showModal: false });
+  openAbstract() {
+    this.setState({ showAbstract: true });
+  }
+  closeAbstract() {
+    this.setState({ showAbstract: false });
   }
   openBibtex() {
-		this.props.dispatch(fetchBibtex());
-    this.setState({ showModal: true });
+    this.props.fetchBibtex()
+    this.setState({ showModal: true })
+  }
+  closeBibtex() {
+    this.props.clearBibtex()
+    this.setState({ showModal: false })
   }
 	render() {
-		const { bibtex } = this.props;
+	  const { bibtex } = this.props;
+      const { authors, conferences, downloadLink, title, doi, frequency } = this.props.article
+      const { bibtex } = this.props.bibtexData.bibtex
+      const { word } = this.props
+      const mappedAuthors = authors.map((author, i) =>
+      <IndexLink to="/" key={i} onClick={this.authorRoute.bind(this, author)}>
+				{!!i && ', '}
+				{author}
+      </IndexLink>
+		)
 
 		return (
       <div className="container" id="article-container">
 
-				{/* BibTeX popup */}
-				<div className="row">
-					<div>
-						<ReactBootstrap.Modal show={this.state.showModal} onHide={this.closeBibtex}>
-							<ReactBootstrap.Modal.Header closeButton className="bibtex-header">
-								<ReactBootstrap.Modal.Title>BibTeX</ReactBootstrap.Modal.Title>
-							</ReactBootstrap.Modal.Header>
-							<ReactBootstrap.Modal.Body className="bibtex-body">
-								<pre >{bibtex}
-								</pre>
-							</ReactBootstrap.Modal.Body>
-						</ReactBootstrap.Modal>
-					</div>
-				</div>
+		{/* BibTeX popup */}
+        <div className="row">
+          <div>
+            <ReactBootstrap.Modal show={showModal} onHide={this.closeBibtex}>
+              <ReactBootstrap.Modal.Header closeButton>
+                <ReactBootstrap.Modal.Title>BibTeX</ReactBootstrap.Modal.Title>
+              </ReactBootstrap.Modal.Header>
+              <ReactBootstrap.Modal.Body>
+                <pre className="article-modal-pre">{bibtex}</pre>
+              </ReactBootstrap.Modal.Body>
+            </ReactBootstrap.Modal>
+          </div>
+        </div>
 
 				{/* BibTeX popup */}
 				<div className="row">
@@ -81,15 +90,17 @@ export default class ArticleItem extends React.Component {
 				</div>
 
 
-				{/* Buttons */}
-				<div className="row" id="article-buttons-container">
-					<button className="btn btn-primary" id="article-bibtex-button" onClick={this.openBibtex}>
-						<span className="glyphicon glyphicon-book"></span> BibTeX
-					</button>
-					<button className="btn btn-primary" id="article-download-button">
-						<span className="glyphicon glyphicon-download"></span> Download
-					</button>
-				</div>
+		{/* Buttons */}
+        <div className="row" id="article-buttons-container">
+          <button className="btn btn-primary" id="article-bibtex-button" onClick={this.openBibtex}>
+            <span className="glyphicon glyphicon-book"></span> BibTeX
+          </button>
+          <a target="_blank" href={downloadLink}>
+            <button className="btn btn-primary" id="article-download-button">
+              <span className="glyphicon glyphicon-download"></span> Download
+            </button>
+          </a>
+        </div>
 			</div>
 		);
 	}
