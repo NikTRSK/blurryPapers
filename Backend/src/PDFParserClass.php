@@ -10,7 +10,7 @@ function multiexplode ($delimiters,$string) {
     return  $launch;
 }
 
-class PDFParser
+class PDFParser implements JsonSerializable
 { 
     public function convertPDFToText($pdfLocalURL)
     {
@@ -26,6 +26,11 @@ class PDFParser
 
 
 		return $pieces;		
+    }
+
+    public function jsonSerialize()
+    {
+      return get_object_vars($this);
     }
 } 
 

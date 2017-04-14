@@ -1,6 +1,6 @@
 <?php 
 
-class PDFDownloader 
+class PDFDownloader implements JsonSerializable
 { 
 
     public function downloadPDF($url, $path)
@@ -16,6 +16,11 @@ class PDFDownloader
         curl_close($ch);
 
         $result = file_put_contents($path, $data);
+    }
+
+    public function jsonSerialize()
+    {
+      return get_object_vars($this);
     }
 } 
 

@@ -9,7 +9,7 @@ function cmp($a, $b) {
     return ($a > $b) ? -1 : 1;
 }
 
-class DataStoreClass
+class DataStoreClass implements JsonSerializable
 {
 	public $mWordStringToFrequencyMap;
 	public $mWordStringToPapersListMap; // word to map of name to paper object
@@ -145,6 +145,11 @@ class DataStoreClass
 			return null;
 		}
 	}
+
+	public function jsonSerialize()
+    {
+      return get_object_vars($this);
+    }
 }
 
 ?>

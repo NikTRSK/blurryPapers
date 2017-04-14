@@ -2,7 +2,7 @@
 
 // require_once("../PDFDownloaderClass.php");
 // Paper class
-class Paper
+class Paper implements JsonSerializable
 {
 	// private member variables
 	public $mPaperName;
@@ -87,6 +87,11 @@ class Paper
     public function setAbstract($abstract)
     {
         $this->mAbstract = $abstract;
+    }
+
+    public function jsonSerialize()
+    {
+      return get_object_vars($this);
     }
 }
 

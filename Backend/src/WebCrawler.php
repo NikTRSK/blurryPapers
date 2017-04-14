@@ -1,7 +1,7 @@
 <?php 
 	require_once 'data/PaperClass.php';
 	require_once 'PDFDownloaderClass.php';
-	class WebCrawler
+	class WebCrawler implements JsonSerializable
 	{
 		public $mURL;
 		public $mDom; 
@@ -137,6 +137,10 @@
 			
 		}
 
+		public function jsonSerialize()
+    	{
+      		return get_object_vars($this);
+    	}
 	}
 
 	
