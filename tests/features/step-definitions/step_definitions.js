@@ -63,7 +63,7 @@ const seleniumTests = function () {
         expect(null).to.equal(null);
     });
 
-    //download_button.feature
+    //download_image_button.feature
     this.When(/^The "([^"]*)" is clicked$/, function (element, callback) { //when the search button is clicked
         let myButton = $(element);
         myButton.click();
@@ -109,16 +109,21 @@ const seleniumTests = function () {
     });
 
     //selection.feature
-    this.Then(/^I expect to see a "([^"]*)" within a "([^"]*)"$/, (arg1, arg2, callback) => {
-        // let checkboxElement = $$("article-checkbox");
-        // if(checkboxElement.getValue() === "false"){
-        //     return;
-        // }
-        expect(null).to.not.equal(null); // TODO
+    this.Then(/^I expect to see a "([^"]*)" within a "([^"]*)"$/, (arg1, arg2) => { //check for checkbox
+        let articleDiv = $$("articles-article-list-div");
+        let noElements = "True";
+        for (let i = 0; i < articleDiv.length; ++i) {
+            if (articleDiv[i].getText() === "article-checkbox") {
+                noElements = "False";
+            }
+        }
+        if(noElements === "False"){
+            return;
+        }
     });
 
     //ui.feature
-    this.When(/^I am on the author page$/, (url) =>{
+    this.When(/^I am on the selected word page$/, (url) =>{
         if (browser.url(url) === "http://localhost:3000/paperlist/present"){
             return;
         }
@@ -128,7 +133,7 @@ const seleniumTests = function () {
         let articleDiv = $$("articles-article-list-div");
         let noElements = "True";
         for (let i = 0; i < articleDiv.length; ++i) {
-            if (articleDiv[i].getText() === "present") {
+            if (articleDiv[i].getText() === "article-container") {
                 noElements = "False";
             }
         }
@@ -136,11 +141,12 @@ const seleniumTests = function () {
             return;
         }
     });
-    this.Then(/^I expect a list of Articles to display under the title$/,(element, text)=> {
+
+    this.Then(/^I expect the article component to list the authors$/,(element, text)=> {
         let articleDiv = $$("articles-article-list-div");
         let noElements = "True";
         for (let i = 0; i < articleDiv.length; ++i) {
-            if (articleDiv[i].getText() === "present") {
+            if (articleDiv[i].getText() === "article-authors-container") { //searching for authors
                 noElements = "False";
             }
         }
@@ -149,64 +155,63 @@ const seleniumTests = function () {
         }
     });
 
-
     /* New stuff */
-    // download_button
-    this.Then(/^I expect a download button "([^"]*)" with the text "([^"]*)" to not exist$/, (element, word) => {
-        let downloadBtn = $(element);
-        expect(downloadBtn.state).to.equal("failure");
-    });
-    this.Then(/^I expect a download button "([^"]*)" with the text "([^"]*)" to exist$/, (element, word) => {
-      browser.pause(5500);
-      let downloadBtn = $(element);
-      expect(downloadBtn.state).to.equal("success");
-      expect(downloadBtn.getText()).to.equal(word);
-    });
+  // download_button
+  this.Then(/^I expect a download button "([^"]*)" with the text "([^"]*)" to not exist$/, (element, word) => {
+    let downloadBtn = $(element);
+    expect(downloadBtn.state).to.equal("failure");
+  });
+  this.Then(/^I expect a download button "([^"]*)" with the text "([^"]*)" to exist$/, (element, word) => {
+    browser.pause(5500);
+    let downloadBtn = $(element);
+    expect(downloadBtn.state).to.equal("success");
+    expect(downloadBtn.getText()).to.equal(word);
+  });
 
-    this.Then(/^Clicking the "([^"]*)" opens a download link$/, (element) => {
-      browser.pause(7000);
-      let downloadBtn = $(element);
-      downloadBtn.click();
-      expect(downloadBtn.state).to.equal("success");
-    });
+  this.Then(/^Clicking the "([^"]*)" opens a download link$/, (element) => {
+    browser.pause(7000);
+    let downloadBtn = $(element);
+    downloadBtn.click();
+    expect(downloadBtn.state).to.equal("success");
+  });
 
-    // history
-    this.Then(/^I expect a "([^"]*)" with the history$/, (element) => {
-      history = $(element);
-      expect(history.state).to.eq('success');
-    });
+  // history
+  this.Then(/^I expect a "([^"]*)" with the history$/, (element) => {
+    history = $(element);
+    expect(history.state).to.eq('success');
+  });
 
-    this.When(/^I click on a search history item$/, () => {
-      let historyItems = $$("#search-history-item");
+  this.When(/^I click on a search history item$/, () => {
+    let historyItems = $$("#search-history-item");
 
-      for (let i = 0; i < historyItems.length; ++i) {
-        if (historyItems[i].getText() === "Smith") {
-          historyItems[i].click;
-          break;
-        }
+    for (let i = 0; i < historyItems.length; ++i) {
+      if (historyItems[i].getText() === "Smith") {
+        historyItems[i].click;
+        break;
       }
-    });
+    }
+  });
 
-    this.Then(/^The word cloud is regenerated$/, (element) => {
-      browser.pause(7000);
-      let wordCloud = $("#word-cloud");
-      expect(wordCloud.state).to.equal("success");
-    });
+  this.Then(/^The word cloud is regenerated$/, (element) => {
+    browser.pause(7000);
+    let wordCloud = $("#word-cloud");
+    expect(wordCloud.state).to.equal("success");
+  });
 
-    // progress bar
-    this.When(/^The search bar is empty$/,  (element) => {
-        expect(null).to.not.equal(null); // TODO
-    });
+  // progress bar
+  this.When(/^The search bar is empty$/,  (element) => {
+    expect(null).to.not.equal(null); // TODO
+  });
 
-    this.Then(/^There isn't a "([^"]*)"$/, (element) => {
-      expect($(element).state).to.equal("failure");
-    });
+  this.Then(/^There isn't a "([^"]*)"$/, (element) => {
+    expect($(element).state).to.equal("failure");
+  });
 
-    this.Then(/^I expect a progress bar "([^"]*)" to show me the progress$/, (element) => {
-      expect($(element).getCssProperty('opacity').value).to.equal(1);
-    });
+  this.Then(/^I expect a progress bar "([^"]*)" to show me the progress$/, (element) => {
+    expect($(element).getCssProperty('opacity').value).to.equal(1);
+  });
 
-    // num items box
+  // num items box
   this.Then(/^I expect there to be a "([^"]*)" for the number of items$/, (element) => {
     expect($(element).state).to.equal("success");
   });
