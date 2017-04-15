@@ -1,5 +1,4 @@
 import axios from "axios";
-import articleData from "../data/articleData";
 
 export function generatePapers(query) {
   console.log("Querying API");
@@ -51,6 +50,24 @@ export function fetchBibtex() {
 export function clearBibtex() {
   return function(dispatch) {
     dispatch({type: "BIBTEX_CLEAR", payload: {bibtex:""}})
+  }
+}
+
+export function fetchAbstract() {
+  return function(dispatch) {
+    axios.get("http://localhost:8888/abstract")
+      .then((response) => {
+        dispatch({type: "ABSTRACT_RECEIVED", payload: response.data})
+      })
+      .catch((err) => {
+        dispatch({type: "ABSTRACT_REJECTED", payload: err})
+      })
+  }
+}
+
+export function clearAbstract() {
+  return function(dispatch) {
+    dispatch({type: "ABSTRACT_CLEAR", payload: {abstract:""}})
   }
 }
 

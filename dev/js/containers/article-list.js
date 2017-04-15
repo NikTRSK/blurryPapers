@@ -45,7 +45,7 @@ export default class ArticleList extends React.Component {
   }
 
   render() {
-  const { word } = this.props.params
+    const { word } = this.props.params
     const articles = this.sortedArticles()
     const mappedArticles = articles.map((article, i) => <li><ArticleItem {...this.props} key={article.title + i} word={word} onChange={this.checkArticle.bind(this)} article={article} /></li>)
     return (
