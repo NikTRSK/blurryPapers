@@ -3,10 +3,32 @@
 session_start(); // This has to be on the top. Initializes a session
 error_reporting(E_ERROR | E_PARSE);
 
-// class bibtex
-// {
-// 	public $bibtex;
-// }
+class bibtex
+{
+	public $bibtex;
+}
+
+class abstrac
+{
+	public $abstract;
+}
+
+class paperReturn
+{
+	public $title;
+	public $authors;
+	public $downloadLink;
+	public $conference;
+	public $doi;
+	function __construct($paper)
+	{
+		$this->title = $paper->mPaperName;
+		$this->authors = $paper->mAuthorNames;
+	    $this->downloadLink = $paper->mPDFLocalURL;
+	    $this->conference = $paper->mConference;
+	    $this->doi = $paper->mDoi;
+	}
+}
 // import statements
 require('MasterLinkClass.php');
 // echo ($_GET("query"));
@@ -31,7 +53,14 @@ else if ( isset($_GET["word"]) )
 	// var_dump($masterLink);
 	$papersList = $masterLink->getPapersWithWord($_GET["word"]);
 	// $_SESSION["masterLink"] = serialize($masterLink);
-	echo json_encode($papersList, JSON_PRETTY_PRINT);
+	$return = array();
+
+	foreach ($papersList as $paper) {
+		$temp = new paperReturn($paper);
+		array_push($return, $temp);
+	}
+
+	echo json_encode($return, JSON_PRETTY_PRINT);
 }
 // returns bibtex given doi
 else if ( isset($_GET["doiBibtex"]) ) 
@@ -39,7 +68,9 @@ else if ( isset($_GET["doiBibtex"]) )
 	$masterLink = unserialize($_SESSION["masterLink"]);
 	$bibtex = $masterLink->getBibtexFromDoi($_GET["doiBibtex"]);
 	// $_SESSION["masterLink"] = serialize($masterLink);
-	echo json_encode($bibtex, JSON_PRETTY_PRINT);
+	$result = new bibtex();
+	$result->bibtex = $bibtex;
+	echo json_encode($result, JSON_PRETTY_PRINT);
 }
 // returns abstract given doi
 else if ( isset($_GET["doiAbstract"]) ) 
@@ -47,7 +78,9 @@ else if ( isset($_GET["doiAbstract"]) )
 	$masterLink = unserialize($_SESSION["masterLink"]);
 	$abstract = $masterLink->getAbstractFromDoi($_GET["doiAbstract"]);
 	// $_SESSION["masterLink"] = serialize($masterLink);
-	echo json_encode($abstract, JSON_PRETTY_PRINT);
+	$result = new abstrac ();
+	$result->abstract = $abstract;
+	echo json_encode($result, JSON_PRETTY_PRINT);
 }
 else 
 {
