@@ -9,6 +9,9 @@ class Paper implements JsonSerializable
 	public $mAuthorNames;
 	public $mPDFURLLink;
     public $mPDFLocalURL;
+    public $mConference;
+    public $mDoi;
+    public $mBibtex;
 
 	// constructor
 	public function __construct($paperName, $authorNames, $pdfURLLink, $abstract) 
@@ -33,6 +36,10 @@ class Paper implements JsonSerializable
         $path = "data/". $paperName. ".pdf";
 
         $this->mPDFLocalURL = $path;
+        if ($pdfURLLink == "local")
+        {
+            return;
+        }
 
         $mDownloader = new PDFDownloader();
         $mDownloader->downloadPDF($url, $path);
@@ -87,6 +94,21 @@ class Paper implements JsonSerializable
     public function setAbstract($abstract)
     {
         $this->mAbstract = $abstract;
+    }
+
+    public function setBibtex($bibtex)
+    {
+        $this->mBibtex = $bibtex;
+    }
+
+    public function setDoi($doi)
+    {
+        $this->mDoi = $doi;
+    }
+
+    public function setConference($conf)
+    {
+        $this->mConference = $conf;
     }
 
     public function jsonSerialize()

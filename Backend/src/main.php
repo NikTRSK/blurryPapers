@@ -8,7 +8,8 @@
 
 	# Create a DOM parser object
 	$MasterLink = new MasterLinkClass();
-	$MasterLink->searchQuery("Halfond");
+	// $MasterLink->searchQuery("Halfond");
+	$top200WordsArray = $MasterLink->getTop200WordsFromQueryAndNumPapers("Halfond", 1);
 
 	var_dump($MasterLink->getWordMap());
 	// $crawler = new WebCrawler("ACM");

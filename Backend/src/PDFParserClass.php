@@ -16,7 +16,7 @@ class PDFParser implements JsonSerializable
     {
 		$a = new PDF2Text();
 		$data = $a->parseFile($pdfLocalURL); 
-		
+		// echo $data;
 		// for debugging purposes
 		// $my_file = '../rsc/output.txt';
 		// $handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file);

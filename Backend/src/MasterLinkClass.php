@@ -47,15 +47,42 @@ class MasterLinkClass implements JsonSerializable
     {
         // crawl ACM with given query
         // TODO: Need to account for number of papers to search
-        $url = "http://dl.acm.org/results.cfm?query=".$query;
-        $this->ACMCrawler->getContent($url);
-        $paperList = $this->ACMCrawler->getPaperContent();
+        $url = "http://dl.acm.org/results.cfm?query=". $query ;
+        // $this->ACMCrawler->getContent($url);
+        // $paperList = $this->ACMCrawler->getPaperContent();
         
         // add papers and construct all the data
-        foreach ($paperList as $paper)
-        {
-            $this->mDataStore->addPaper($paper);            
-        }
+        // foreach ($paperList as $paper)
+        // {
+        //     $this->mDataStore->addPaper($paper);            
+        // }
+
+        // if (sizeof($paperList) <= 10)
+        // {
+        $paper = new Paper("AMNESIA: analysis and monitoring for NEutralizing SQL-injection attacks", array("Halfond"), "local", "abstract");
+        $paper->setConference("Proceeding
+ESEC/FSE 2015 Proceedings of the 2015 10th Joint Meeting on Foundations of Software Engineering
+Pages 25-37");
+        $paper->setDoi("10.1145/2786805.2786836");
+        $paper->setBibtex("@inproceedings{Safi:2015:DEA:2786805.2786836,
+ author = {Safi, Gholamreza and Shahbazian, Arman and Halfond, William G. J. and Medvidovic, Nenad},
+ title = {Detecting Event Anomalies in Event-based Systems},
+ booktitle = {Proceedings of the 2015 10th Joint Meeting on Foundations of Software Engineering},
+ series = {ESEC/FSE 2015},
+ year = {2015},
+ isbn = {978-1-4503-3675-8},
+ location = {Bergamo, Italy},
+ pages = {25--37},
+ numpages = {13},
+ url = {http://doi.acm.org/10.1145/2786805.2786836},
+ doi = {10.1145/2786805.2786836},
+ acmid = {2786836},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {Android application, Event anomaly, Event-based system, Race detection},
+} ");
+        $this->mDataStore->addPaper($paper);
+        // }
 
         // return the most frequent words
         return $this->mDataStore->returnMostFrequentWords();
@@ -63,17 +90,17 @@ class MasterLinkClass implements JsonSerializable
 
     public function getPapersWithWord($word)
     {
-        return $mDataStore->returnPapersListForWord($word);
+        return $this->mDataStore->returnPapersListForWord($word);
     }
 
     public function getBibtexFromDoi($doi)
     {
-        return $mDataStore->returnBibtexFromDoi($doi);
+        return $this->mDataStore->returnBibtexFromDoi($doi);
     }
 
     public function getAbstractFromDoi($doi)
     {
-        return $mDataStore->returnAbstractFromDoi($doi);
+        return $this->mDataStore->returnAbstractFromDoi($doi);
     }
 
     public function jsonSerialize()

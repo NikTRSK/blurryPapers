@@ -12,13 +12,17 @@ function cmp($a, $b) {
 class DataStoreClass implements JsonSerializable
 {
 	public $mWordStringToFrequencyMap;
-	public $mWordStringToPapersListMap; // word to map of name to paper object
 
+	public $mWordStringToPapersListMap; // word to map of name to paper object
+	public $mDoiAbstractMap;
+	public $mDoiBibtexMap;
 	// constructor
 	public function __construct()
 	{
 		$this->mWordStringToFrequencyMap = array();
 		$this->mWordStringToPapersListMap = array();
+		$this->mDoiBibtexMap = array();
+		$this->mDoiAbstractMap = array();
 	}
 
 	public function addPaper($paper)
@@ -27,13 +31,14 @@ class DataStoreClass implements JsonSerializable
 		// convert paper to text and calculate frequency account
 		$pdfParser = new PDFParser();
 		$words = $pdfParser->convertPDFToText($paper->mPDFLocalURL);
-
 		foreach($words as $word)
 		{
 			$this->addWordStringToFrequencyMap(strtolower($word));
 			$this->addWordStringToPapersListmap(strtolower($word),$paper);
 			// echo $word."\n";
 		}
+		$this->mDoiAbstractMap[$paper->mDoi] = $paper->mAbstract;
+		$this->mDoiBibtexMap[$paper->mDoi] = $paper->mBibtex;
 	}
 
 	// encapsulation methods, get and set maps
@@ -82,6 +87,8 @@ class DataStoreClass implements JsonSerializable
 			$this->mWordStringToPapersListMap[$word][$paper->mPaperName] = $paper;
 		}
 	}
+
+
 
 	// return 200 words
 	public function returnMostFrequentWords()
@@ -144,6 +151,15 @@ class DataStoreClass implements JsonSerializable
 		{
 			return null;
 		}
+	}
+	public function returnBibtexFromDoi ($doi)
+	{
+		return $this->mDoiBibtexMap[$doi];
+	}
+
+	public function returnAbstractFromDoi ($doi)
+	{
+		return $this->mDoiAbstractMap[$doi];
 	}
 
 	public function jsonSerialize()
