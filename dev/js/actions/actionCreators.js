@@ -39,9 +39,9 @@ export function clearArticles() {
   }
 }
 
-export function fetchBibtex() {
+export function fetchBibtex(doi) {
   return function(dispatch) {
-    axios.get("http://localhost:8888/bibtex")
+    axios.get(`http://localhost:8888/Server.php?doiBibtex=${doi}`)
       .then((response) => {
         dispatch({type: "BIBTEX_RECEIVED", payload: response.data})
       })
@@ -57,9 +57,9 @@ export function clearBibtex() {
   }
 }
 
-export function fetchAbstract() {
+export function fetchAbstract(doi) {
   return function(dispatch) {
-    axios.get("http://localhost:8888/abstract")
+    axios.get(`http://localhost:8888/Server.php?doiAbstract=${doi}`)
       .then((response) => {
         dispatch({type: "ABSTRACT_RECEIVED", payload: response.data})
       })

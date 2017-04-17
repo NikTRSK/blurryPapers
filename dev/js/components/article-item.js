@@ -19,7 +19,8 @@ export default class ArticleItem extends React.Component {
     this.handleCheckbox = this.handleCheckbox.bind(this)
   }
   openAbstract() {
-    this.props.fetchAbstract()
+	  const {doi } = this.props.article
+	  this.props.fetchAbstract(doi)
     this.setState({ showAbstract: true })
   }
   closeAbstract() {
@@ -27,7 +28,8 @@ export default class ArticleItem extends React.Component {
     this.setState({ showAbstract: false })
   }
   openBibtex() {
-    this.props.fetchBibtex()
+	  const { doi } = this.props.article
+	  this.props.fetchBibtex(doi)
     this.setState({ showModal: true })
   }
   closeBibtex() {
