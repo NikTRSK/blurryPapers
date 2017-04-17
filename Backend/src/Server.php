@@ -9,7 +9,7 @@ class bibtex
 }
 
 class abstrac
-{
+{	
 	public $abstract;
 }
 

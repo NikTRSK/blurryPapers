@@ -59,6 +59,8 @@ export default class ArticleItem extends React.Component {
   }
 
   render() {
+    console.log("HELLO FROM ARTICLE ITEM")
+    console.log(this.props)
     const { authors, conferences, downloadLink, title, doi, frequency } = this.props.article
     const { bibtex } = this.props.bibtexData.bibtex
     const { abstract } = this.props.abstractData.abstract

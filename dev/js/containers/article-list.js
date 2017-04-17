@@ -17,7 +17,8 @@ export default class ArticleList extends React.Component {
   /* Automatically fetch articles */
   // TODO: Rewrite fetch articles to take parameter and use as query parameter.
   componentWillMount() {
-    this.props.fetchArticles()
+    const { word } = this.props.params
+    this.props.fetchArticles(word)
   }
 
   /*
@@ -63,9 +64,13 @@ export default class ArticleList extends React.Component {
   * */
   sortedArticles() {
     let articles = []
-    if (this.props.articleData.articles) {
-      articles = this.props.articleData.articles
+
+    if (this.props.articleData.articles.articles) {
+      articles = this.props.articleData.articles.articles
     }
+    console.log("SORTING ARTICLES")
+    console.log(this.props.articleData.articles)
+
     switch (this.state.sortType) {
       case 0:
         return [...articles].sort((a, b) => a.title > b.title)
@@ -114,6 +119,8 @@ export default class ArticleList extends React.Component {
   }
 
   render() {
+    console.log("Render Article List....")
+    console.log(this.props)
     const { word } = this.props.params
     const articles = this.sortedArticles()
     const mappedArticles = articles.map((article, i) => <li><ArticleItem {...this.props} key={article.title + i} word={word} onChange={this.checkArticle.bind(this)} article={article} /></li>)
@@ -168,10 +175,10 @@ export default class ArticleList extends React.Component {
   }
 }
 
-ArticleList.propTypes = {
-  fetchArticles: React.PropTypes.func,
-  addToHistory: React.PropTypes.func,
-  generatePapers: React.PropTypes.func,
-  articleData: React.PropTypes.object,
-  params: React.PropTypes.object
-}
+// ArticleList.propTypes = {
+//   fetchArticles: React.PropTypes.func,
+//   addToHistory: React.PropTypes.func,
+//   generatePapers: React.PropTypes.func,
+//   articleData: React.PropTypes.object,
+//   params: React.PropTypes.object
+// }
