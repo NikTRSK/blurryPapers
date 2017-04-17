@@ -53,7 +53,7 @@ Super awesome app for project 2 called blurryPaper's.
 > npm run start 
 ```
 
-To see the results of your hard work go to: [http://localhost:3000/](http://localhost:3000/)
+To see the results of your hard work go to: [http://localhost:8888/](http://localhost:8888/)
 * Yes even Firefox, Jean 
 * YAY!!
 

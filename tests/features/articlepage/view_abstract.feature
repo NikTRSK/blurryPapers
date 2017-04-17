@@ -4,9 +4,9 @@ Feature: Be able to view the abstract of an article
   #Test 11
   @javascript
   Scenario: Abstract popup
-    Given I am on the homepage "http://localhost:3000"
+    Given I am on the homepage "http://localhost:8888"
     When I enter "Smith" in the "#search-input-box"
     When The "#search-button" is clicked
-    When I select a "present" from the "#word-cloud"
+    When I select a "the" from the "#word-cloud"
     When I click on the article title
     Then I expect to see a popup containing the abstract

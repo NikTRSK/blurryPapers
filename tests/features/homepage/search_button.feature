@@ -3,5 +3,5 @@ Feature: Search Button check
 
   @javascript
   Scenario: When I am on the homepage there is a button with the text Search.
-    Given I am on the homepage "http://localhost:3000"
+    Given I am on the homepage "http://localhost:8888"
     Then I expect a "#search-button" with the text "Search"

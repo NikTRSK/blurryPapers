@@ -4,9 +4,9 @@ Feature: Title check
   #Test 1
   @javascript
   Scenario: Get the title of webpage
-    Given I am on the homepage "http://localhost:3000"
+    Given I am on the homepage "http://localhost:8888"
     When I enter "Smith" in the "#search-input-box"
     When The "#search-button" is clicked
-    When I select a "present" from the "#word-cloud"
-    Then I expect "#articles-title" to be the selected word from "present"
+    When I select a "the" from the "#word-cloud"
+    Then I expect "#articles-title" to be the selected word from "the"
 

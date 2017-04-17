@@ -3,12 +3,12 @@ Feature: Word Cloud check
 
   @javascript
   Scenario: When I am on the homepage initially the word cloud is not present
-    Given I am on the homepage "http://localhost:3000"
+    Given I am on the homepage "http://localhost:8888"
     Then There is not a "#word-cloud"
 
   @javascript
   Scenario: When I am on the homepage and I search for something there is a word cloud
-    Given I am on the homepage "http://localhost:3000"
+    Given I am on the homepage "http://localhost:8888"
     When I enter "Smith" in the "#search-input-box"
     When The "#search-button" is clicked
     Then There is a "#word-cloud"
