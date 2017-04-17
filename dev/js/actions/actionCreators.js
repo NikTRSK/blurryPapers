@@ -1,21 +1,19 @@
 import axios from "axios";
+import { showLoading } from 'react-redux-loading-bar'
 
-export function generatePapers(query) {
-  console.log("Querying API");
-  return {
-    type: 'GENERATE_WORDCLOUD',
-    query
-  }
-}
-
-export function getPapers(word, count) {
-  console.log("GETTING PAPERS: " + word + ", " + count);
-  return {
-    type: 'GET_PAPERS',
-    word,
-    count
-  }
-}
+export const generatePapers = (query) => {
+  const request = axios.get("http://localhost:8888/generateWordcloud/" + query);
+  return (dispatch) => {
+    dispatch(showLoading());
+    request
+      .then((response) => {
+        dispatch({type: "GENERATE_WORDCLOUD_FULFILLED", payload: response.data})
+      })
+      .catch((err) => {
+        dispatch({type: "GENERATE_WORDCLOUD_REJECTED", payload: err})
+      })
+  };
+};
 
 export function fetchArticles() {
   return function(dispatch) {
