@@ -41,7 +41,7 @@
 			}
 			if ($this->mConfig == "ACM")
 			{
-				// $url = "http://dl.acm.org/results.cfm?query=Halfond";
+				$url = "http://dl.acm.org/results.cfm?query=Jeffery+Miller";
 				// $url = "http://dl.acm.org/results.cfm?query=" . $url;
 				$this->mURL = $url;
 
@@ -110,7 +110,12 @@
 
 					//URL
 					$urlQuery = $finder->query("./*[contains(@class, 'ft')]", $key)->item(0);
+					// try {
+					if (!$finder->query("./a", $urlQuery)->item(0)) continue;
+
 					$urlQuery1 = $finder->query("./a", $urlQuery)->item(0)->getAttribute('href');
+					
+					
 					$href = "http://dl.acm.org/" . $urlQuery1;
 	
 				   $curl = curl_init($href);

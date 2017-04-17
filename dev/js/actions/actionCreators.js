@@ -7,18 +7,24 @@ export const generatePapers = (query, count) => {
     dispatch(showLoading());
     request
       .then((response) => {
+        console.log("GENERATE_PAPERS_ACTION_FUNCTION")
+        console.log(response)
         dispatch({type: "GENERATE_WORDCLOUD_FULFILLED", payload: response.data})
       })
       .catch((err) => {
+        console.log("GENERATE_PAPERS_ACTION_FUNCTION_ERR")
+        console.log(err)
         dispatch({type: "GENERATE_WORDCLOUD_REJECTED", payload: err})
       })
   };
 };
 
-export function fetchArticles() {
+export function fetchArticles(word) {
   return function(dispatch) {
-    axios.get("http://localhost:8888/articles")
+    axios.get(`http://localhost:8888/Server.php?word=${word}`)
       .then((response) => {
+	      console.log("FETCH_ARTICLES")
+        console.log(response.data)
         dispatch({type: "ARTICLES_RECEIVED", payload: response.data})
       })
       .catch((err) => {

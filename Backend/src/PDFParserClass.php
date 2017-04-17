@@ -2,6 +2,7 @@
 
 require_once ("pdf2text.php");
 
+include 'vendor/autoload.php';
 
 function multiexplode ($delimiters,$string) {
     
@@ -14,8 +15,9 @@ class PDFParser implements JsonSerializable
 { 
     public function convertPDFToText($pdfLocalURL)
     {
-		$a = new PDF2Text();
-		$data = $a->parseFile($pdfLocalURL); 
+		$a = new \Smalot\PdfParser\Parser();
+		$pdf = $a->parseFile($pdfLocalURL); 
+        $data = $pdf->getText();
 		// echo $data;
 		// for debugging purposes
 		// $my_file = '../rsc/output.txt';

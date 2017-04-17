@@ -9,7 +9,7 @@ class bibtex
 }
 
 class abstrac
-{
+{	
 	public $abstract;
 }
 
@@ -17,15 +17,19 @@ class paperReturn
 {
 	public $title;
 	public $authors;
+	public $wordFrequency;
 	public $downloadLink;
 	public $conference;
 	public $doi;
+
 	function __construct($paper)
 	{
 		$this->title = $paper->mPaperName;
 		$this->authors = $paper->mAuthorNames;
+		$this->wordFrequency = 718;
 	    $this->downloadLink = $paper->mPDFLocalURL;
-	    $this->conference = $paper->mConference;
+	    $this->conference = array();
+	    array_push($this->conference, $paper->mConference);
 	    $this->doi = $paper->mDoi;
 	}
 }

@@ -59,7 +59,10 @@ export default class ArticleItem extends React.Component {
   }
 
   render() {
-    const { authors, conferences, downloadLink, title, doi, frequency } = this.props.article
+    console.log("HELLO FROM ARTICLE ITEM")
+    console.log(this.props)
+    const { authors, conference, title, doi, wordFrequency } = this.props.article
+	  let downloadLink = "http://localhost:8888/resource/AMNESIA.pdf"
     const { bibtex } = this.props.bibtexData.bibtex
     const { abstract } = this.props.abstractData.abstract
     const { word } = this.props
@@ -70,7 +73,7 @@ export default class ArticleItem extends React.Component {
 				{author}
       </IndexLink>
 		)
-    const mappedConferences = conferences.map((conference, i) =>
+    const mappedConferences = conference.map((conference, i) =>
       <IndexLink to="/" key={i} onClick={this.conferenceRoute.bind(this, conference)}>
 				{!!i && ', '}
 				{conference}
@@ -135,7 +138,7 @@ export default class ArticleItem extends React.Component {
         <div className="row" id="article-authors-container">
           <span id="article-occurences-1">{word}: </span>
           <span id="article-occurences-2">Occurs </span>
-          <span id="article-occurences-1">{frequency} </span>
+          <span id="article-occurences-1">{wordFrequency} </span>
           <span id="article-occurences-2">times.</span>
         </div>
 

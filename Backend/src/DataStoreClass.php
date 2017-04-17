@@ -9,6 +9,18 @@ function cmp($a, $b) {
     return ($a > $b) ? -1 : 1;
 }
 
+class elem
+{
+	public $value;
+	public $count;
+
+	function __construct($value, $count)
+	{
+		$this->value = $value;
+		$this->count = $count;
+	}
+}
+
 class DataStoreClass implements JsonSerializable
 {
 	public $mWordStringToFrequencyMap;
@@ -88,8 +100,6 @@ class DataStoreClass implements JsonSerializable
 		}
 	}
 
-
-
 	// return 200 words
 	public function returnMostFrequentWords()
 	{
@@ -102,18 +112,30 @@ class DataStoreClass implements JsonSerializable
 		$i = 0;
 		// var_dump($this->mWordStringToFrequencyMap);
 
+		// [ {word : ""} {count : #}, ]
 		foreach ($this->mWordStringToFrequencyMap as $key => $value) 
 		{
-			if ($i < $counter)
+			if (strlen($key) > 2)
 			{
-    			// array_push($mostFrequentWords, $key => $word);
-    			$mostFrequentWords[$key] = $value;
-    			$i++;
-    		}
-    		else
-    		{
-    			break;
-    		}
+				if ($i < $counter)
+				{
+
+					$obj = new elem($key, $value);
+					// $obj = new elem($key);
+					// elem->value = $key;
+					// elem->count = $value;
+
+					array_push($mostFrequentWords, $obj);
+
+	    			// array_push($mostFrequentWords, $key => $word);
+	    			// $mostFrequentWords[$key] = $value;
+	    			$i++;
+	    		}
+	    		else
+	    		{
+	    			break;
+	    		}
+	    	}
 		}
 
 		// var_dump($mostFrequentWords);
