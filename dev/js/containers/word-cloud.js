@@ -4,7 +4,12 @@ import '../../styles/wordcloud.sass';
 
 const WordCloud = React.createClass ({
   render() {
-    if (this.props.paperData.length > 0) {
+    let array = []
+    if(this.props.paperData.paperData)
+      array = this.props.paperData.paperData
+    if (array.length > 0) {
+    // console.log(this.props.paperData.paperData);
+    // if (this.props.paperData.paperData.length > 0) {
       return (
         <div>
           <div id="myModal" className="modal" ref="myModal">
@@ -19,7 +24,7 @@ const WordCloud = React.createClass ({
 
             <TagCloud minSize={8}
                       maxSize={90}
-                      tags={this.props.paperData[0]}
+                      tags={array}
                       onClick={
                         (tag) => {
                           this.props.history.push({
@@ -33,7 +38,7 @@ const WordCloud = React.createClass ({
         </div>
       );
     } else {
-      return (<div/>)
+      return (<div/>);
     }
   }
 });

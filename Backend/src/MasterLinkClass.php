@@ -27,6 +27,7 @@ class MasterLinkClass implements JsonSerializable
             {
                 $this->mDataStore->addPaper($paper);            
             }
+            echo json_encode($paperList);
         }
 
     }
@@ -51,15 +52,18 @@ class MasterLinkClass implements JsonSerializable
         // $this->ACMCrawler->getContent($url);
         // $paperList = $this->ACMCrawler->getPaperContent();
         
-        // add papers and construct all the data
+        // // add papers and construct all the data
+        // $i = 0;
         // foreach ($paperList as $paper)
         // {
         //     $this->mDataStore->addPaper($paper);            
         // }
 
+        // echo json_encode($paperList);
+
         // if (sizeof($paperList) <= 10)
         // {
-        $paper = new Paper("AMNESIA: analysis and monitoring for NEutralizing SQL-injection attacks", array("Halfond"), "local", "abstract");
+        $paper = new Paper("AMNESIA: analysis and monitoring for NEutralizing SQL-injection attacks", array("Halfond"), "local", "The use of web applications has become increasingly popular in our routine activities, such as reading the news, paying bills, and shopping on-line. As the availability of these services grows, we are witnessing an increase in the number and sophistication of attacks that target them. In particular, SQL injection, a ...");
         $paper->setConference("Proceeding
 ESEC/FSE 2015 Proceedings of the 2015 10th Joint Meeting on Foundations of Software Engineering
 Pages 25-37");

@@ -33,7 +33,7 @@ class Paper implements JsonSerializable
 
         //Downloading the PDF File
         $url  = $pdfURLLink;
-        $path = "data/". $paperName. ".pdf";
+        $path = "resource/". $paperName. ".pdf";
 
         $this->mPDFLocalURL = $path;
         if ($pdfURLLink == "local")
