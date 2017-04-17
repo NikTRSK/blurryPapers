@@ -1,8 +1,8 @@
 import axios from "axios";
 import { showLoading } from 'react-redux-loading-bar'
 
-export const generatePapers = (query) => {
-  const request = axios.get("http://localhost:8888/generateWordcloud/" + query);
+export const generatePapers = (query, count) => {
+  const request = axios.get("http://localhost:8888/Server.php?query=" + query + "&paperCount="+count);
   return (dispatch) => {
     dispatch(showLoading());
     request

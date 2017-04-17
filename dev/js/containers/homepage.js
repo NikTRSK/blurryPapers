@@ -14,7 +14,7 @@ const homepage = React.createClass ({
     const searchQuery = this.refs.query.value;
     const count = this.refs.numArticles.value;
     this.props.addToHistory(searchQuery, count);
-    this.props.generatePapers(searchQuery);
+    this.props.generatePapers(searchQuery, count);
   },
   generateImage(e) {
     e.preventDefault();
