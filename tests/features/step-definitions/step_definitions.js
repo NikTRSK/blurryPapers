@@ -42,25 +42,23 @@ const seleniumTests = function () {
 
     // word_cloud.feature
     this.Then(/^There is not a "([^"]*)"$/, (element) => {
-        let wordCloud = $(element);
-        console.log(wordCloud.value.ELEMENT);
-        expect(wordCloud.value.ELEMENT).to.eq('0');
+        browser.pause(3000);
+        let wordcloud = $(element);
+        expect(wordcloud.state).to.equal("failure");
     });
 
-    this.When(/^There is a wordcloud$/, function (callback) {
-        expect(null).to.equal(null);
-        let inputBox = $("#search-input-box");
-        inputBox.setValue("Smith");
-
-        let searchBtn = $("#search-button");
-        searchBtn.click();
+    this.When(/^There is a "([^"]*)"$/, (element)=> {
+        browser.pause(5000);
+        let wordcloud = $(element);
+        expect(wordcloud.state).to.equal("success");
     });
 
     this.Then(/^There is a "([^"]*)"$/, (element) => {
-        // let wordCloud = $(element);
-        // console.log(wordCloud.value.ELEMENT);
-        // expect(wordCloud.value.ELEMENT).to.not.eq('0');
-        expect(null).to.equal(null);
+        //let inputBox = $("#search-input-box");
+        browser.pause(5000);
+        let wordCloud = $(element);
+        expect(wordCloud.state).to.equal("success");
+
     });
 
     //download_image_button.feature
