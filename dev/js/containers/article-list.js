@@ -63,10 +63,18 @@ export default class ArticleList extends React.Component {
   * 3: Frequency
   * */
   sortedArticles() {
+	  //return [{
+		 // title: "Bitches",
+		 // conference: ["1"],
+		 // authors: ["halfond"],
+		 // wordFrequency: 417,
+		 // doi: "adw224r"
+	  //}];
+
     let articles = []
 
-    if (this.props.articleData.articles.articles) {
-      articles = this.props.articleData.articles.articles
+    if (this.props.articleData.articles) {
+      articles = this.props.articleData.articles
     }
     console.log("SORTING ARTICLES")
     console.log(this.props.articleData.articles)

@@ -23,6 +23,7 @@ export function fetchArticles(word) {
   return function(dispatch) {
     axios.get(`http://localhost:8888/Server.php?word=${word}`)
       .then((response) => {
+	      console.log("FETCH_ARTICLES")
         console.log(response.data)
         dispatch({type: "ARTICLES_RECEIVED", payload: response.data})
       })
