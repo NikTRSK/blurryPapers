@@ -96,12 +96,18 @@ export default class ArticleList extends React.Component {
   /* Generates and saves a txt of the article list */
   listToTXT() {
     const { articles } = this.props.articleData
-    const articleArray = articles.map((article, i) => {
-      const authors = article.authors.join()
-      const conferences = article.conferences.join()
-      return `${i + 1}: ${article.title}\nAuthors: ${authors}\nConferences: ${conferences}\n`
+	  const articleArray = articles.map((article, i) => {
+		  let conferences = ""
+		  let authors = ""
+		  if (article.authors) {
+			  authors = article.authors.join()
+		  }
+			if (article.conferences) {
+				conferences = article.conferences.join()
+			}
+		  return `${i + 1}: ${article.title}\nAuthors: ${authors}\nConferences: ${conferences}\n`
     })
-    const blob = new Blob(articleArray, {
+	  const blob = new Blob(articleArray, {
       type: 'text/plain;charset=utf-8'
     })
     FileSaver.saveAs(blob, 'article-list.txt')
@@ -114,9 +120,15 @@ export default class ArticleList extends React.Component {
     doc.setFontSize(10)
     // write articles
     articles.forEach((article, i) => {
+	    let authors = ""
+	    let conferences = ""
       const startY = 3 * i * 8 + 10
-      const authors = article.authors.join()
-      const conferences = article.conferences.join()
+	    if (article.authors) {
+		    authors = article.authors.join()
+	    }
+	    if (article.conferences) {
+		    conferences = article.conferences.join()
+	    }
       doc.setFontStyle('bold')
       doc.text(`${i + 1}. ${article.title}`, 10, startY)
       doc.setFontStyle('normal')
