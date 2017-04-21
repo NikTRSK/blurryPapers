@@ -7,7 +7,7 @@ Feature: Buttons to download the list of selected articles
     Given I am on the homepage "http://localhost:8888"
     When I enter "Smith" in the "#search-input-box"
     When The "#search-button" is clicked
-    When I select a "the" from the "#word-cloud"
+    When I select a "productions" from the "#word-cloud"
     Then I expect to see a "#articles-dl-txt-button" download button with the text "Download List as TXT"
 
   #Test 9
@@ -16,5 +16,5 @@ Feature: Buttons to download the list of selected articles
     Given I am on the homepage "http://localhost:8888"
     When I enter "Smith" in the "#search-input-box"
     When The "#search-button" is clicked
-    When I select a "the" from the "#word-cloud"
+    When I select a "productions" from the "#word-cloud"
     Then I expect to see a "#articles-dl-pdf-button" button to download with the text "Download List as PDF"

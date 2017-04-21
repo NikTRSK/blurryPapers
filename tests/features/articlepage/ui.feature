@@ -7,7 +7,7 @@ Feature: Article Item Components check
     Given I am on the homepage "http://localhost:8888"
     When I enter "Smith" in the "#search-input-box"
     When The "#search-button" is clicked
-    When I select a "the" from the "#word-cloud"
+    When I select a "productions" from the "#word-cloud"
     Then I expect a list of Articles to display under the title
 
   #Test 3
@@ -16,7 +16,7 @@ Feature: Article Item Components check
     Given I am on the homepage "http://localhost:8888"
     When I enter "Smith" in the "#search-input-box"
     When The "#search-button" is clicked
-    When I select a "the" from the "#word-cloud"
+    When I select a "productions" from the "#word-cloud"
     Then I expect the article component to list the authors
 
   #Test 4
@@ -25,7 +25,7 @@ Feature: Article Item Components check
     Given I am on the homepage "http://localhost:8888"
     When I enter "Smith" in the "#search-input-box"
     When The "#search-button" is clicked
-    When I select a "the" from the "#word-cloud"
+    When I select a "productions" from the "#word-cloud"
     Then I expect to see a button allowing me to view the BibTeX
 
   #Test 5
@@ -34,6 +34,6 @@ Feature: Article Item Components check
     Given I am on the homepage "http://localhost:8888"
     When I enter "Smith" in the "#search-input-box"
     When The "#search-button" is clicked
-    When I select a "the" from the "#word-cloud"
+    When I select a "productions" from the "#word-cloud"
     When I click on the Download button
     Then I expect a tab to pop up

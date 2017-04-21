@@ -7,6 +7,6 @@ Feature: The ability to select articles from the articles page
     Given I am on the homepage "http://localhost:8888"
     When I enter "Smith" in the "#search-input-box"
     When The "#search-button" is clicked
-    When I select a ".tag-cloud-tag" from the "#word-cloud"
-    Then I expect to see a "  #article-checkbox" within a "#article-title-container"
+    When I select a "productions" from the "#word-cloud"
+    Then I expect to see a "#article-checkbox" within a "#article-title-container"
 
