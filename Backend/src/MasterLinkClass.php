@@ -16,21 +16,7 @@ class MasterLinkClass implements JsonSerializable
         $this->IEEECrawler = new WebCrawler("IEEE");
     }
 
-    public function searchQuery($query)
-    {
-        {   
-            $url = "http://dl.acm.org/results.cfm?query=".$query;
-            // $url = 
-            $this->ACMCrawler->getContent($url);
-            $paperList = $this->ACMCrawler->getPaperContent();
-            foreach ($paperList as $paper)
-            {
-                $this->mDataStore->addPaper($paper);            
-            }
-            echo json_encode($paperList);
-        }
-
-    }
+    
     public function getDataStore()
     {
     	return $this->mDataStore;

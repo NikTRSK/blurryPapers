@@ -154,13 +154,13 @@ class DataStoreClassUnitTest extends TestCase
 
 		$mostFrequentWords = $dataStore->returnMostFrequentWords();
 
-		$check = true
+		$check = true;
 		
 		foreach ($mostFrequentWords as $key)
 		{
 			if (in_array($key, $os))
 			{
-				$check = false
+				$check = false;
 				break;
 			}
 		}
@@ -310,7 +310,29 @@ class DataStoreClassUnitTest extends TestCase
 
 		$this->assertNull($abstract);		
 	}
+	
+	public function testGetProgress()
+	{
+		$dataStore = new DataStoreClass();
+		$this->assertNotNull($dataStore->getProgress());
+	}
 
+	public function testHighlightPaper()
+	{
+		$dataStore = new DataStoreClass();
+		$mPaperName = "Name";
+		$mAuthorNames = array();
+		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+		$mAbstract = "abstract";
+
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$paper->setDoi("10");
+
+		$dataStore->addPaper($paper);
+		$dataStore->highlightPaper("10", "the");
+
+		$this->assertNotNull($dataStore);
+	}
 
 	// public function testReturnPDFURLValidWordAndInvalidPaperReturnsNull()
 	// {

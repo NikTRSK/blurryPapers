@@ -199,6 +199,70 @@ class PaperClassUnitTest extends TestCase
 
 		$this->assertEquals($newAbstract, $paper->getAbstract());
 	}
+
+	public function testSetBibtex()
+	{
+		$mPaperName = "Name";
+		$mAuthorNames = null;
+		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+		$mAbstract = "abstract";
+
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$mBibtex = "mBibtex";
+		$paper->setBibtex($mBibtex);
+		$this->assertEquals($mBibtex, $paper->mBibtex);
+	}
+
+	public function testSetConference()
+	{
+		$mPaperName = "Name";
+		$mAuthorNames = null;
+		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+		$mAbstract = "abstract";
+
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$conference = "Conference Name";
+		$paper->setConference($conference);
+
+		$this->assertEquals($conference, $paper->mConference);
+	}
+
+	public function testSetDoi()
+	{
+		$mPaperName = "Name";
+		$mAuthorNames = null;
+		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+		$mAbstract = "abstract";
+
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$mdoi = "10.1/1.10";
+		$paper->setDoi($mdoi);
+
+		$this->assertEquals($mdoi, $paper->mDoi);
+	}
+
+	public function testJsonSerilize()
+	{
+		$mPaperName = "Name";
+		$mAuthorNames = null;
+		$mPDFURLLink = "http://www.pdf995.com/samples/pdf.pdf";
+		$mAbstract = "abstract";
+
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$this->assertNotNull($paper->jsonSerialize());
+	}
+
+	public function testConstructorLocal()
+	{
+		$mPaperName = "AMNESIA";
+		$mAuthorNames = null;
+		$mPDFURLLink = "local";
+		$mAbstract = "abstract";
+
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$this->assertNotNull($paper);
+		$this->assertEquals("resource/AMNESIA.pdf", $paper->mPDFLocalURL);
+	}
 }
 
 ?>

@@ -25,9 +25,9 @@
 
   <testsuites>
     <testsuite name="PHPUnit">
-      <!-- <directory suffix=".php">tests/data</directory> -->
-      <!-- <file>tests/DataStoreClassUnitTest.php</file> -->
-      <!-- <file>tests/MasterLinkClassUnitTest.php</file> -->
+      <directory suffix=".php">tests/data</directory>
+      <file>tests/DataStoreClassUnitTest.php</file>
+      <file>tests/MasterLinkClassUnitTest.php</file>
       <file>tests/WebCrawlerClassUnitTest.php</file>
     </testsuite>
   </testsuites>
@@ -42,7 +42,11 @@
   <filter>
 
     <whitelist processUncoveredFilesFromWhitelist="true">
-      <directory suffix=".php">src</directory>
+      <!-- <directory suffix=".php">src</directory> -->
+      <file>src/DataStoreClass.php</file>
+      <file>src/data/PaperClass.php</file>
+      <file>src/MasterLinkClass.php</file>
+      <file>src/WebCrawler.php</file>
     </whitelist>
    </filter>
 </phpunit>
