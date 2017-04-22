@@ -6,5 +6,5 @@ Feature: Verify that the bibtex button is doing what it should be able to do
     When I enter "Smith" in the "#search-input-box"
     When The "#search-button" is clicked
     When I select a "productions" from the "#word-cloud"
-    //If I click on the bibtex-button
-    //Then I should be able to see a popup with the information
+    When I click on "#article-bibtex-button"
+    Then I should be able to see a popup with the bibtex
