@@ -276,7 +276,55 @@ const seleniumTests = function () {
 
     });
     this.Then(/^I expect to see a popup containing the abstract$/, (element) => {
-       expect(null).to.equal(null);
+       expect(null).to.equal(null));
+    });
+
+    //author_list.feature
+    this.When(/^I click on the author$/, function (arg1, callback) { //Click on the option from the dropdown menu
+        //div = #article-authors-container
+        expect((null).to.not.equal(null)); //placeholder to create later
+    });
+
+    //sort_by_button.feature
+        //the "The "dropdown btn-group" is clicked" calls on a previous one
+    this.When(/^I click on the "([^"]*)" option$/, function (arg1, callback) { //Click on the option from the dropdown menu
+        expect((null).to.not.equal(null)); //placeholder to create later
+    });
+        //sort by title
+    this.Then(/^I should see the articles to be sorted alphabetically by title$/, (element) => {
+        expect((null).to.not.equal(null)); //placeholder to create later
+    });
+        //sort by author name
+    this.Then(/^I should see the articles to be sorted sorted by Author name$/, (element) => {
+        expect((null).to.not.equal(null)); //placeholder to create later
+    });
+        //sort by number of occurrences
+    this.Then(/^I should see the articles to be sorted by number of occurences$/, (element) => {
+        expect((null).to.not.equal(null)); //placeholder to create later
+    });
+        //sort by conference
+    this.Then(/^I should see the articles to be sorted by the names of Conferences$/, (element) => {
+        expect((null).to.not.equal(null)); //placeholder to create later
+    });
+
+    //generate_new_wc.feature
+    this.When(/^I click on "([^"]*)"$/, function (arg1, callback) { //Click on regenerate a new WC from articles
+        expect((null).to.not.equal(null)); //placeholder to create later
+    });
+    this.Then(/^I should see a new Word Cloud$/, (element) => {
+        expect((null).to.not.equal(null)); //placeholder to create later
+    });
+
+    //conference_list.feature
+    this.When(/^I click on a conference name$/, function (arg1, callback) { //Click on regenerate a new WC from articles
+        expect((null).to.not.equal(null)); //placeholder to create later
+    });
+        //Then I should see a new Word Cloud
+
+    //bibtex_button.feature
+        //calls on the "I click on from sort_by_button.feature
+    this.Then(/^I should be able to see a popup with the bibtex$/, (element) => {
+        expect((null).to.not.equal(null)); //placeholder to create later
     });
 };
 
