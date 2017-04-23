@@ -47,7 +47,7 @@ export default class ArticleList extends React.Component {
       if (curState.hasOwnProperty(key)) {
         if (curState[key] === true) {
           numArticles += 1
-          doiQuery += `${key} `
+          doiQuery += `${key},`
         }
       }
     }
@@ -143,7 +143,7 @@ export default class ArticleList extends React.Component {
     console.log(this.props)
     const { word } = this.props.params
     const articles = this.sortedArticles()
-    const mappedArticles = articles.map((article, i) => <li><ArticleItem {...this.props} key={article.title + i} word={word} onChange={this.checkArticle.bind(this)} article={article} /></li>)
+    const mappedArticles = articles.map((article, i) => <li><ArticleItem {...this.props} uniqueID={i} key={article.title + i} word={word} onChange={this.checkArticle.bind(this)} article={article} /></li>)
     return (
       <div className="container" id="articles-div">
         <div className="row" id="articles-title-div">
@@ -159,13 +159,13 @@ export default class ArticleList extends React.Component {
             </Button>
             <Dropdown.Toggle bsStyle="success" />
             <Dropdown.Menu className="dropdown-style">
-              <MenuItem eventKey="1" onClick={() => this.setState({ sortType: 0 })}>
+              <MenuItem id="sort-title" eventKey="1" onClick={() => this.setState({ sortType: 0 })}>
               Title</MenuItem>
-              <MenuItem eventKey="2" onClick={() => this.setState({ sortType: 1 })}>
+              <MenuItem id="sort-authors" eventKey="2" onClick={() => this.setState({ sortType: 1 })}>
               Authors</MenuItem>
-              <MenuItem eventKey="3" onClick={() => this.setState({ sortType: 2 })}>
+              <MenuItem id="sort-conferences" eventKey="3" onClick={() => this.setState({ sortType: 2 })}>
               Conferences</MenuItem>
-              <MenuItem eventKey="4" onClick={() => this.setState({ sortType: 3 })}>
+              <MenuItem id="sort-frequency" eventKey="4" onClick={() => this.setState({ sortType: 3 })}>
               Occurences</MenuItem>
             </Dropdown.Menu>
           </Dropdown>

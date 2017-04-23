@@ -67,16 +67,16 @@ export default class ArticleItem extends React.Component {
 	  let downloadLink = "http://localhost:8888/resource/AMNESIA.pdf"
     const { bibtex } = this.props.bibtexData.bibtex
     const { abstract } = this.props.abstractData.abstract
-    const { word } = this.props
+    const { word, uniqueID } = this.props
     const { showAbstract, showModal, checked } = this.state
     const mappedAuthors = authors.map((author, i) =>
-      <IndexLink to="/" key={i} onClick={this.authorRoute.bind(this, author)}>
+      <IndexLink to="/" id={`author-num-${i}`} key={i} onClick={this.authorRoute.bind(this, author)}>
 				{!!i && ', '}
 				{author}
       </IndexLink>
 		)
     const mappedConferences = conference.map((conference, i) =>
-      <IndexLink to="/" key={i} onClick={this.conferenceRoute.bind(this, conference)}>
+      <IndexLink to="/" id={`conference-num-${i}`} key={i} onClick={this.conferenceRoute.bind(this, conference)}>
 				{!!i && ', '}
 				{conference}
       </IndexLink>
@@ -93,7 +93,7 @@ export default class ArticleItem extends React.Component {
                 <ReactBootstrap.Modal.Title>BibTeX</ReactBootstrap.Modal.Title>
               </ReactBootstrap.Modal.Header>
               <ReactBootstrap.Modal.Body>
-                <pre className="article-modal-pre">{bibtex}</pre>
+                <pre id="bibtex-text" className="article-modal-pre">{bibtex}</pre>
               </ReactBootstrap.Modal.Body>
             </ReactBootstrap.Modal>
           </div>
@@ -107,7 +107,7 @@ export default class ArticleItem extends React.Component {
                 <ReactBootstrap.Modal.Title>Abstract</ReactBootstrap.Modal.Title>
               </ReactBootstrap.Modal.Header>
               <ReactBootstrap.Modal.Body>
-                <pre className="article-modal-pre">
+                <pre id="abstract-text" className="article-modal-pre">
                   <Highlight search={word} matchStyle={{ backgroundColor: '#ffd54f' }}>
                     {abstract}
                   </Highlight>
@@ -130,7 +130,7 @@ export default class ArticleItem extends React.Component {
                 <input type="checkbox" ref={doi} value={checked} id="article-checkbox" onChange={this.handleCheckbox} />
               </th>
               <th className="article-title-col">
-                <a onClick={this.openAbstract}><p id="article-title">{title}</p></a>
+                <a onClick={this.openAbstract}><p className="title-getter" id="article-title">{title}</p></a>
               </th>
             </tr>
           </table>
@@ -140,18 +140,18 @@ export default class ArticleItem extends React.Component {
         <div className="row" id="article-authors-container">
           <span id="article-occurences-1">{word}: </span>
           <span id="article-occurences-2">Occurs </span>
-          <span id="article-occurences-1">{wordFrequency} </span>
-          <span id="article-occurences-2">times.</span>
+          <span className="frequency-getter" id="article-occurences-1">{wordFrequency}</span>
+          <span id="article-occurences-2"> times.</span>
         </div>
 
 				{/* Article Authors */}
-        <div className="row" id="article-authors-container">
+        <div className="row" className="authors-getter" id="article-authors-container">
           <span id="article-authors">Authors: </span>
 					{mappedAuthors}
         </div>
 
 				{/* Article Conferences */}
-        <div className="row" id="article-authors-container">
+        <div className="row" className="conference-getter" id="article-authors-container">
           <span id="article-conferences">Conferences: </span>
 					{mappedConferences}
         </div>

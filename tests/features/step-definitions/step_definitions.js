@@ -42,7 +42,7 @@ const seleniumTests = function () {
 
     // word_cloud.feature
     this.Then(/^There is not a "([^"]*)"$/, (element) => {
-        browser.pause(3000);
+        browser.pause(1000);
         let wordcloud = $(element);
         expect(wordcloud.state).to.equal("failure");
     });
@@ -76,12 +76,12 @@ const seleniumTests = function () {
 
     //click on the word from WC
     this.When(/^I select a "([^"]*)" from the "([^"]*)"$/, function (element1, element2) {
-        browser.pause(7000);
+        browser.pause(1000);
         let cloudItems = $$(".tag-cloud-tag");
 
 
         for (let i = 0; i < cloudItems.length; ++i) {
-            if (cloudItems[i].getText() === "present") { //selected a word to be clicked
+            if (cloudItems[i].getText() === "productions") { //selected a word to be clicked
                 cloudItems[i].click();
                 break;
             }
@@ -184,6 +184,7 @@ const seleniumTests = function () {
         }
     });
 
+		//TODO: dunno what this is
     this.Then(/^I expect a tab to pop up$/,(element, text)=> {
         // expect(null).to.not.equal(null); // TODO
     });
@@ -195,14 +196,14 @@ const seleniumTests = function () {
     expect(downloadBtn.state).to.equal("failure");
   });
   this.Then(/^I expect a download button "([^"]*)" with the text "([^"]*)" to exist$/, (element, word) => {
-    browser.pause(5500);
+    browser.pause(100);
     let downloadBtn = $(element);
     expect(downloadBtn.state).to.equal("success");
     expect(downloadBtn.getText()).to.equal(word);
   });
 
   this.Then(/^Clicking the "([^"]*)" opens a download link$/, (element) => {
-    browser.pause(7000);
+    browser.pause(1000);
     let downloadBtn = $(element);
     downloadBtn.click();
     expect(downloadBtn.state).to.equal("success");
@@ -226,7 +227,7 @@ const seleniumTests = function () {
   });
 
   this.Then(/^The word cloud is regenerated$/, (element) => {
-    browser.pause(7000);
+    browser.pause(1000);
     let wordCloud = $("#word-cloud");
     expect(wordCloud.state).to.equal("success");
   });
@@ -266,66 +267,106 @@ const seleniumTests = function () {
   });
 
 
-  //view_abstract.feature
-    this.When(/^I click on the article title$/, () => {
-       browser.pause(7000);
-        let title = $("#articles-title");
-       if(title.getText() === "present"){
-           title.click();
-       }
+//view_abstract.feature
+  this.When(/^I click on the article title$/, () => {
+	  browser.pause(1000);
+    let title = $("#article-title");
+	  title.click();
+	  browser.pause(1000);
+  });
 
-    });
-    this.Then(/^I expect to see a popup containing the abstract$/, (element) => {
-       expect(null).to.equal(null));
-    });
+  this.Then(/^I expect to see a popup containing the abstract$/, (element) => {
+	  let text = browser.getText("#abstract-text");
+	  expect(text).to.equal("A.T. Shank & Son have a bad day at the parlour when a falling boulder flattens their hearse. Emotional and literal pitfalls lie in wait for the odd couple as they make their way cross country with just a coffin for company. This short animated caper puts the fun back into funeral as their journey and relationship unravel on an epic scale.");
+  });
 
-    //author_list.feature
-    this.When(/^I click on the author$/, function (arg1, callback) { //Click on the option from the dropdown menu
-        //div = #article-authors-container
-        expect((null).to.not.equal(null)); //placeholder to create later
-    });
+  //author_list.feature
+  this.When(/^I click on the author$/, (element) => {
+		let author = $("#author-num-0");
+	  author.click();
+	  browser.pause(1000);
+  });
 
-    //sort_by_button.feature
-        //the "The "dropdown btn-group" is clicked" calls on a previous one
-    this.When(/^I click on the "([^"]*)" option$/, function (arg1, callback) { //Click on the option from the dropdown menu
-        expect((null).to.not.equal(null)); //placeholder to create later
-    });
-        //sort by title
-    this.Then(/^I should see the articles to be sorted alphabetically by title$/, (element) => {
-        expect((null).to.not.equal(null)); //placeholder to create later
-    });
-        //sort by author name
-    this.Then(/^I should see the articles to be sorted sorted by Author name$/, (element) => {
-        expect((null).to.not.equal(null)); //placeholder to create later
-    });
-        //sort by number of occurrences
-    this.Then(/^I should see the articles to be sorted by number of occurences$/, (element) => {
-        expect((null).to.not.equal(null)); //placeholder to create later
-    });
-        //sort by conference
-    this.Then(/^I should see the articles to be sorted by the names of Conferences$/, (element) => {
-        expect((null).to.not.equal(null)); //placeholder to create later
-    });
+  //sort_by_button.feature
+	//the "The "dropdown btn-group" is clicked" calls on a previous one
+  this.When(/^I click on the sort by "([^"]*)" option$/, (element) => { //Click on the option from the dropdown menu
+	  let sortButton = $(element);
+	  sortButton.click();
+  });
 
-    //generate_new_wc.feature
-    this.When(/^I click on "([^"]*)"$/, function (arg1, callback) { //Click on regenerate a new WC from articles
-        expect((null).to.not.equal(null)); //placeholder to create later
-    });
-    this.Then(/^I should see a new Word Cloud$/, (element) => {
-        expect((null).to.not.equal(null)); //placeholder to create later
-    });
+	//sort by title
+	this.Then(/^I should see the articles to be sorted by Title alphabetically$/, (element) => {
+		// if there are more than 1 this is an array
+	  let text = browser.getText("#article-title");
+	  expect(text).to.equal("This Way Up");
+  });
 
-    //conference_list.feature
-    this.When(/^I click on a conference name$/, function (arg1, callback) { //Click on regenerate a new WC from articles
-        expect((null).to.not.equal(null)); //placeholder to create later
-    });
-        //Then I should see a new Word Cloud
+	//sort by authors
+	this.Then(/^I should see the articles to be sorted by Author name$/, (element) => {
+		// if there are more than 1 this is an array
+		let text = browser.getText("#author-num-0");
+		expect(text).to.equal("Smith, Foulkes");
+	});
 
-    //bibtex_button.feature
-        //calls on the "I click on from sort_by_button.feature
-    this.Then(/^I should be able to see a popup with the bibtex$/, (element) => {
-        expect((null).to.not.equal(null)); //placeholder to create later
-    });
+	//sort by frequency
+	this.Then(/^I should see the articles to be sorted by number of occurences$/, (element) => {
+		// if there are more than 1 this is an array
+		let text = browser.getText("#article-occurences-1");
+		expect(text[1]).to.equal("718");
+	});
+
+	//sort by conference
+	this.Then(/^I should see the articles to be sorted by Conferences alphabetically$/, (element) => {
+		// if there are more than 1 this is an array
+		let text = browser.getText("#conference-num-0");
+		expect(text).to.equal("December 2008 SIGGRAPH Asia '08: ACM SIGGRAPH ASIA 2008 computer animation festival");
+	});
+
+  //generate_new_wc.feature & click general button
+  this.When(/^I click on "([^"]*)"$/, (element) => {
+	  let button = $(element);
+	  button.click();
+		browser.pause(1000);
+  });
+
+	//I check the first article
+	this.When(/^I check the first article$/, (element) => {
+		let checkbox = $("#article-checkbox");
+		checkbox.click();
+	});
+
+  this.Then(/^I should see a new Word Cloud$/, (element) => {
+	  let wordcloud = $("#word-cloud");
+	  expect(wordcloud.state).to.equal("success");
+  });
+
+  //conference_list.feature
+  this.When(/^I click on a conference name$/, function (arg1, callback) { //Click on regenerate a new WC from articles
+      expect((null).to.not.equal(null)); //placeholder to create later
+  });
+      //Then I should see a new Word Cloud
+
+  //bibtex_button.feature
+	//calls on the "I click on from sort_by_button.feature
+  this.Then(/^I should be able to see a popup with the bibtex$/, (element) => {
+	  let text = browser.getText("#bibtex-text");
+	  expect(text).to.equal(`@inproceedings{Smith:2008:TWU:1504271.1504301,
+                 author = {Smith and Foulkes},
+                 title = {This Way Up},
+                 booktitle = {ACM SIGGRAPH ASIA 2008 Computer Animation Festival},
+                 series = {SIGGRAPH Asia '08},
+                 year = {2008},
+                 isbn = {978-1-60558-530-7},
+                 location = {Singapore},
+                 pages = {40--40},
+                 numpages = {1},
+                 url = {http://doi.acm.org/10.1145/1504271.1504301},
+                 doi = {10.1145/1504271.1504301},
+                 acmid = {1504301},
+                 publisher = {ACM},
+                 address = {New York, NY, USA},
+                }`);
+  });
 };
 
 module.exports = seleniumTests;
