@@ -1,6 +1,8 @@
 import React from 'react'
 import * as ReactBootstrap from 'react-bootstrap'
 import Highlight from 'react-highlighter'
+import FileSaver from 'file-saver'
+import axios from 'axios'
 import { IndexLink } from 'react-router'
 import '../../../dev/styles/article-item.sass'
 
@@ -17,6 +19,7 @@ export default class ArticleItem extends React.Component {
     this.openAbstract = this.openAbstract.bind(this)
     this.closeAbstract = this.closeAbstract.bind(this)
     this.handleCheckbox = this.handleCheckbox.bind(this)
+    this.downloadHighlight = this.downloadHighlight.bind(this)
   }
   openAbstract() {
 	  const {doi } = this.props.article
@@ -41,6 +44,20 @@ export default class ArticleItem extends React.Component {
     this.setState({ checked: !checked })
     this.props.onChange(this.props.article.doi, !checked)
   }
+  downloadHighlight(url,word) {
+    let str = `\"${url}\"`;
+    console.log("Download Highlighted Function")
+    axios.get(`http://localhost:8888/Server.php?convertPDF=${str}&highlight=${word}`)
+    .then((response) => {
+      let link = document.createElement('a')
+      link.href = response.data
+      link.download = 'highlighted-article.pdf'
+      link.dispatchEvent(new MouseEvent('click'))
+    })
+    .catch((err) => {
+      console.log("fuck top level")
+    })
+  }
 	// TODO: Switch "Smith" with author
 	/*
 	this.props.addToHistory(author, 5);
@@ -64,7 +81,7 @@ export default class ArticleItem extends React.Component {
     console.log("HELLO FROM ARTICLE ITEM")
     console.log(this.props)
     const { authors, conference, title, doi, wordFrequency } = this.props.article
-	  let downloadLink = "http://localhost:8888/resource/AMNESIA.pdf"
+            let downloadLink = "https://depts.washington.edu/owrc/Handouts/What%20is%20an%20Academic%20Paper.pdf"
     const { bibtex } = this.props.bibtexData.bibtex
     const { abstract } = this.props.abstractData.abstract
     const { word, uniqueID } = this.props
@@ -112,11 +129,9 @@ export default class ArticleItem extends React.Component {
                     {abstract}
                   </Highlight>
                 </pre>
-                <a target="_blank" href={downloadLink}>
-                  <button className="btn btn-primary" id="article-download-button">
+                  <button className="btn btn-primary" id="article-download-button" onClick={()=>this.downloadHighlight(downloadLink,word)}>
                     <span className="glyphicon glyphicon-download"></span> Download
                   </button>
-                </a>
               </ReactBootstrap.Modal.Body>
             </ReactBootstrap.Modal>
           </div>

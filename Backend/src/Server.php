@@ -86,6 +86,35 @@ else if ( isset($_GET["doiAbstract"]) )
 	$result->abstract = $abstract;
 	echo json_encode($result, JSON_PRETTY_PRINT);
 }
+// returns abstract given doi
+else if ( isset($_GET["convertPDF"]) && isset($_GET["highlight"]) ) 
+{
+	$masterLink = unserialize($_SESSION["masterLink"]);
+	$word = $_GET["highlight"];
+	$url = $_GET["convertPDF"];
+	$temp_pdf = "resource/article_temp.pdf";
+	$temp_html = "resource/article_temp.html";
+	$output_pdf = "resource/article_highlighted.pdf";
+
+	// download pdf
+	exec("wget -O $temp_pdf $url");
+	// download pdf
+	exec("pdf2htmlEX $temp_pdf --dest-dir resource");
+	// Javascript to inject
+	$javascript = "<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.9.0/mark.min.js'></script>
+<script type='text/javascript'>var instance=new Mark(document.querySelector('body'));instance.mark('$word',{'acrossElements': true,'separateWordSearch': false});</script></body>";
+	// open file
+	$html_content = file_get_contents($temp_html);
+	// inject highlighting JS
+	$output_html = str_replace("</body>", $javascript, $html_content);
+	// save html file
+	file_put_contents($temp_html, $output_html);
+	// convert html to pdf
+	exec("electron-pdf $temp_html $output_pdf");
+	// return url of resource
+	$resource = "http://localhost:8888/$output_pdf";
+	echo json_encode($resource, JSON_PRETTY_PRINT);
+}
 else 
 {
   echo "blurry paper API\nInvalid query\n";
