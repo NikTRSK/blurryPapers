@@ -83,3 +83,17 @@ export function addToHistory(query, count) {
     count
   }
 }
+
+// export function downloadHighlighted(url,word) {
+//   let str = `\"${url}\"`;
+//   console.log("Download Highlighted Action Function")
+//   axios.get(`http://localhost:8888/Server.php?convertPDF=${str}&highlight=${word}`)
+//     .then((response) => {
+//       axios.get(response.data)
+//       .then (response => console.log(response.data))
+//       .catch ( err => console.log("Fuck"))
+//     })
+//     .catch((err) => {
+//       console.log("fuck top level")
+//     })
+// }
