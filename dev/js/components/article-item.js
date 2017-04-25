@@ -14,39 +14,9 @@ export default class ArticleItem extends React.Component {
       showAbstract: false,
       checked: false
     }
-    this.openBibtex = this.openBibtex.bind(this)
-    this.closeBibtex = this.closeBibtex.bind(this)
-    this.openAbstract = this.openAbstract.bind(this)
-    this.closeAbstract = this.closeAbstract.bind(this)
-    this.handleCheckbox = this.handleCheckbox.bind(this)
-    this.downloadHighlight = this.downloadHighlight.bind(this)
-  }
-  openAbstract() {
-	  const {doi } = this.props.article
-	  this.props.fetchAbstract(doi)
-    this.setState({ showAbstract: true })
-  }
-  closeAbstract() {
-    this.props.clearAbstract()
-    this.setState({ showAbstract: false })
-  }
-  openBibtex() {
-	  const { doi } = this.props.article
-	  this.props.fetchBibtex(doi)
-    this.setState({ showModal: true })
-  }
-  closeBibtex() {
-    this.props.clearBibtex()
-    this.setState({ showModal: false })
-  }
-  handleCheckbox() {
-    const checked = this.state.checked
-    this.setState({ checked: !checked })
-    this.props.onChange(this.props.article.doi, !checked)
   }
   downloadHighlight(url,word) {
     let str = `\"${url}\"`;
-    console.log("Download Highlighted Function")
     axios.get(`http://localhost:8888/Server.php?convertPDF=${str}&highlight=${word}`)
     .then((response) => {
       let link = document.createElement('a')
@@ -55,7 +25,7 @@ export default class ArticleItem extends React.Component {
       link.dispatchEvent(new MouseEvent('click'))
     })
     .catch((err) => {
-      console.log("fuck top level")
+      console.log(err)
     })
   }
 	// TODO: Switch "Smith" with author
@@ -64,8 +34,8 @@ export default class ArticleItem extends React.Component {
 	this.props.generatePapers(author);
 	*/
   authorRoute(author) {
-    this.props.addToHistory('Smith', 5)
-    this.props.generatePapers('Smith')
+    this.props.addToHistory(author, 10)
+    this.props.generatePapers(author)
   }
 	// TODO: Switch "Smith" with conference
 	/*
@@ -73,21 +43,19 @@ export default class ArticleItem extends React.Component {
 	this.props.generatePapers(conference);
 	*/
   conferenceRoute(conference) {
-    this.props.addToHistory('Smith', 5)
-    this.props.generatePapers('Smith')
+    this.props.addToHistory(conference, 10)
+    this.props.generatePapers(conference)
   }
 
   render() {
-    console.log("HELLO FROM ARTICLE ITEM")
-    console.log(this.props)
-    const { authors, conference, title, doi, wordFrequency } = this.props.article
-            let downloadLink = "https://depts.washington.edu/owrc/Handouts/What%20is%20an%20Academic%20Paper.pdf"
+	  //let downloadLink = "https://depts.washington.edu/owrc/Handouts/What%20is%20an%20Academic%20Paper.pdf"
+    const { authors, conference, title, doi, wordFrequency, downloadLink } = this.props.article
     const { bibtex } = this.props.bibtexData.bibtex
     const { abstract } = this.props.abstractData.abstract
     const { word, uniqueID } = this.props
     const { showAbstract, showModal, checked } = this.state
     const mappedAuthors = authors.map((author, i) =>
-      <IndexLink to="/" id={`author-num-${i}`} key={i} onClick={this.authorRoute.bind(this, author)}>
+	    <IndexLink to="/" id={`author-num-${i}`} key={i} onClick={this.authorRoute.bind(this, author)}>
 				{!!i && ', '}
 				{author}
       </IndexLink>
@@ -105,7 +73,10 @@ export default class ArticleItem extends React.Component {
 				{/* BibTeX popup */}
         <div className="row">
           <div>
-            <ReactBootstrap.Modal show={showModal} onHide={this.closeBibtex}>
+            <ReactBootstrap.Modal show={showModal} onHide={()=>{
+                this.props.clearBibtex()
+                this.setState({ showModal: false })
+            }}>
               <ReactBootstrap.Modal.Header closeButton>
                 <ReactBootstrap.Modal.Title>BibTeX</ReactBootstrap.Modal.Title>
               </ReactBootstrap.Modal.Header>
@@ -116,10 +87,13 @@ export default class ArticleItem extends React.Component {
           </div>
         </div>
 
-				{/* BibTeX popup */}
+				{/* Absstract popup */}
         <div className="row">
           <div>
-            <ReactBootstrap.Modal show={showAbstract} onHide={this.closeAbstract}>
+            <ReactBootstrap.Modal show={showAbstract} onHide={()=>{
+                this.props.clearAbstract()
+                this.setState({ showAbstract: false })
+            }}>
               <ReactBootstrap.Modal.Header closeButton>
                 <ReactBootstrap.Modal.Title>Abstract</ReactBootstrap.Modal.Title>
               </ReactBootstrap.Modal.Header>
@@ -142,10 +116,19 @@ export default class ArticleItem extends React.Component {
           <table>
             <tr>
               <th className="article-checkbox-col">
-                <input type="checkbox" ref={doi} value={checked} id="article-checkbox" onChange={this.handleCheckbox} />
+                <input type="checkbox" ref={doi} value={checked} id="article-checkbox" onChange={()=>{
+                    const checked = this.state.checked
+                    this.setState({ checked: !checked })
+                    this.props.onChange(this.props.article.doi, !checked)
+                }} />
               </th>
               <th className="article-title-col">
-                <a onClick={this.openAbstract}><p className="title-getter" id="article-title">{title}</p></a>
+                <a onClick={()=>{
+	                  this.props.fetchAbstract(doi)
+                    this.setState({ showAbstract: true })
+                }}>
+	                <p className="title-getter" id="article-title">{title}</p>
+                </a>
               </th>
             </tr>
           </table>
@@ -173,7 +156,10 @@ export default class ArticleItem extends React.Component {
 
 				{/* Buttons */}
         <div className="row" id="article-buttons-container">
-          <button className="btn btn-primary" id="article-bibtex-button" onClick={this.openBibtex}>
+          <button className="btn btn-primary" id="article-bibtex-button" onClick={()=>{
+	            this.props.fetchBibtex(doi)
+              this.setState({ showModal: true })
+          }}>
             <span className="glyphicon glyphicon-book"></span> BibTeX
           </button>
           <a target="_blank" href={downloadLink}>
