@@ -111,4 +111,16 @@ tests // All unit & integration tests and blackbox tests go here
 ----step-definitions // The step definitions go here
 wdio.con.js // WebdriverIO config file
 ```
- 
+
+## Installing PDF Highlighting System Tools
+The PDF is first converted to HTML then the highlighting is performed in HTML. The HTML is then converted back to PDF. Both of these processes use system tools so we'll need to have them installed.
+###OSX Instructions
+1. [Download Homebrew](https://brew.sh/) if you don't already have it.
+2. Run `brew install pdf2htmlex`. [Source](https://github.com/coolwanglu/pdf2htmlEX)
+3. [Download & Install NodeJS](https://nodejs.org/en/) if you don't already have it.
+4. Run `npm install -g electron-pdf`.
+
+##Windows Instructions
+1. Install pdf2htmlex from [here](https://github.com/coolwanglu/pdf2htmlEX). Follow their instructions to install.
+2. [Download & Install NodeJS](https://nodejs.org/en/) if you don't already have it.
+3. Run `npm install -g electron-pdf`.

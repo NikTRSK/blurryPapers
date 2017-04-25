@@ -129,7 +129,7 @@ export default class ArticleItem extends React.Component {
                     {abstract}
                   </Highlight>
                 </pre>
-                  <button className="btn btn-primary" id="highlight-dl-button" className="article-dl-button" onClick={()=>this.downloadHighlight(downloadLink,word)}>
+                  <button className="btn btn-primary" id="highlight-dl-button" onClick={()=>this.downloadHighlight(downloadLink,word)}>
                     <span className="glyphicon glyphicon-download"></span> Download
                   </button>
               </ReactBootstrap.Modal.Body>
@@ -177,7 +177,7 @@ export default class ArticleItem extends React.Component {
             <span className="glyphicon glyphicon-book"></span> BibTeX
           </button>
           <a target="_blank" href={downloadLink}>
-            <button className="btn btn-primary" className="article-dl-button">
+            <button className="btn btn-primary" id="article-dl-button">
               <span className="glyphicon glyphicon-download"></span> Download
             </button>
           </a>
