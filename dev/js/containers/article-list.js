@@ -10,7 +10,7 @@ export default class ArticleList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      sortType: 0
+      sortType: 3
     }
   }
 
@@ -85,9 +85,9 @@ export default class ArticleList extends React.Component {
       case 1:
         return [...articles].sort((a, b) => a.authors[0] > b.authors[0])
       case 2:
-        return [...articles].sort((a, b) => a.conferences[0] > b.conferences[0])
+        return [...articles].sort((a, b) => a.conference[0] > b.conference[0])
       case 3:
-        return [...articles].sort((a, b) => a.frequency < b.frequency)
+        return [...articles].sort((a, b) => a.wordFrequency < b.wordFrequency)
       default:
         return []
     }
