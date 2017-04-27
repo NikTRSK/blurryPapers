@@ -16,7 +16,7 @@ export default class ArticleItem extends React.Component {
 			checked: false
 		}
 	}
-	downloadHighlight(url,word) {
+	downloadHighlight(url, word) {
 		let str = `\"${url}\"`;
 		axios.get(`http://localhost:8888/Server.php?convertPDF=${str}&highlight=${word}`)
 			.then((response) => {
@@ -49,9 +49,19 @@ export default class ArticleItem extends React.Component {
 		this.props.generatePapers(conference)
 	}
 
+	convertLink(localpath) {
+		//https://s3-us-west-2.amazonaws.com/cs310/pdf197yhsafhnkas72/
+		//https://s3-us-west-2.amazonaws.com/cs310/pdf197yhsafhnkas72/A+0.6+V%2C+1.5+GHz+84+Mb+SRAM+in+14+nm+FinFET+CMOS+Technology+With+Capacitive+Charge-Sharing+Write+Assist+Circuitry.pdf
+		console.log(localpath);
+		let pdf = localpath.replace("resource/", "");
+		let pdf_aws = pdf.split(' ').join('+');
+		return `https://s3-us-west-2.amazonaws.com/cs310/pdf197yhsafhnkas72/${pdf_aws}`;
+	}
+
 	render() {
 		//let downloadLink = "https://depts.washington.edu/owrc/Handouts/What%20is%20an%20Academic%20Paper.pdf"
-		const { authors, conference, title, doi, wordFrequency, downloadLink } = this.props.article
+		const { authors, conference, title, doi, wordFrequency } = this.props.article
+		const downloadLink = this.convertLink(this.props.article.downloadLink);
 		const { conferencepapers } = this.props.conferenceData
 		const { bibtex } = this.props.bibtexData.bibtex
 		const { abstract } = this.props.abstractData.abstract
@@ -64,11 +74,11 @@ export default class ArticleItem extends React.Component {
 			</IndexLink>
 		)
 		const mappedConferences = conference.map((conference, i) =>
-			<a onClick={()=>{
-         this.props.fetchFromConference(conference);
-         const showConfPapers = this.state.showConfPapers;
-         this.setState({ showConfPapers: !showConfPapers })
-      }}>
+			<a onClick={() => {
+				this.props.fetchFromConference(conference);
+				const showConfPapers = this.state.showConfPapers;
+				this.setState({ showConfPapers: !showConfPapers })
+			}}>
 				{!!i && ', '}
 				{conference}
 			</a>
@@ -76,7 +86,7 @@ export default class ArticleItem extends React.Component {
 		console.log(conferencepapers);
 		let mappedConferencePapers = [];
 		if (conferencepapers)
-			mappedConferencePapers = conferencepapers.map((paper,i) => <li>{paper}</li>);
+			mappedConferencePapers = conferencepapers.map((paper, i) => <li>{paper}</li>);
 
 		return (
 			<div className="container" id="article-container">
@@ -84,10 +94,10 @@ export default class ArticleItem extends React.Component {
 				{/* Conferences popup */}
 				<div className="row">
 					<div>
-						<ReactBootstrap.Modal show={showConfPapers} onHide={()=>{
-                this.props.clearFromConference()
-                this.setState({ showConfPapers: false })
-            }}>
+						<ReactBootstrap.Modal show={showConfPapers} onHide={() => {
+							this.props.clearFromConference()
+							this.setState({ showConfPapers: false })
+						}}>
 							<ReactBootstrap.Modal.Header closeButton>
 								<ReactBootstrap.Modal.Title>Conference Papers</ReactBootstrap.Modal.Title>
 							</ReactBootstrap.Modal.Header>
@@ -101,10 +111,10 @@ export default class ArticleItem extends React.Component {
 				{/* BibTeX popup */}
 				<div className="row">
 					<div>
-						<ReactBootstrap.Modal show={showModal} onHide={()=>{
-                this.props.clearBibtex()
-                this.setState({ showModal: false })
-            }}>
+						<ReactBootstrap.Modal show={showModal} onHide={() => {
+							this.props.clearBibtex()
+							this.setState({ showModal: false })
+						}}>
 							<ReactBootstrap.Modal.Header closeButton>
 								<ReactBootstrap.Modal.Title>BibTeX</ReactBootstrap.Modal.Title>
 							</ReactBootstrap.Modal.Header>
@@ -118,20 +128,20 @@ export default class ArticleItem extends React.Component {
 				{/* Absstract popup */}
 				<div className="row">
 					<div>
-						<ReactBootstrap.Modal show={showAbstract} onHide={()=>{
-                this.props.clearAbstract()
-                this.setState({ showAbstract: false })
-            }}>
+						<ReactBootstrap.Modal show={showAbstract} onHide={() => {
+							this.props.clearAbstract()
+							this.setState({ showAbstract: false })
+						}}>
 							<ReactBootstrap.Modal.Header closeButton>
 								<ReactBootstrap.Modal.Title>Abstract</ReactBootstrap.Modal.Title>
 							</ReactBootstrap.Modal.Header>
 							<ReactBootstrap.Modal.Body>
-                <pre id="abstract-text" className="article-modal-pre">
-                  <Highlight search={word} matchStyle={{ backgroundColor: '#ffd54f' }}>
-	                  {abstract}
-                  </Highlight>
-                </pre>
-								<button className="btn btn-primary" id="highlight-dl-button" onClick={()=>this.downloadHighlight(downloadLink,word)}>
+								<pre id="abstract-text" className="article-modal-pre">
+									<Highlight search={word} matchStyle={{ backgroundColor: '#ffd54f' }}>
+										{abstract}
+									</Highlight>
+								</pre>
+								<button className="btn btn-primary" id="highlight-dl-button" onClick={() => this.downloadHighlight(downloadLink, word)}>
 									<span className="glyphicon glyphicon-download"></span> Download
 								</button>
 							</ReactBootstrap.Modal.Body>
@@ -144,17 +154,17 @@ export default class ArticleItem extends React.Component {
 					<table>
 						<tr>
 							<th className="article-checkbox-col">
-								<input type="checkbox" ref={doi} value={checked} id="article-checkbox" onChange={()=>{
-                    const checked = this.state.checked
-                    this.setState({ checked: !checked })
-                    this.props.onChange(this.props.article.doi, !checked)
-                }} />
+								<input type="checkbox" ref={doi} value={checked} id="article-checkbox" onChange={() => {
+									const checked = this.state.checked
+									this.setState({ checked: !checked })
+									this.props.onChange(this.props.article.doi, !checked)
+								}} />
 							</th>
 							<th className="article-title-col">
-								<a onClick={()=>{
-	                  this.props.fetchAbstract(doi)
-                    this.setState({ showAbstract: true })
-                }}>
+								<a onClick={() => {
+									this.props.fetchAbstract(doi)
+									this.setState({ showAbstract: true })
+								}}>
 									<p className="title-getter" id="article-title">{title}</p>
 								</a>
 							</th>
@@ -184,10 +194,10 @@ export default class ArticleItem extends React.Component {
 
 				{/* Buttons */}
 				<div className="row" id="article-buttons-container">
-					<button className="btn btn-primary" id="article-bibtex-button" onClick={()=>{
-	            this.props.fetchBibtex(doi)
-              this.setState({ showModal: true })
-          }}>
+					<button className="btn btn-primary" id="article-bibtex-button" onClick={() => {
+						this.props.fetchBibtex(doi)
+						this.setState({ showModal: true })
+					}}>
 						<span className="glyphicon glyphicon-book"></span> BibTeX
 					</button>
 					<a target="_blank" href={downloadLink}>
