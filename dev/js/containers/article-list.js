@@ -61,7 +61,7 @@ export default class ArticleList extends React.Component {
     }
 	  if (articles.length != 0) {
 		  this.props.addToHistory(articles.join())
-		  this.props.generatePapers(doiQuery, numArticles)
+		  this.props.generatePapers(doiQuery, -1)
 	  }
   }
 

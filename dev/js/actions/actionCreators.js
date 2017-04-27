@@ -2,7 +2,10 @@ import axios from "axios";
 import { showLoading } from 'react-redux-loading-bar'
 
 export const generatePapers = (query, count) => {
-  const request = axios.get("http://localhost:8888/Server.php?query=" + query + "&paperCount="+count);
+  let trueCount = 5;
+  if (count)
+    trueCount = count;
+  const request = axios.get("http://localhost:8888/Server.php?query=" + query + "&paperCount="+trueCount);
   return (dispatch) => {
     dispatch(showLoading());
     request
