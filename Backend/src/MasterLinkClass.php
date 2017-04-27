@@ -67,7 +67,7 @@ class MasterLinkClass implements JsonSerializable
 
             $bibtex = $finder->query("./bibtex" ,$key)->item(0);
 
-            $paper = new Paper(trim($title->textContent), trim($authors->textContent), "local", trim($abstract->textContent));
+            $paper = new Paper(trim($title->textContent), explode(";", trim($authors->textContent)), "local", trim($abstract->textContent));
             $paper->setConference(trim($conference->textContent));
             $paper->setDoi(trim($doi->textContent));
             $paper->setBibtex(trim($bibtex->textContent));
