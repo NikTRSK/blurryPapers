@@ -45,7 +45,7 @@ const homepage = React.createClass ({
                      placeholder="Search articles..." ref="query">
               </input>
 
-              <input id="search-numitems-box" type="text" className="form-control"
+              <input id="search-numitems-box" value="5" type="text" className="form-control"
                      placeholder="Count..." ref="numArticles">
               </input>
             </div>
