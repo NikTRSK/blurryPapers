@@ -28,7 +28,7 @@
       <directory suffix=".php">tests/data</directory>
       <file>tests/DataStoreClassUnitTest.php</file>
       <file>tests/MasterLinkClassUnitTest.php</file>
-      <file>tests/WebCrawlerClassUnitTest.php</file>
+      <!-- <file>tests/WebCrawlerClassUnitTest.php</file> -->
     </testsuite>
   </testsuites>
 
@@ -46,7 +46,7 @@
       <file>src/DataStoreClass.php</file>
       <file>src/data/PaperClass.php</file>
       <file>src/MasterLinkClass.php</file>
-      <file>src/WebCrawler.php</file>
+      <!-- <file>src/WebCrawler.php</file> -->
     </whitelist>
    </filter>
 </phpunit>
