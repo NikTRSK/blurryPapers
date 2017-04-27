@@ -33,8 +33,16 @@ class MasterLinkClass implements JsonSerializable
     {
         // crawl ACM with given query
         $url = "resource/". strtolower($query) . ".xml";
-
+        $lower = strtolower($query);
+        if ($lower != "smith" || $lower != "redekopp" || $lower != "cote" || 
+            $lower != "shindler" || $lower != "adleman" )
+            $url = "resource/cote.xml";
+        // try {
         $xml = file_get_contents($url);
+        // } catch (Exception $e) {
+        //     $url = "resource/cote.xml";
+        //     $xml = file_get_contents($url);
+        // }
         // echo $xml;
         $mDom = new DOMDocument();
         $mDom->loadXML($xml);
