@@ -33,7 +33,7 @@ class MasterLinkClassUnitTest extends TestCase
 
 	public function testGetPaperWithWord()
 	{
-		$get = $this->test->getTop200WordsFromQueryAndNumPapers("aaron cote", 1);
+		$get = $this->test->getTop200WordsFromQueryAndNumPapers("cote", 1);
 		$this->assertNotNull($get);
 		$value = $this->test->getPapersWithWord("the");
 		$this->assertNotNull($value);
@@ -43,7 +43,7 @@ class MasterLinkClassUnitTest extends TestCase
 	{
 		$get = $this->test->getTop200WordsFromQueryAndNumPapers("Halfond", 1);
 		$this->assertNotNull($get);
-		$value = $this->test->getBibtexFromDoi("10.1145/2786805.2786836");
+		$value = $this->test->getBibtexFromDoi("10.1109/ISSRE.2012.37");
 		$this->assertNotNull($value);
 	}
 
@@ -51,7 +51,7 @@ class MasterLinkClassUnitTest extends TestCase
 	{
 		$get = $this->test->getTop200WordsFromQueryAndNumPapers("Halfond", 1);
 		$this->assertNotNull($get);
-		$value = $this->test->getAbstractFromDoi("10.1145/2786805.2786836");
+		$value = $this->test->getAbstractFromDoi("10.1109/ISSRE.2012.37");
 		$this->assertNotNull($value);
 
 	}
@@ -104,7 +104,7 @@ class MasterLinkClassUnitTest extends TestCase
 	{
 		$test = new MasterLinkClass();
 		$value = $test->getTop200WordsFromQueryAndNumPapers("Halfond", "1");
-		$return = $test->getWordsInSpecificDOIs(array("10.1145/2786805.2786836"));
+		$return = $test->getWordsInSpecificDOIs(array("10.1109/ISSRE.2012.37"));
 		$this->assertNotNull($return);
 	}
 
