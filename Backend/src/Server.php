@@ -132,9 +132,5 @@ else  if(isset($_GET["conf"]))
 	$papers = $masterLink->getPapersInConf($conf);
 	echo json_encode($papers, JSON_PRETTY_PRINT);
 }
-else 
-{
-  echo "blurry paper API\nInvalid query\n";
-}
 
 ?>
