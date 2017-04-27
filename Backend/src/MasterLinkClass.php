@@ -33,10 +33,13 @@ class MasterLinkClass implements JsonSerializable
     {
         // crawl ACM with given query
         $url = "resource/". strtolower($query) . ".xml";
-        $lower = strtolower($query);
-        if ($lower != "smith" || $lower != "redekopp" || $lower != "cote" || 
-            $lower != "shindler" || $lower != "adleman" )
-            $url = "resource/cote.xml";
+        // $lower = trim(strtolower($query));
+        // if ($lower != "smith" || $lower != "redekopp" || $lower != "cote" || 
+        //     $lower != "shindler" || $lower != "adleman" || $lower != "halfond" )
+        // {
+        //     echo ($lower. "\n");
+        //     // $url = "resource/cote.xml";
+        // }
         // try {
         $xml = file_get_contents($url);
         // } catch (Exception $e) {
@@ -79,7 +82,11 @@ class MasterLinkClass implements JsonSerializable
             $paper->setConference(trim($conference->textContent));
             $paper->setDoi(trim($doi->textContent));
             $paper->setBibtex(trim($bibtex->textContent));
-            $this->mDataStore->addPaper($paper);
+            try {
+                $this->mDataStore->addPaper($paper);
+            } catch (Exception $e) {
+                
+            }
         }
         // return the most frequent words
         return $this->mDataStore->returnMostFrequentWords();
