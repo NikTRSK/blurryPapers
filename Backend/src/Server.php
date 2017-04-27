@@ -124,6 +124,14 @@ else if(isset($_GET["dois"]) && isset($_GET["paperCount"]))
 	$words = $masterLink->getWordsInSpecificDOIs($pieces);
 	echo json_encode($words, JSON_PRETTY_PRINT);
 }
+else  if(isset($_GET["conf"]))
+{
+	$masterLink = unserialize($_SESSION["masterLink"]);
+	
+	$conf = $_GET["conf"];
+	$words = $masterLink->getWordsInConf($conf);
+	echo json_encode($words, JSON_PRETTY_PRINT);
+}
 else 
 {
   echo "blurry paper API\nInvalid query\n";

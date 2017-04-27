@@ -67,9 +67,7 @@ class MasterLinkClass implements JsonSerializable
         if (strtolower($query) == "halfond")
         {
             $paper = new Paper("AMNESIA: analysis and monitoring for NEutralizing SQL-injection attacks", array("Halfond"), "local", "The use of web applications has become increasingly popular in our routine activities, such as reading the news, paying bills, and shopping on-line. As the availability of these services grows, we are witnessing an increase in the number and sophistication of attacks that target them. In particular, SQL injection, a ...");
-            $paper->setConference("Proceeding
-                ESEC/FSE 2015 Proceedings of the 2015 10th Joint Meeting on Foundations of Software Engineering
-                    Pages 25-37");
+            $paper->setConference("a");
             $paper->setDoi("10.1145/2786805.2786836");
             $paper->setBibtex("@inproceedings{Safi:2015:DEA:2786805.2786836,
                 author = {Safi, Gholamreza and Shahbazian, Arman and Halfond, William G. J. and Medvidovic, Nenad},
@@ -91,7 +89,7 @@ class MasterLinkClass implements JsonSerializable
             $this->mDataStore->addPaper($paper);
 
             $paper = new Paper("An investigation into energy-saving programming practices for Android smartphone app development", array("Halfond"), "local", "Developing energy efficient mobile applications is an impor- tant goal for software developers as energy usage can di- rectly affect the usability of a mobile device. Unfortunately, developers lack guidance as to how to improve the energy efficiency of their implementation and which practices are most useful. In this paper we conducted a small-scale em- pirical evaluation of commonly suggested energy-saving and performance-enhancing coding practices. In the evaluation we evaluated the degree to which these practices were able to save energy as compared to their unoptimized code coun- terparts. Our results provide useful guidance for mobile app developers. In particular, we found that bundling network packets up to a certain size and using certain coding prac- tices for reading array length information, accessing class fields, and performing invocations all led to reduced energy consumption. However, other practices, such as limiting memory usage had a very minimal impact on energy us- age. These results serve to inform the developer community about specific coding practices that can help lower the over- all energy consumption and improve the usability of their applications.");
-            $paper->setConference("GREENS 2014 Proceedings of the 3rd International Workshop on Green and Sustainable Software");
+            $paper->setConference("b");
             $paper->setDoi("10.1145/2593743.2593750");
             $paper->setBibtex("@inproceedings{Li:2014:IEP:2593743.2593750,
                  author = {Li, Ding and Halfond, William G. J.},
@@ -114,8 +112,7 @@ class MasterLinkClass implements JsonSerializable
             $this->mDataStore->addPaper($paper);
 
             $paper = new Paper("Automated Identification of Parameter Mismatches in Web Applications", array("Halfond"), "local", "Energy is a critical resource for apps that run on mobile de- vices. Among all operations, making HTTP requests is one of the most energy consuming. Previous studies have shown that bundling smaller HTTP requests into a single larger HTTP request can be an effective way to improve energy efficiency of network communication, but have not defined an automated way to detect when apps can be bundled nor to transform the apps to do this bundling. In this paper we propose an approach to reduce the energy consumption of HTTP requests in Android apps by automatically detecting and then bundling multiple HTTP requests. Our approach first detects HTTP requests that can be bundled using static analysis, then uses a proxy based technique to bundle HTTP requests at runtime. We evaluated our approach on a set of real world marketplace Android apps. In this evaluation, our approach achieved an average energy reduction of 15% for the subject apps and did not impose a significant runtime overhead on the optimized apps.");
-            $paper->setConference("ICSE '16 Proceedings of the 38th International Conference on Software Engineering
-                Pages 249-260 ");
+            $paper->setConference("c");
             $paper->setDoi("10.1145/2884781.2884867");
             $paper->setBibtex("@inproceedings{Li:2016:AEO:2884781.2884867,
                  author = {Li, Ding and Lyu, Yingjun and Gui, Jiaping and Halfond, William G. J.},
@@ -259,6 +256,11 @@ class MasterLinkClass implements JsonSerializable
     public function getWordsInSpecificDOIs($dois)
     {
         return $this->mDataStore->returnWordsInSpecificDOIs($dois);
+    }
+
+    public function getWordsInConf($conf)
+    {
+        return $this->mDataStore->returnWordsInConf($conf);
     }
 
     public function jsonSerialize()

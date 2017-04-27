@@ -304,6 +304,24 @@ class DataStoreClass implements JsonSerializable
 		return $mostFrequentWords;
 	}
 
+	public function returnWordsInConf($conf)
+	{
+		$ans = array();
+
+		foreach ($this->mDoiToPaperMap as $doi => $paper)
+		{
+			echo ($paper->mConference);
+			// echo ($conf);
+
+			if (strcmp($paper->mConference, $conf) == 0)
+			{
+				array_push($ans, $paper->mPaperName);
+			}
+		}
+
+		return $ans;
+	}
+
 	public function jsonSerialize()
     {
       return get_object_vars($this);
