@@ -1,0 +1,200 @@
+<document>
+	<title>
+    <![CDATA[ Algorithmic number theory-the complexity contribution ]]>
+	</title>
+	
+	<author>
+    <![CDATA[ L.M. Adleman ]]>
+	</author>
+	
+	<conference>
+    <![CDATA[ Proceedings 35th Annual Symposium on Foundations of Computer Science ]]>
+	</conference>
+
+	<abstract>
+    <![CDATA[ Though algorithmic number theory is one of man's oldest intellectual pursuits, its current vitality is perhaps unrivalled in history. This is due in part to the injection of new ideas from computational complexity. In this paper, a brief history of the symbiotic relationship between number theory and complexity theory will be presented. In addition, some of the technical aspects underlying 'modern' methods of primality testing and factoring will be described. Finally, an extensive lists of open problems in algorithmic number theory will be provided. ]]>
+	</abstract>
+
+	<url><![CDATA[ local ]]></url>
+	<!-- make sure it is local -->
+	
+	<doi>
+    <![CDATA[ 10.1109/SFCS.1994.365702 ]]>
+	</doi>
+	
+	<bibtex>
+    <![CDATA[ 
+@INPROCEEDINGS{365702, 
+author={L. M. Adleman}, 
+booktitle={Proceedings 35th Annual Symposium on Foundations of Computer Science}, 
+title={Algorithmic number theory-the complexity contribution}, 
+year={1994}, 
+pages={88-113}, 
+keywords={computational complexity;number theory;algorithmic number theory;computational complexity;factoring;open problems;primality testing;Complexity theory;Computer science;Earth;Gaussian processes;History;Least squares methods;Marine vehicles;Pursuit algorithms;Symbiosis;Testing}, 
+doi={10.1109/SFCS.1994.365702}, 
+month={Nov},}
+ ]]>
+	</bibtex>
+</document>
+
+
+<document>
+	<title>
+    <![CDATA[ Diophantine complexity ]]>
+	</title>
+	
+	<author>
+    <![CDATA[ Leonard Adleman; Kenneth Manders ]]>
+	</author>
+	
+	<conference>
+    <![CDATA[ 17th Annual Symposium on Foundations of Computer Science (sfcs 1976) ]]>
+	</conference>
+
+	<abstract>
+    <![CDATA[ In the 1930's Gode1 together with Church, K1eene, and Turing established a relationship between computa- tion and elementary number theory. Using techniques developed by Robinson, Putnam, Davis4 and Matijasevic in their celebrated solution to Hilbert's 10th problem, we began in [2] a detai led analysis to determine what consequences this relationship might have for computa- tional complexity. We found that there were consequences not only for computational complexity (non- trivial lower bounds on decision procedures for polyno- mials, the polynomial compression theorem) but also for number theory (new polynomial definitions of prima1ity and exponentiation) and logic (a syntactical characterization of the elementary-computable functions). ]]>
+	</abstract>
+
+	<url><![CDATA[ local ]]></url>
+	<!-- make sure it is local -->
+	
+	<doi>
+    <![CDATA[ 10.1109/SFCS.1976.13 ]]>
+	</doi>
+	
+	<bibtex>
+    <![CDATA[ @INPROCEEDINGS{4567891, 
+author={L. Adleman and K. Manders}, 
+booktitle={17th Annual Symposium on Foundations of Computer Science (sfcs 1976)}, 
+title={Diophantine complexity}, 
+year={1976}, 
+pages={81-88}, 
+keywords={Computational complexity;Computational modeling;Computer interfaces;Computer science;Costs;Laboratories;Logic;Polynomials;Time measurement;Turing machines}, 
+doi={10.1109/SFCS.1976.13}, 
+ISSN={0272-5428}, 
+month={Oct},}
+ ]]>
+	</bibtex>
+</document>
+
+
+<document>
+	<title>
+    <![CDATA[ The use of public key cryptography in communication system design ]]>
+	</title>
+	
+	<author>
+    <![CDATA[ L. Adleman; R. Rivest ]]>
+	</author>
+	
+	<conference>
+    <![CDATA[ IEEE Communications Society ]]>
+	</conference>
+
+	<abstract>
+    <![CDATA[ Since the time of Caesar, cryptography has been used in the design of secure communications systems. Recently, Diffie and Hellman [2] have introduced a new type of cryptographic method, based on "trapdoor" functions, which promises to be of great value in the design of such systems. We present a review of public key cryptosystems, followed by examples of communications systems which make particularly elegant use of their properties. ]]>
+	</abstract>
+
+	<url><![CDATA[ local ]]></url>
+	<!-- make sure it is local -->
+	
+	<doi>
+    <![CDATA[ 10.1109/MCOM.1978.1089778 ]]>
+	</doi>
+	
+	<bibtex>
+    <![CDATA[ @ARTICLE{1089778, 
+author={L. Adleman and R. Rivest}, 
+journal={IEEE Communications Society Magazine}, 
+title={The use of public key cryptography in communication system design}, 
+year={1978}, 
+volume={16}, 
+number={6}, 
+pages={20-23}, 
+keywords={Cryptography;Communications Society;Graphics;Mathematics;Public key;Public key cryptography;Security}, 
+doi={10.1109/MCOM.1978.1089778}, 
+ISSN={0148-9615}, 
+month={November},}
+ ]]>
+	</bibtex>
+</document>
+
+
+<document>
+	<title>
+    <![CDATA[ A subexponential algorithm for the discrete logarithm problem with applications to cryptography ]]>
+	</title>
+	
+	<author>
+    <![CDATA[ Leonard Adleman ]]>
+	</author>
+	
+	<conference>
+    <![CDATA[ 20th Annual Symposium on Foundations of Computer Science (sfcs 1979) ]]>
+	</conference>
+
+	<abstract>
+    <![CDATA[ In this article we present results of our research on the computational complexity of decision procedures for polynomials. The work combines techniques and results from number theory and computational complexity. A number of connections are established between the fields, allowing results in one to be applied in the other. The work suggests numerous research problems of considerable interest. ]]>
+	</abstract>
+
+	<url><![CDATA[ local ]]></url>
+	<!-- make sure it is local -->
+	
+	<doi>
+    <![CDATA[ 10.1109/SFCS.1979.2 ]]>
+	</doi>
+	
+	<bibtex>
+    <![CDATA[ @INPROCEEDINGS{4568001, 
+author={L. Adleman}, 
+booktitle={20th Annual Symposium on Foundations of Computer Science (sfcs 1979)}, 
+title={A subexponential algorithm for the discrete logarithm problem with applications to cryptography}, 
+year={1979}, 
+pages={55-60}, 
+keywords={Algorithm design and analysis;Application software;Computer science;History;Laboratories;Mathematics;Public key;Public key cryptography;Security;Testing}, 
+doi={10.1109/SFCS.1979.2}, 
+ISSN={0272-5428}, 
+month={Oct},}
+ ]]>
+	</bibtex>
+</document>
+
+
+<document>
+	<title>
+    <![CDATA[  ]]>
+	</title>
+	
+	<author>
+    <![CDATA[ Leonard M. Adleman; Robert McDonnell ]]>
+	</author>
+	
+	<conference>
+    <![CDATA[ 23rd Annual Symposium on Foundations of Computer Science (sfcs 1982) ]]>
+	</conference>
+
+	<abstract>
+    <![CDATA[ The Higher Reciprocity Laws are considered to be among the deepest and most fundamental results in number theory. Yet, they have until recently played no part in number theoretic algorithms. In this paper we explore the power of the laws in algorithms. The problem we consider is part of a group of well-studied problems about roots in finite fields and rings. Let F denote a finite field, let m denote a direct product of finite fields. Consider the following problems: Problem 1. Is Xn = a solvable in F; Problem 2. If Xn = a is solvable in F find X; Problem 3. Is Xn = a solvable in m; Problem 4. If Xn = a solvable in m find X. ]]>
+	</abstract>
+
+	<url><![CDATA[ local ]]></url>
+	<!-- make sure it is local -->
+	
+	<doi>
+    <![CDATA[ 10.1109/SFCS.1982.59 ]]>
+	</doi>
+	
+	<bibtex>
+    <![CDATA[ @INPROCEEDINGS{4568380, 
+author={L. M. Adleman and R. McDonnell}, 
+booktitle={23rd Annual Symposium on Foundations of Computer Science (sfcs 1982)}, 
+title={An application of higher reciprocity to computational number theory}, 
+year={1982}, 
+pages={100-106}, 
+keywords={Artificial intelligence;Galois fields;Gaussian processes;Polynomials;Public key cryptography;Turing machines;Upper bound}, 
+doi={10.1109/SFCS.1982.59}, 
+ISSN={0272-5428}, 
+month={Nov},}
+ ]]>
+	</bibtex>
+</document>

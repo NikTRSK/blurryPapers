@@ -1,0 +1,214 @@
+<document>
+	<title>
+    <![CDATA[Minimizing Effort for ABET Student Outcomes Assessment While Maintaining Effective Results]]>
+	</title>
+
+	<author>
+    <![CDATA[Jeffrey Miller]]>
+	</author>
+
+	<conference>
+    <![CDATA[2016 International Conference on Computational Science and Computational Intelligence]]>
+	</conference>
+
+	<abstract>
+    <![CDATA[In this paper, I provide the Miller Methodology for
+minimizing  the  amount  of  effort
+necessary  for  assessing  student
+outcomes through ABET accreditation.  A single faculty member
+is  responsible  for  gathering  of  the  outcome  data,  and  the  entire
+program  faculty  can  then  assess  the  data  as  it  related  to  the
+continuous improvement process.  This methodology provides for
+an efficient use of the time of faculty members of a program while
+still  maintaining  credibility  with  respect  to  the  use  of  student
+outcome data in the accreditation process.  This methodology was
+used  during  the  2015-2016  accreditation  cycle  for  the  Computer
+Science (CSCI) and Computer Engineering and Computer Science
+(CECS)  programs  in  the  Viterbi  School  of  Engineering  at  the
+University  of  Southern  California.    Both  programs  achieved  full
+accreditation    from    the    ABET    Computing    Accreditation
+Commission,   and   the   Computer   Engineering   and   Computer
+Science  (CECS)  program  achieved  full  accreditation  from  the
+ABET Engineering Accreditation Commission.]]>
+	</abstract>
+
+	<url><![CDATA[ local ]]></url>
+	<!-- make sure it is local -->
+
+	<doi>
+    <![CDATA[10.1109/CSCI.2016.0075]]>
+	</doi>
+
+	<bibtex>
+    <![CDATA[@INPROCEEDINGS{7881368,
+author={J. Miller},
+booktitle={2016 International Conference on Computational Science and Computational Intelligence (CSCI)},
+title={Minimizing Effort for ABET Student Outcomes Assessment while Maintaining Effective Results},
+year={2016},
+pages={365-369},
+keywords={accreditation;computer science education;continuous improvement;data handling;educational administrative data processing;educational courses;ABET accreditation;CECS program;Miller methodology;computer engineering and computer science;continuous improvement process;data gathering;effort minimization;program faculty;student outcome assessment;Accreditation;Computer science;Computers;Continuous improvement;Measurement;Viterbi algorithm;Web sites;ABET;computer science;outcomes assessment;student outcomes},
+doi={10.1109/CSCI.2016.0075},
+month={Dec},}]]>
+	</bibtex>
+</document>
+
+<document>
+	<title>
+    <![CDATA[Dynamically computing fastest paths for intelligent transportation systems]]>
+	</title>
+
+	<author>
+    <![CDATA[Jeffrey Miller]]>
+	</author>
+
+	<conference>
+    <![CDATA[IEEE Intelligent Transportation Systems Magazine]]>
+	</conference>
+
+	<abstract>
+    <![CDATA[In this paper I present a new approach to gathering data for intelligent transportation system applications over a continuous-flow of traffic rather than at discrete locations, as is the case with many existing technologies. Loop detectors and video cameras, among other devices, currently provide the primary means for gathering data, though it has now become possible using mobile and GPS technology to gather the speed and location of each vehicle in real-time over a continuous flow, which will allow more novel applications, such as incident identification and hazard alerts, to be developed. In addition, as vehicles transmit updated speeds to the system, the fastest path of each commuter from his current location to his desired destination can be determined. The pre-computed class of algorithms determines fastest paths more efficiently than existing algorithms, with the assumption that the graph edges are rather static though the weights can change frequently. Different shortest and fastest path algorithms are presented and analyzed using FreeSim (http://www.freewaysimulator.com), which contains an implementation of all of the algorithms discussed.]]>
+	</abstract>
+
+	<url><![CDATA[ local ]]></url>
+	<!-- make sure it is local -->
+
+	<doi>
+    <![CDATA[10.1109/MITS.2009.932717]]>
+	</doi>
+
+	<bibtex>
+    <![CDATA[@ARTICLE{5117655,
+author={J. Miller},
+journal={IEEE Intelligent Transportation Systems Magazine},
+title={Dynamically computing fastest paths for intelligent transportation systems},
+year={2009},
+volume={1},
+number={1},
+pages={20-26},
+keywords={Global Positioning System;image sensors;traffic engineering computing;video signal processing;GPS technology;data gathering;graph edges;hazard alerts;incident identification;intelligent transportation systems;loop detectors;mobile technology;traffic continuous-flow;video cameras;Cellular phones;Costs;Detectors;Helicopters;Road transportation;Road vehicles;Telecommunication traffic;Traffic control;Vehicle detection;Vehicle driving},
+doi={10.1109/MITS.2009.932717},
+ISSN={1939-1390},
+month={Spring},}]]>
+	</bibtex>
+</document>
+
+
+<document>
+	<title>
+    <![CDATA[A 0.6 V, 1.5 GHz 84 Mb SRAM in 14 nm FinFET
+CMOS Technology With Capacitive Charge-Sharing
+Write Assist Circuitry]]>
+	</title>
+
+	<author>
+    <![CDATA[Eric Karl; Zheng Guo; James Conary; Jeffrey Miller; Yong-Gee Ng;
+Satyanand Nalam; Daeyeon Kim; John Keane ;Xiaofei Wang; Uddalak Bhattacharya; Kevin Zhang]]>
+	</author>
+
+	<conference>
+    <![CDATA[IEEE Journal of Solid-State Circuits]]>
+	</conference>
+
+	<abstract>
+    <![CDATA[A 0.6-1.1 V, 84 Mb pipelined SRAM array design implemented in 14 nm FinFET CMOS technology is presented. Two array architectures featuring a high-density 0.0500 μm 2 6T SRAM bitcell and a 0.0588 μm 2 6T SRAM bitcell targeting low voltage operation are detailed. The high-density array design reaches 2.7 GHz at 1.1 V with 14.5 Mb/mm 2 bit density, while the low voltage optimized array can operate at 0.6 V, 1.5 GHz under typical process conditions. A capacitive charge-share transient voltage collapse write-assist circuit (CS-TVC) enables a 24% reduction in write energy compared to previous techniques by eliminating bias currents during operation. Technology and assist co-optimization enable 50 mV reduction in V MIN and a 1.81× increase in density over a 22 nm design.]]>
+	</abstract>
+
+	<url><![CDATA[ local ]]></url>
+	<!-- make sure it is local -->
+
+	<doi>
+    <![CDATA[10.1109/JSSC.2015.2461592]]>
+	</doi>
+
+	<bibtex>
+    <![CDATA[@ARTICLE{7289485,
+author={E. Karl and Z. Guo and J. Conary and J. Miller and Y. G. Ng and S. Nalam and D. Kim and J. Keane and X. Wang and U. Bhattacharya and K. Zhang},
+journal={IEEE Journal of Solid-State Circuits},
+title={A 0.6 V, 1.5 GHz 84 Mb SRAM in 14 nm FinFET CMOS Technology With Capacitive Charge-Sharing Write Assist Circuitry},
+year={2016},
+volume={51},
+number={1},
+pages={222-229},
+keywords={CMOS integrated circuits;MOSFET circuits;SRAM chips;low-power electronics;pipeline arithmetic;6T SRAM bitcell;FinFET CMOS technology;capacitive charge-share transient voltage;capacitive charge-sharing write assist circuitry;frequency 1.5 GHz;frequency 2.7 GHz;high-density array design;low voltage operation;pipelined SRAM array;size 14 nm;size 22 nm;storage capacity 2 bit;storage capacity 84 Mbit;two array architectures;voltage 0.6 V;voltage 1.1 V;write-assist circuit;Arrays;CMOS integrated circuits;CMOS technology;FinFETs;Random access memory;Transient analysis;CMOS integrated circuits;SRAM;semiconductor memory},
+doi={10.1109/JSSC.2015.2461592},
+ISSN={0018-9200},
+month={Jan},}]]>
+	</bibtex>
+</document>
+
+<document>
+	<title>
+    <![CDATA[Determining time to traverse road sections based on mapping discrete GPS vehicle data to continuous flows]]>
+	</title>
+
+	<author>
+    <![CDATA[Jeffrey Miller; Sun-il Kim; Muhammad Ali]]>
+	</author>
+
+	<conference>
+    <![CDATA[2010 IEEE Intelligent Vehicles Symposium]]>
+	</conference>
+
+	<abstract>
+    <![CDATA[In this paper, we present and analyze an algorithm for mapping discrete GPS data gathered from vehicles to a continuous flow of data to determine the time to traverse a road section. Vehicle-tracking devices are installed in 80 probe vehicles in the Anchorage area, and a specific roadway section was chosen as a test section. Drivers for this study drove from before the start of the test roadway section past the end of the test roadway section, measuring the time to travel from the start to the finish of the test roadway section. The vehicle-tracking devices report speed and location every 10 seconds. From this data, we calculated the amount of time to traverse the test roadway section using our proportional model and compared it to the actual amount of time it took to traverse the test roadway section. We performed the analysis assuming the vehicle-tracking devices were reporting location every 10 seconds, 20 seconds, 30 seconds, 40 seconds, 50 seconds, and 60 seconds. With an average actual time to traverse the test roadway section of 2 minutes 28 seconds, the error rate based on the proportional model was between 1.8%–9.2% (2.7–13.1 seconds), based on how frequently the vehicle was reporting its location. Merely taking the average speed on the edge from the vehicle reporting its speed and location during those same durations had an error rate between 14.2%–25.8% (24.7–41.1 seconds). Our results show that the proportional model has a small error rate (1.8% with 10 second reporting time) and can accurately represent the time to traverse roadway sections based on discrete readings from a small number of probe vehicles.]]>
+	</abstract>
+
+	<url><![CDATA[ local ]]></url>
+	<!-- make sure it is local -->
+
+	<doi>
+    <![CDATA[10.1109/IVS.2010.5548009]]>
+	</doi>
+
+	<bibtex>
+    <![CDATA[@INPROCEEDINGS{5548009,
+author={J. Miller and S. i. Kim and M. Ali and T. Menard},
+booktitle={2010 IEEE Intelligent Vehicles Symposium},
+title={Determining time to traverse road sections based on mapping discrete GPS vehicle data to continuous flows},
+year={2010},
+pages={615-620},
+keywords={Global Positioning System;data acquisition;data handling;road vehicles;tracking;traffic engineering computing;Anchorage area;GPS;traverse roadway section;vehicle-tracking devices;Computer architecture;Error analysis;Global Positioning System;Intelligent vehicles;Probes;Road vehicles;Testing;Time measurement;Traffic control;Vehicle driving},
+doi={10.1109/IVS.2010.5548009},
+ISSN={1931-0587},
+month={June},}]]>
+	</bibtex>
+</document>
+
+
+<document>
+	<title>
+    <![CDATA[Simple pulse asynchronous state machines]]>
+	</title>
+
+	<author>
+    <![CDATA[Jeffrey Miller; Woodward Yang]]>
+	</author>
+
+	<conference>
+    <![CDATA[1996 IEEE International Symposium on Circuits and Systems]]>
+	</conference>
+
+	<abstract>
+    <![CDATA[Pulse computation is a hybrid of conventional analog and digital techniques which encodes and processes information in the time domain. In this paper we present a new technique for pulse computation with simple pulse-driven, asynchronous finite state machines. Asynchronous FSMs are robust and timescale-independent, and can be used as building blocks for constructing complex pulse processors. The notion of state within such processors is considerably simpler than in previous (neuromorphic) pulse computation elements. We describe two simple state machines, pulse matchers and pulse differencers, which we have implemented in CMOS 2 /spl mu/m VLSI. Finally, we discuss some simple image-processing applications to which these devices may be applied.]]>
+	</abstract>
+
+	<url><![CDATA[ local ]]></url>
+	<!-- make sure it is local -->
+
+	<doi>
+    <![CDATA[10.1109/ISCAS.1996.541619]]>
+	</doi>
+
+	<bibtex>
+    <![CDATA[@INPROCEEDINGS{541619,
+author={J. Miller and W. Yang},
+booktitle={1996 IEEE International Symposium on Circuits and Systems. Circuits and Systems Connecting the World. ISCAS 96},
+title={Simple pulse asynchronous state machines}, 
+year={1996},
+volume={3},
+pages={405-409 vol.3},
+keywords={CMOS integrated circuits;VLSI;asynchronous circuits;finite state machines;image processing;pulse circuits;2 micron;CMOS VLSI;asynchronous finite state machine;image processing;pulse computation;pulse differencer;pulse matcher;pulse processor;time domain information processing;Analog computers;Automata;Biological information theory;Biology computing;Dynamic range;Impedance matching;Neuromorphics;Robustness;Very large scale integration;Voltage},
+doi={10.1109/ISCAS.1996.541619},
+month={May},}]]>
+	</bibtex>
+</document>

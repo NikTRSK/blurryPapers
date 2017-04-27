@@ -1,0 +1,38 @@
+<document>
+	<title>
+    <![CDATA[ Optimizations and Analysis of BSP Graph Processing Models on Public Clouds ]]>
+	</title>
+	
+	<author>
+    <![CDATA[ Mark Redekopp; Yogesh Simmhan; Viktor K. Prasanna ]]>
+	</author>
+	
+	<conference>
+    <![CDATA[ 2013 IEEE 27th International Symposium on Parallel and Distributed Processing ]]>
+	</conference>
+
+	<abstract>
+    <![CDATA[ Large-scale graph analytics is a central tool in many fields, and exemplifies the size and complexity of Big Data applications. Recent distributed graph processing frameworks utilize the venerable Bulk Synchronous Parallel (BSP) model and promise scalability for large graph analytics. This has been made popular by Google's Pregel, which provides an architecture design for BSP graph processing. Public clouds offer democratized access to medium-sized compute infrastructure with the promise of rapid provisioning with no capital investment. Evaluating BSP graph frameworks on cloud platforms with their unique constraints is less explored. Here, we present optimizations and analyses for computationally complex graph analysis algorithms such as betweenness-centrality and all-pairs shortest paths on a native BSP framework we have developed for the Microsoft Azure Cloud, modeled on the Pregel graph processing model. We propose novel heuristics for scheduling graph vertex processing in swaths to maximize resource utilization on cloud VMs that lead to a 3.5x performance improvement. We explore the effects of graph partitioning in the context of BSP, and show that even a well partitioned graph may not lead to performance improvements due to BSP's barrier synchronization. We end with a discussion on leveraging cloud elasticity for dynamically scaling the number of BSP workers to achieve a better performance than a static deployment, and at a significantly lower cost. ]]>
+	</abstract>
+
+	<url><![CDATA[ local ]]></url>
+	<!-- make sure it is local -->
+	
+	<doi>
+    <![CDATA[ 10.1109/IPDPS.2013.76 ]]>
+	</doi>
+	
+	<bibtex>
+    <![CDATA[ @INPROCEEDINGS{6569812, 
+author={M. Redekopp and Y. Simmhan and V. K. Prasanna}, 
+booktitle={2013 IEEE 27th International Symposium on Parallel and Distributed Processing}, 
+title={Optimizations and Analysis of BSP Graph Processing Models on Public Clouds}, 
+year={2013}, 
+pages={203-214}, 
+keywords={cloud computing;graph theory;optimisation;software architecture;virtual machines;BSP barrier synchronization;BSP graph processing;BSP graph processing models;Google Pregel;Microsoft Azure cloud;Pregel graph processing model;all-pairs shortest paths;architecture design;betweenness-centrality;big data applications;capital investment;cloud VM;cloud platforms;complex graph analysis algorithms;distributed graph processing frameworks;large-scale graph analytics;medium-sized compute infrastructure;optimizations;public clouds;venerable bulk synchronous parallel model;Algorithm design and analysis;Cloud computing;Computational modeling;Optimization;Programming;Scalability;Synchronization;Betweennness centrality;Bulk Synchronous Parallel;Cloud computing;Graph analytics;MapReduce;Pregel}, 
+doi={10.1109/IPDPS.2013.76}, 
+ISSN={1530-2075}, 
+month={May},}
+ ]]>
+	</bibtex>
+</document>
