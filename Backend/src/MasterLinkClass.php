@@ -32,7 +32,7 @@ class MasterLinkClass implements JsonSerializable
      public function getTop200WordsFromQueryAndNumPapers($query, $paperCount)
     {
         // crawl ACM with given query
-        $url = "resource/". $query . ".xml";
+        $url = "resource/". strtolower($query) . ".xml";
 
         $xml = file_get_contents($url);
         // echo $xml;
@@ -50,20 +50,20 @@ class MasterLinkClass implements JsonSerializable
             }
 
             $title = $finder->query("./title" , $key)->item(0);
-            echo $title->textContent . "\n";
+            // echo $title->textContent . "\n";
 
             $authors = $finder->query("./author", $key)->item(0);
-            echo $authors->textContent . "\n";
+            // echo $authors->textContent . "\n";
 
             $conference = $finder->query("./conference", $key)->item(0);
-            echo $conference->textContent . "\n";
+            // echo $conference->textContent . "\n";
 
             $abstract = $finder->query("./abstract", $key)->item(0);
-            echo $abstract->textContent . "\n";
+            // echo $abstract->textContent . "\n";
 
             $doi = $finder->query("./doi" ,$key)->item(0);
-            echo $abstract->textContent . "\n";
-            
+            // echo $abstract->textContent . "\n";
+
 
             $bibtex = $finder->query("./bibtex" ,$key)->item(0);
 
