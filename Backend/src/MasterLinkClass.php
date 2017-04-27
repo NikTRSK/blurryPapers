@@ -258,9 +258,9 @@ class MasterLinkClass implements JsonSerializable
         return $this->mDataStore->returnWordsInSpecificDOIs($dois);
     }
 
-    public function getWordsInConf($conf)
+    public function getPapersInConf($conf)
     {
-        return $this->mDataStore->returnWordsInConf($conf);
+        return $this->mDataStore->returnPapersInConf($conf);
     }
 
     public function jsonSerialize()

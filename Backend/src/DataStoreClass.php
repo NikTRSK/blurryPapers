@@ -304,7 +304,7 @@ class DataStoreClass implements JsonSerializable
 		return $mostFrequentWords;
 	}
 
-	public function returnWordsInConf($conf)
+	public function returnPapersInConf($conf)
 	{
 		$ans = array();
 

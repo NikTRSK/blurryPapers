@@ -324,7 +324,6 @@ class DataStoreClassUnitTest extends TestCase
 		$this->assertNull($abstract);		
 	}
 
-	// TODO: This does not work
 	public function testReturnWordsInSpecificDOIs()
 	{
 		$dataStore = new DataStoreClass();
@@ -343,6 +342,26 @@ class DataStoreClassUnitTest extends TestCase
 
 
 		$this->assertEquals(200, sizeof($mostFrequentWords));
+	}
+
+	public function testConference()
+	{
+		$dataStore = new DataStoreClass();
+
+		$mPaperName = "Name";
+		$mAuthorNames = array();
+		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+		$mAbstract = "abstract";
+
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$paper->setConference("a");
+
+		$dataStore->addPaper($paper);
+
+		$conf = $dataStore->returnPapersInConf("a");
+
+
+		$this->assertNotNull($conf);
 	}
 
 	public function testReturnBibtexFromDOI()
