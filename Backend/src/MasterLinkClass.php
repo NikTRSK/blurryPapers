@@ -67,10 +67,10 @@ class MasterLinkClass implements JsonSerializable
 
             $bibtex = $finder->query("./bibtex" ,$key)->item(0);
 
-            $paper = new Paper($title->textContent, $authors->textContent, "local", $abstract->textContent);
-            $paper->setConference($conference);
-            $paper->setDoi($doi);
-            $paper->setBibtex($bibtex);
+            $paper = new Paper(trim($title->textContent), trim($authors->textContent), "local", trim($abstract->textContent));
+            $paper->setConference(trim($conference->textContent));
+            $paper->setDoi(trim($doi->textContent));
+            $paper->setBibtex(trim($bibtex->textContent));
             $this->mDataStore->addPaper($paper);
         }
         // return the most frequent words
