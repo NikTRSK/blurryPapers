@@ -22,6 +22,7 @@ class DataStoreClassUnitTest extends TestCase
 		$mAbstract = "abstract";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$paper->setDoi("10.1.10");
 
 		$dataStore->addPaper($paper);
 
@@ -40,6 +41,7 @@ class DataStoreClassUnitTest extends TestCase
 		$mAbstract = "abstract";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$paper->setDoi("10.1.10");
 
 		$dataStore->addPaper($paper);
 
@@ -71,6 +73,7 @@ class DataStoreClassUnitTest extends TestCase
 		$mAbstract = "abstract";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$paper->setDoi("10.1.10");
 
 		$dataStore->addPaper($paper);
 
@@ -91,6 +94,7 @@ class DataStoreClassUnitTest extends TestCase
 		$mAbstract = "abstract";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$paper->setDoi("10.1.10");
 
 		$dataStore->addPaper($paper);
 
@@ -111,6 +115,7 @@ class DataStoreClassUnitTest extends TestCase
 		$mAbstract = "abstract";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$paper->setDoi("10.1.10");
 
 		$dataStore->addPaper($paper);
 
@@ -129,6 +134,7 @@ class DataStoreClassUnitTest extends TestCase
 		$mAbstract = "abstract";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$paper->setDoi("10.1.10");
 
 		$dataStore->addPaper($paper);
 
@@ -149,6 +155,7 @@ class DataStoreClassUnitTest extends TestCase
 		$mAbstract = "abstract";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$paper->setDoi("10.1.10");
 
 		$dataStore->addPaper($paper);
 
@@ -178,6 +185,7 @@ class DataStoreClassUnitTest extends TestCase
 		$mAbstract = "abstract";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$paper->setDoi("10.1.10");
 
 		$dataStore->addPaper($paper);
 
@@ -196,6 +204,7 @@ class DataStoreClassUnitTest extends TestCase
 		$mAbstract = "abstract";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$paper->setDoi("10.1.10");
 
 		$dataStore->addPaper($paper);
 
@@ -214,6 +223,7 @@ class DataStoreClassUnitTest extends TestCase
 		$mAbstract = "abstract";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$paper->setDoi("10.1.10");
 
 		$dataStore->addPaper($paper);
 
@@ -232,6 +242,7 @@ class DataStoreClassUnitTest extends TestCase
 		$mAbstract = "abstract";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$paper->setDoi("10.1.10");
 
 		$dataStore->addPaper($paper);
 
@@ -249,6 +260,7 @@ class DataStoreClassUnitTest extends TestCase
 		$mAbstract = "abstract";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$paper->setDoi("10.1.10");
 
 		$dataStore->addPaper($paper);
 
@@ -267,6 +279,7 @@ class DataStoreClassUnitTest extends TestCase
 		$mAbstract = "abstract";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$paper->setDoi("10.1.10");
 
 		$dataStore->addPaper($paper);
 
@@ -310,28 +323,76 @@ class DataStoreClassUnitTest extends TestCase
 
 		$this->assertNull($abstract);		
 	}
-	
-	public function testGetProgress()
-	{
-		$dataStore = new DataStoreClass();
-		$this->assertNotNull($dataStore->getProgress());
-	}
 
-	public function testHighlightPaper()
+	// TODO: This does not work
+	public function testReturnWordsInSpecificDOIs()
 	{
 		$dataStore = new DataStoreClass();
+
 		$mPaperName = "Name";
 		$mAuthorNames = array();
 		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
 		$mAbstract = "abstract";
 
 		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
-		$paper->setDoi("10");
+		$paper->setDoi("10.1.10");
 
 		$dataStore->addPaper($paper);
-		$dataStore->highlightPaper("10", "the");
 
-		$this->assertNotNull($dataStore);
+		$mostFrequentWords = $dataStore->returnWordsInSpecificDOIs(array("10.1.10"));
+
+
+		$this->assertEquals(200, sizeof($mostFrequentWords));
+	}
+
+	public function testReturnBibtexFromDOI()
+	{
+		$dataStore = new DataStoreClass();
+
+		$mPaperName = "Name";
+		$mAuthorNames = array();
+		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+		$mAbstract = "abstract";
+
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$paper->setDoi("10.1.10");
+		$paper->setBibtex("bibtex");
+		
+		$dataStore->addPaper($paper);
+
+		$bibtex = $dataStore->returnBibtexFromDoi("10.1.10");
+		var_dump($bibtex);
+		$this->assertEquals("bibtex",$bibtex);
+		// $this->assertEquals(expected, actual);
+	}
+
+	public function testReturnAbstractFromDOI()
+	{
+		$dataStore = new DataStoreClass();
+
+		$mPaperName = "Name";
+		$mAuthorNames = array();
+		$mPDFURLLink = "http://etd.lib.byu.edu/PDFCreation/EditingTextinPDFDocuments.pdf";
+		$mAbstract = "abstract";
+
+		$paper = new Paper($mPaperName, $mAuthorNames, $mPDFURLLink, $mAbstract);
+		$paper->setDoi("10.1.10");
+		$paper->setBibtex("bibtex");
+		
+		$dataStore->addPaper($paper);
+
+		$abstract = $dataStore->returnAbstractFromDoi("10.1.10");
+
+		$this->assertEquals($abstract, "abstract");
+	}
+
+	public function testJsonSeralize()
+	{
+		$dataStore = new DataStoreClass();
+
+		$json = $dataStore->jsonSerialize();
+
+		$this->assertNotNull($json);
 	}
 
 	// public function testReturnPDFURLValidWordAndInvalidPaperReturnsNull()
