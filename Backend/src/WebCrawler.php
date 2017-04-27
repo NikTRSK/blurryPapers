@@ -16,7 +16,7 @@
 		{
 			if ($this->mConfig == "IEEE")
 			{
-				$url = "http://ieeexplore.ieee.org:80/search/searchresult.jsp?reload=true&amp;newsearch=true&amp;queryText=Halfond";
+				$url = "http://ieeexplore.ieee.org/gateway/ipsSearch.jsp?au=Halfond";
 				$this->mURL = $url;
 
 				$ch = curl_init();
@@ -27,6 +27,7 @@
 				$html = curl_exec($ch);
 				curl_close($ch);
 
+				// echo $html;
 				# Create a DOM parser object
 				$this->mDom = new DOMDocument();
 
@@ -35,7 +36,7 @@
 				# The @ before the method call suppresses any warnings that
 				# loadHTML might throw because of invalid HTML in the page.
 				// @JavaScript
-				@$this->mDom->loadHTML($html);
+				@$this->mDom->loadXML($html);
 
 				// echo $this->mDom->saveHTML();
 			}
@@ -76,11 +77,26 @@
 			{
 				// echo "HI THERE\n";
 				$finder = new DomXPath($this->mDom);
-				$classname="ng-binding";
-				$nodes = $finder->query("//*[contains(@class, '$classname')]");
+				$nodes = $finder->query("//document");
 				foreach ($nodes as $key) {
 					// echo "IMHERE\n";
-					$text .= $this->mDom->saveHTML($key);
+					$title = $finder->query("./title" , $key)->item(0);
+					echo $title->textContent . "\n";
+
+					$authors = $finder->query("./authors", $key)->item(0);
+					echo $authors->textContent . "\n";
+
+					$conference = $finder->query("./pubtitle", $key)->item(0);
+					echo $conference->textContent . "\n";
+
+					$abstract = $finder->query("./abstract", $key)->item(0);
+					echo $abstract->textContent . "\n";
+
+					$downloadURL = $finder->query("./pdf" ,$key)->item(0);
+					echo $downloadURL->textContent . "\n";
+
+					echo "======================\n";
+					// $text = $key->textContent;
 					// echo $text . "\n";
 				}
 			}

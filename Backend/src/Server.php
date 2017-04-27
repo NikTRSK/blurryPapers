@@ -115,6 +115,23 @@ else if ( isset($_GET["convertPDF"]) && isset($_GET["highlight"]) )
 	$resource = "http://localhost:8888/$output_pdf";
 	echo json_encode($resource, JSON_PRETTY_PRINT);
 }
+// Generate word cloud from multiple articles selecte
+else if(isset($_GET["dois"]) && isset($_GET["paperCount"]))
+{
+	$masterLink = unserialize($_SESSION["masterLink"]);
+	
+	$pieces = explode(",", $_GET["dois"]);
+	$words = $masterLink->getWordsInSpecificDOIs($pieces);
+	echo json_encode($words, JSON_PRETTY_PRINT);
+}
+else  if(isset($_GET["conf"]))
+{
+	$masterLink = unserialize($_SESSION["masterLink"]);
+	
+	$conf = $_GET["conf"];
+	$words = $masterLink->getPapersInConf($conf);
+	echo json_encode($words, JSON_PRETTY_PRINT);
+}
 else 
 {
   echo "blurry paper API\nInvalid query\n";
