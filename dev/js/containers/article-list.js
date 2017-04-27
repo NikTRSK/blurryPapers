@@ -33,26 +33,36 @@ export default class ArticleList extends React.Component {
     this.setState(newState)
   }
 
+	getArticleName(doi) {
+		const { articles } = this.props.articleData
+		let articleTitle = ""
+		articles.forEach((article)=>{
+			if (article.doi === doi ) {
+				articleTitle = article.title
+			}
+		})
+		return articleTitle
+	}
+	
   /* Generates query for checked articles */
-  // TODO: Replace Smith w/ doiquery
-  /*
-  	this.props.addToHistory(doiQuery, numArticles);
-  	this.props.generatePapers(doiQuery);
-  */
   generateWCFromSelected() {
     let doiQuery = ''
     let numArticles = 0
+	  let articles = []
     const curState = this.state
     for (const key in curState) {
       if (curState.hasOwnProperty(key)) {
         if (curState[key] === true) {
+          articles.push(this.getArticleName(key))
           numArticles += 1
           doiQuery += `${key},`
         }
       }
     }
-    // this.props.addToHistory('Smith', numArticles)
-    // this.props.generatePapers('Smith')
+	  if (articles.length != 0) {
+		  this.props.addToHistory(articles.join(), numArticles)
+		  this.props.generatePapers(doiQuery)
+	  }
   }
 
   /*
@@ -63,21 +73,11 @@ export default class ArticleList extends React.Component {
   * 3: Frequency
   * */
   sortedArticles() {
-	  //return [{
-		 // title: "Bitches",
-		 // conference: ["1"],
-		 // authors: ["halfond"],
-		 // wordFrequency: 417,
-		 // doi: "adw224r"
-	  //}];
-
     let articles = []
 
     if (this.props.articleData.articles) {
       articles = this.props.articleData.articles
     }
-    console.log("SORTING ARTICLES")
-    console.log(this.props.articleData.articles)
 
     switch (this.state.sortType) {
       case 0:
@@ -139,8 +139,6 @@ export default class ArticleList extends React.Component {
   }
 
   render() {
-    console.log("Render Article List....")
-    console.log(this.props)
     const { word } = this.props.params
     const articles = this.sortedArticles()
     const mappedArticles = articles.map((article, i) => <li><ArticleItem {...this.props} uniqueID={i} key={article.title + i} word={word} onChange={this.checkArticle.bind(this)} article={article} /></li>)
@@ -195,10 +193,10 @@ export default class ArticleList extends React.Component {
   }
 }
 
-// ArticleList.propTypes = {
-//   fetchArticles: React.PropTypes.func,
-//   addToHistory: React.PropTypes.func,
-//   generatePapers: React.PropTypes.func,
-//   articleData: React.PropTypes.object,
-//   params: React.PropTypes.object
-// }
+ ArticleList.propTypes = {
+   fetchArticles: React.PropTypes.func,
+   addToHistory: React.PropTypes.func,
+   generatePapers: React.PropTypes.func,
+   articleData: React.PropTypes.object,
+   params: React.PropTypes.object
+ }

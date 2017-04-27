@@ -5,6 +5,7 @@ import paperData from './reducer-wordcloud';
 import searchHistory from './reducer-history';
 import bibtex from "./bibtex-reducer";
 import abstract from "./abstract-reducer";
+import conferencepapers from "./conference-reducer";
 import { loadingBarReducer } from 'react-redux-loading-bar'
 
 const rootReducer = combineReducers({
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   bibtex,
   abstract,
   searchHistory,
+	conferencepapers,
   loadingBar: loadingBarReducer
 });
 

@@ -11,6 +11,7 @@ function mapStateToProps(state) {
     articleData: state.articles,
     bibtexData: state.bibtex,
     abstractData: state.abstract,
+	  conferenceData: state.conferencepapers,
     searchHistory: state.searchHistory
   }
 }
