@@ -42,12 +42,23 @@ require('MasterLinkClass.php');
 // returns top 200 words with given query and number of papers
 if ( isset($_GET["query"]) && isset($_GET["paperCount"]) ) 
 {
-	$masterLink = new MasterLinkClass();
-	// $MasterLink->searchQuery($_GET["query"]);
-	$top200WordsArray = $masterLink->getTop200WordsFromQueryAndNumPapers($_GET["query"], $_GET["paperCount"]);
-	$_SESSION["masterLink"] = serialize($masterLink);
+	if ((int)$_GET["paperCount"] > 0)
+	{
+		$masterLink = new MasterLinkClass();
+		// $MasterLink->searchQuery($_GET["query"]);
+		$top200WordsArray = $masterLink->getTop200WordsFromQueryAndNumPapers($_GET["query"], $_GET["paperCount"]);
+		$_SESSION["masterLink"] = serialize($masterLink);
 
-	echo json_encode($top200WordsArray, JSON_PRETTY_PRINT);
+		echo json_encode($top200WordsArray, JSON_PRETTY_PRINT);
+	}
+	else
+	{	
+		$masterLink = unserialize($_SESSION["masterLink"]);
+	
+		$pieces = explode(",", $_GET["query"]);
+		$words = $masterLink->getWordsInSpecificDOIs($pieces);
+		echo json_encode($words, JSON_PRETTY_PRINT);
+	}
 }
 // returns list of papers with word
 else if ( isset($_GET["word"]) ) 
