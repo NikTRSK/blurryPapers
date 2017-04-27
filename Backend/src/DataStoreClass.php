@@ -310,9 +310,6 @@ class DataStoreClass implements JsonSerializable
 
 		foreach ($this->mDoiToPaperMap as $doi => $paper)
 		{
-			echo ($paper->mConference);
-			// echo ($conf);
-
 			if (strcmp($paper->mConference, $conf) == 0)
 			{
 				array_push($ans, $paper->mPaperName);

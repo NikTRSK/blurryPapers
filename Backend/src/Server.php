@@ -129,8 +129,8 @@ else  if(isset($_GET["conf"]))
 	$masterLink = unserialize($_SESSION["masterLink"]);
 	
 	$conf = $_GET["conf"];
-	$words = $masterLink->getPapersInConf($conf);
-	echo json_encode($words, JSON_PRETTY_PRINT);
+	$papers = $masterLink->getPapersInConf($conf);
+	echo json_encode($papers, JSON_PRETTY_PRINT);
 }
 else 
 {
