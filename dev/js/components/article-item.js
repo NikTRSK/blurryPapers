@@ -12,6 +12,7 @@ export default class ArticleItem extends React.Component {
     this.state = {
       showModal: false,
       showAbstract: false,
+	    showConfPapers: false,
       checked: false
     }
   }
@@ -43,6 +44,7 @@ export default class ArticleItem extends React.Component {
 	this.props.generatePapers(conference);
 	*/
   conferenceRoute(conference) {
+	  console.log("CONF ROUTE");
     this.props.addToHistory(conference, 10)
     this.props.generatePapers(conference)
   }
@@ -50,10 +52,11 @@ export default class ArticleItem extends React.Component {
   render() {
 	  //let downloadLink = "https://depts.washington.edu/owrc/Handouts/What%20is%20an%20Academic%20Paper.pdf"
     const { authors, conference, title, doi, wordFrequency, downloadLink } = this.props.article
+	  const { conferencepapers } = this.props.conferenceData
     const { bibtex } = this.props.bibtexData.bibtex
     const { abstract } = this.props.abstractData.abstract
     const { word, uniqueID } = this.props
-    const { showAbstract, showModal, checked } = this.state
+    const { showAbstract, showModal, checked, showConfPapers } = this.state
     const mappedAuthors = authors.map((author, i) =>
 	    <IndexLink to="/" id={`author-num-${i}`} key={i} onClick={this.authorRoute.bind(this, author)}>
 				{!!i && ', '}
@@ -61,14 +64,38 @@ export default class ArticleItem extends React.Component {
       </IndexLink>
 		)
     const mappedConferences = conference.map((conference, i) =>
-      <IndexLink to="/" id={`conference-num-${i}`} key={i} onClick={this.conferenceRoute.bind(this, conference)}>
+      <a onClick={()=>{
+         this.props.fetchFromConference(conference);
+         const showConfPapers = this.state.showConfPapers;
+         this.setState({ showConfPapers: !showConfPapers })
+      }}>
 				{!!i && ', '}
 				{conference}
-      </IndexLink>
+      </a>
 		)
+	  let mappedConferencePapers = [];
+		if (conferencepapers)
+			mappedConferencePapers = conferencepapers.map((confPaper, i) =><li>confPaper</li>);
 
     return (
       <div className="container" id="article-container">
+
+	      {/* Conferences popup */}
+	      <div className="row">
+		      <div>
+			      <ReactBootstrap.Modal show={showConfPapers} onHide={()=>{
+                this.props.clearFromConference()
+                this.setState({ showConfPapers: false })
+            }}>
+				      <ReactBootstrap.Modal.Header closeButton>
+					      <ReactBootstrap.Modal.Title>Conference Papers</ReactBootstrap.Modal.Title>
+				      </ReactBootstrap.Modal.Header>
+				      <ReactBootstrap.Modal.Body>
+					      <ul id="conference-papers">{mappedConferencePapers}</ul>
+				      </ReactBootstrap.Modal.Body>
+			      </ReactBootstrap.Modal>
+		      </div>
+	      </div>
 
 				{/* BibTeX popup */}
         <div className="row">

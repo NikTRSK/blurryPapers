@@ -84,16 +84,20 @@ export function addToHistory(query, count) {
   }
 }
 
-// export function downloadHighlighted(url,word) {
-//   let str = `\"${url}\"`;
-//   console.log("Download Highlighted Action Function")
-//   axios.get(`http://localhost:8888/Server.php?convertPDF=${str}&highlight=${word}`)
-//     .then((response) => {
-//       axios.get(response.data)
-//       .then (response => console.log(response.data))
-//       .catch ( err => console.log("Fuck"))
-//     })
-//     .catch((err) => {
-//       console.log("fuck top level")
-//     })
-// }
+export function fetchFromConference(conference) {
+	return function(dispatch) {
+		axios.get(`http://localhost:8888/Server.php?conf=${conference}`)
+			.then((response) => {
+				dispatch({type: "CONFERENCE_RECEIVED", payload: response.data})
+			})
+			.catch((err) => {
+				dispatch({type: "CONFERENCE_REJECTED", payload: err})
+			})
+	}
+}
+
+export function  clearFromConference() {
+	return function(dispatch) {
+		dispatch({type: "CONFERENCE_CLEAR", payload: {conferencepapers:[]}})
+	}
+}

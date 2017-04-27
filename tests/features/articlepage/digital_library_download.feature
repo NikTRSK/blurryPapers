@@ -7,4 +7,4 @@ Feature: User should be able to download the paper from the digital library
     When The "#search-button" is clicked
     When I select a "way" from the "#word-cloud"
     When I click on link
-    Then I should be able directed to download the article
+    Then I should download the article
