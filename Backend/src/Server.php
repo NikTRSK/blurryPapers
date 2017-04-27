@@ -22,11 +22,11 @@ class paperReturn
 	public $conference;
 	public $doi;
 
-	function __construct($paper)
+	function __construct($paper, $masterLink, $word)
 	{
 		$this->title = $paper->mPaperName;
 		$this->authors = $paper->mAuthorNames;
-		$this->wordFrequency = 718;
+		$this->wordFrequency = (int)$masterLink->mDataStore->mWordStringToPapersListMap[$word][$paper->mPaperName]->mCount;
 	    $this->downloadLink = $paper->mPDFLocalURL;
 	    $this->conference = array();
 	    array_push($this->conference, $paper->mConference);
@@ -59,8 +59,10 @@ else if ( isset($_GET["word"]) )
 	// $_SESSION["masterLink"] = serialize($masterLink);
 	$return = array();
 
+	$word = (string)$_GET["word"];
+
 	foreach ($papersList as $paper) {
-		$temp = new paperReturn($paper);
+		$temp = new paperReturn($paper, $masterLink, $word);
 		array_push($return, $temp);
 	}
 
