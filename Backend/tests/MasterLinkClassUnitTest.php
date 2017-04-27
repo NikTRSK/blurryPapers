@@ -33,7 +33,7 @@ class MasterLinkClassUnitTest extends TestCase
 
 	public function testGetPaperWithWord()
 	{
-		$get = $this->test->getTop200WordsFromQueryAndNumPapers("Halfond", 1);
+		$get = $this->test->getTop200WordsFromQueryAndNumPapers("aaron cote", 1);
 		$this->assertNotNull($get);
 		$value = $this->test->getPapersWithWord("the");
 		$this->assertNotNull($value);
@@ -100,6 +100,14 @@ class MasterLinkClassUnitTest extends TestCase
 		$this->assertNotNull($test->getProgress());
 	}
 
+	public function testGetWordFromDOI()
+	{
+		$test = new MasterLinkClass();
+		$value = $test->getTop200WordsFromQueryAndNumPapers("Halfond", "1");
+		$return = $test->getWordsInSpecificDOIs(array("10.1145/2786805.2786836"));
+		$this->assertNotNull($return);
+	}
+
 	public function testHighlightPaper()
 	{
 		$test = new MasterLinkClass();
@@ -109,6 +117,24 @@ class MasterLinkClassUnitTest extends TestCase
 
 		$this->assertNotNull($test);
 	}
+
+	public function testExportPDF()
+	{
+		$test = new MasterLinkClass();
+		$value = $test->getTop200WordsFromQueryAndNumPapers("Halfond", "1");
+		$test->exportPDF();
+		$this->assertNotNull($test);
+	}
+
+	public function getPaperInConf()
+	{
+		$test = new MasterLinkClass();
+		$value = $test->getTop200WordsFromQueryAndNumPapers("Halfond", "1");
+		$words = $test->getPaperInConf("a");
+		$this->assertNotNull($words);
+	}
+
+
 	// public function testGetWordMap()
 	// {
 	// 	$test = new MasterLinkClass();
