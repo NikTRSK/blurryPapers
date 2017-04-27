@@ -380,7 +380,6 @@ class DataStoreClassUnitTest extends TestCase
 		$dataStore->addPaper($paper);
 
 		$bibtex = $dataStore->returnBibtexFromDoi("10.1.10");
-		var_dump($bibtex);
 		$this->assertEquals("bibtex",$bibtex);
 		// $this->assertEquals(expected, actual);
 	}
