@@ -1,0 +1,258 @@
+<document>
+	<title>
+    <![CDATA[Energy-efficient mobile data transport via online multi-network packet scheduling]]>
+	</title>
+	
+	<author>
+    <![CDATA[Aaron Coté; Adam Meyerson; Brian Tagiku]]>
+	</author>
+	
+	<conference>
+    <![CDATA[International Conference on Green Computing]]>
+	</conference>
+
+	<abstract>
+    <![CDATA[We explore a novel online packet scheduling model related to energy-efficiency in mobile data transport. This model incorporates multiple networks with non-persistent connectivities where we only know which networks are available in the current timestep. When a packet arrives, it specifies a deadline and, for each network, a value it is worth if sent over that network. Our goal is to maximize the total value of packets we send by their deadlines. To encourage energy-efficiency, our model requires that packets have larger values for more energy-efficient networks. We demonstrate low-constant-competitive algorithms for this problem and several restrictions. We also provide lower bounds which closely match our competitive ratios and, under some restrictions, are tight.]]>
+	</abstract>
+
+	<url><![CDATA[ local ]]></url>
+	<!-- make sure it is local -->
+	
+	<doi>
+    <![CDATA[10.1109/GREENCOMP.2010.5598312]]>
+	</doi>
+	
+	<bibtex>
+    <![CDATA[@INPROCEEDINGS{5598312, 
+author={A. Coté and A. Meyerson and B. Tagiku}, 
+booktitle={International Conference on Green Computing}, 
+title={Energy-efficient mobile data transport via online multi-network packet scheduling}, 
+year={2010}, 
+pages={175-187}, 
+keywords={mobile communication;packet radio networks;wireless LAN;energy efficiency;energy efficient mobile data transport;low constant competitive algorithm;multiple network;nonpersistent connectivity;online multinetwork packet scheduling;online packet scheduling model;Chromium;Optimized production technology;energy-efficiency;mobile devices;online algorithms;packet scheduling}, 
+doi={10.1109/GREENCOMP.2010.5598312}, 
+month={Aug},}]]>
+	</bibtex>
+</document>
+
+<document>
+	<title>
+    <![CDATA[Randomized k-server on hierarchical binary trees]]>
+	</title>
+	
+	<author>
+    <![CDATA[Aaron Coté; Adam Meyerson; Laura Poplawski]]>
+	</author>
+	
+	<conference>
+    <![CDATA[STOC '08]]>
+	</conference>
+
+	<abstract>
+    <![CDATA[We design a randomized online algorithm for k-server on
+binary trees with hierarchical edge lengths, with expected
+competitive ratio O(log ∆), where ∆ is the diameter of the
+metric. This is one of the first k-server algorithms with
+competitive ratio poly-logarithmic in the natural problem
+parameters, and represents substantial progress on the randomized
+k-server conjecture. Extending the algorithm to
+trees of higher degree would give a competitive ratio of
+O(log2 ∆ log n) for the k-server problem on general metrics
+with n points and diameter ∆.
+]]>
+	</abstract>
+
+	<url><![CDATA[ local ]]></url>
+	<!-- make sure it is local -->
+	
+	<doi>
+    <![CDATA[10.1145/1374376.1374411]]>
+	</doi>
+	
+	<bibtex>
+    <![CDATA[@inproceedings{Cote:2008:RKH:1374376.1374411,
+ author = {Cot{\'e}, Aaron and Meyerson, Adam and Poplawski, Laura},
+ title = {Randomized K-server on Hierarchical Binary Trees},
+ booktitle = {Proceedings of the Fortieth Annual ACM Symposium on Theory of Computing},
+ series = {STOC '08},
+ year = {2008},
+ isbn = {978-1-60558-047-0},
+ location = {Victoria, British Columbia, Canada},
+ pages = {227--234},
+ numpages = {8},
+ url = {http://doi.acm.org.libproxy2.usc.edu/10.1145/1374376.1374411},
+ doi = {10.1145/1374376.1374411},
+ acmid = {1374411},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {k-server, online competitive analysis},
+} ]]>
+	</bibtex>
+</document>
+
+<document>
+	<title>
+    <![CDATA[Teaching oral communication in computer science]]>
+	</title>
+	
+	<author>
+    <![CDATA[Vianney Coté]]>
+	</author>
+	
+	<conference>
+    <![CDATA[ACM SIGCSE Bulletin]]>
+	</conference>
+
+	<abstract>
+    <![CDATA[Software analysts currently spend a
+large portion of their time communicatin g
+with others . Effective communicatio n
+skills is of extreme importance if on e
+wishes to be an efficient and productive
+software analyst . This article describe s
+some of the exercises related to ora l
+communications that are imposed on ou r
+students . Advantages and difficulties ar e
+discussed .]]>
+	</abstract>
+
+	<url><![CDATA[ local ]]></url>
+	<!-- make sure it is local -->
+	
+	<doi>
+    <![CDATA[10.1145/24728.24742]]>
+	</doi>
+	
+	<bibtex>
+    <![CDATA[@article{Cote:1987:TOC:24728.24742,
+ author = {Cot{\'e}, Vianney},
+ title = {Teaching Oral Communication in Computer Science},
+ journal = {SIGCSE Bull.},
+ issue_date = {June 1987},
+ volume = {19},
+ number = {2},
+ month = jun,
+ year = {1987},
+ issn = {0097-8418},
+ pages = {58--60},
+ numpages = {3},
+ url = {http://doi.acm.org.libproxy2.usc.edu/10.1145/24728.24742},
+ doi = {10.1145/24728.24742},
+ acmid = {24742},
+ publisher = {ACM},
+ address = {New York, NY, USA},}]]>
+	</bibtex>
+</document>
+
+<document>
+	<title>
+    <![CDATA[An integrating pedagogical tool based on writing articles]]>
+	</title>
+	
+	<author>
+    <![CDATA[Vianney Côté; Guy Custeau]]>
+	</author>
+	
+	<conference>
+    <![CDATA[SIGCSE '92]]>
+	</conference>
+
+	<abstract>
+    <![CDATA[This article describes a teaching method besed on the
+writing of review or vulgarization articles by the students in their
+fields of study. The best articles are published in a magazine
+distributed to data processing managers end practitioners. The
+advantages of this method end a list of evaluation criteria are
+presented.]]>
+	</abstract>
+
+	<url><![CDATA[ local ]]></url>
+	<!-- make sure it is local -->
+	
+	<doi>
+    <![CDATA[10.1145/135250.134519]]>
+	</doi>
+	
+	<bibtex>
+    <![CDATA[@inproceedings{Cote:1992:IPT:134510.134519,
+ author = {C\^{o}t{\'e}, Vianney and Custeau, Guy},
+ title = {An Integrating Pedagogical Tool Based on Writing Articles},
+ booktitle = {Proceedings of the Twenty-third SIGCSE Technical Symposium on Computer Science Education},
+ series = {SIGCSE '92},
+ year = {1992},
+ isbn = {0-89791-468-6},
+ location = {Kansas City, Missouri, USA},
+ pages = {38--41},
+ numpages = {4},
+ url = {http://doi.acm.org.libproxy2.usc.edu/10.1145/134510.134519},
+ doi = {10.1145/134510.134519},
+ acmid = {134519},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+} ]]>
+	</bibtex>
+</document>
+
+<document>
+	<title>
+    <![CDATA[Refining Sowa's conceptual graph theory for text generation]]>
+	</title>
+	
+	<author>
+    <![CDATA[Daniel Côté; Bernard Moulin]]>
+	</author>
+	
+	<conference>
+    <![CDATA[IEA/AIE '90]]>
+	</conference>
+
+	<abstract>
+    <![CDATA[In project GENTEXT we aim at developing a system which will be able to
+generate texts in the French language, starting from knowledge
+structures expressed in the form of extended conceptual graphs. We had
+to extend the conceptual graph model mainly because in Sowa’s approach
+temporal knowledge is not specified in a uniform way, and, monadic
+relations (i.e. PAST, FUTR) are not precise enough for expressing verb
+tenses in roman languages such as French, Spanish or Italian.
+In our model we use conceptual graphs for describing non-temporal
+knowledge structures which are called “states”. Temporal knowledge is
+expressed by a temporal label which is related to a state by a “period”
+relation (PER).
+In order to specify verb tenses we use an approach which was first
+proposed by Reichenbach and distinguishes for every statement three
+temporal markers : S (time of locutor), E (time at which occurred the
+event) and R (time of the temporal reference).
+This model is used for specifying conceptual structures from which
+sentences are generated in French. ]]>
+	</abstract>
+
+	<url><![CDATA[ local ]]></url>
+	<!-- make sure it is local -->
+	
+	<doi>
+    <![CDATA[10.1145/98784.98880]]>
+	</doi>
+	
+	<bibtex>
+    <![CDATA[@inproceedings{Cote:1990:RSC:98784.98880,
+ author = {C\^{o}t{\'e}, Daniel and Moulin, Bernard},
+ title = {Refining Sowa's Conceptual Graph Theory for Text Generation},
+ booktitle = {Proceedings of the 3rd International Conference on Industrial and Engineering Applications of Artificial Intelligence and Expert Systems - Volume 1},
+ series = {IEA/AIE '90},
+ year = {1990},
+ isbn = {0-89791-372-8},
+ location = {Charleston, South Carolina, USA},
+ pages = {528--537},
+ numpages = {10},
+ url = {http://doi.acm.org.libproxy2.usc.edu/10.1145/98784.98880},
+ doi = {10.1145/98784.98880},
+ acmid = {98880},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+}]]>
+	</bibtex>
+</document>
+
+
+
+
